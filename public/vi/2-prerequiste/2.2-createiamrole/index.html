@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tạo IAM Role :: AWS System Manager</title>
+    <title>Tạo SNS và IAM cho gửi Email :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1751977147" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1751977147" rel="stylesheet">
-    <link href="/css/hybrid.css?1751977147" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1751977147" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1751977147" rel="stylesheet">
-    <link href="/css/auto-complete.css?1751977147" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1751977147" rel="stylesheet">
-    <link href="/css/theme.css?1751977147" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1751977147" rel="stylesheet">
+    <link href="/css/nucleus.css?1751994826" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1751994826" rel="stylesheet">
+    <link href="/css/hybrid.css?1751994826" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1751994826" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1751994826" rel="stylesheet">
+    <link href="/css/auto-complete.css?1751994826" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1751994826" rel="stylesheet">
+    <link href="/css/theme.css?1751994826" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1751994826" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1751977147" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1751994826" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1751977147"></script>
+    <script src="/js/jquery-3.3.1.min.js?1751994826"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1751977147"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1751977147"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1751994826"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1751994826"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1751977147"></script>
+<script type="text/javascript" src="/js/search.js?1751994826"></script>
 
     
   </div>
@@ -347,13 +347,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.2-createiamrole/" title="Tạo IAM Role" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.2-createiamrole/" title="Tạo SNS và IAM cho gửi Email" class="dd-item 
         
         active
         
         ">
       <a href="/vi/2-prerequiste/2.2-createiamrole/">
-           <b> 2.2 </b> Tạo IAM Role
+           <b> 2.3 </b> Tạo SNS và IAM cho gửi Email
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1003,7 +1003,7 @@
             
           
           
-            <a href='/vi/'>Session Management</a> > <a href='/vi/2-prerequiste/'>Các Bước Chuẩn Bị</a> > Tạo IAM Role
+            <a href='/vi/'>Session Management</a> > <a href='/vi/2-prerequiste/'>Các Bước Chuẩn Bị</a> > Tạo SNS và IAM cho gửi Email
           
         
           
@@ -1020,7 +1020,20 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#tao-iam-role">Tạo IAM Role</a></li>
+        <li><a href="#-mục-tiêu">📬 Mục tiêu</a></li>
+      </ul>
+    </li>
+    <li><a href="#-tạo-sns-topic">🛠️ Tạo SNS Topic</a></li>
+    <li><a href="#-đăng-ký-email-nhận-thông-báo-subscription">📥 Đăng ký email nhận thông báo (Subscription)</a></li>
+    <li><a href="#-tạo-iam-user-để-gửi-sns">🔐 Tạo IAM User để gửi SNS</a>
+      <ul>
+        <li><a href="#1-truy-cập-iam-console">1. Truy cập IAM Console</a></li>
+        <li><a href="#2-tạo-iam-user">2. Tạo IAM User</a></li>
+        <li><a href="#3-nhập-thông-tin-user">3. Nhập thông tin User</a></li>
+        <li><a href="#4-gán-quyền-sử-dụng-sns">4. Gán quyền sử dụng SNS</a></li>
+        <li><a href="#5-xác-nhận-và-tạo-iam-user">5. Xác nhận và tạo IAM User</a></li>
+        <li><a href="#6-sử-dụng-access-key-trong-ứng-dụng">6. Sử dụng Access Key trong ứng dụng</a></li>
+        <li><a href="#7-cấu-hình-aws-trong-appsettingsjson">7. Cấu hình AWS trong <code>appsettings.json</code></a></li>
       </ul>
     </li>
   </ul>
@@ -1040,7 +1053,7 @@
           
             <h1>
               
-              Tạo IAM Role
+              Tạo SNS và IAM cho gửi Email
             </h1>
           
 
@@ -1048,42 +1061,129 @@
 
 
 
-	<h3 id="tao-iam-role">Tạo IAM Role</h3>
-<p>Trong bước này chúng ta sẽ tiến hành tạo IAM Role. Trong IAM Role này sẽ được gán policy <strong>AmazonSSMManagedInstanceCore</strong>, đây là policy cho phép máy chủ EC2 có thể giao tiếp với Session Manager.</p>
+	<h3 id="-mục-tiêu">📬 Mục tiêu</h3>
+<p>Trong bước này, chúng ta sẽ thực hiện:</p>
+<ul>
+<li>Tạo một <strong>SNS Topic</strong> để gửi email khi đơn hàng đặt thành công.</li>
+<li>Tạo <strong>IAM Policy</strong> cho phép ứng dụng gửi thông báo thông qua SNS.</li>
+<li>Gán quyền đó cho EC2 Instance hoặc dịch vụ backend.</li>
+</ul>
+<hr>
+<h2 id="-tạo-sns-topic">🛠️ Tạo SNS Topic</h2>
 <ol>
-<li>Truy cập vào <a href="https://console.aws.amazon.com/iamv2/">giao diện quản trị dịch vụ IAM</a></li>
-<li>Ở thanh điều hướng bên trái, click  <strong>Roles</strong>.</li>
+<li>
+<p>Truy cập vào dịch vụ <a href="https://console.aws.amazon.com/sns/v3/home">Amazon SNS</a>.
+<img alt="Tên ảnh hiển thị" src="/images/2.prerequisite/image.png"></p>
+</li>
+<li>
+<p>Chọn <strong>Topics</strong> từ thanh menu bên trái, sau đó click <strong>Create topic</strong>.</p>
+</li>
 </ol>
-<p><img alt="role" src="/images/2.prerequisite/038-iamrole.png"></p>
+<p><img alt="Tên ảnh hiển thị" src="/images/2.prerequisite/image2.png"></p>
 <ol start="3">
-<li>Click <strong>Create role</strong>.</li>
+<li>
+<p>Chọn loại topic là <strong>Standard</strong>.</p>
+</li>
+<li>
+<p>Nhập tên cho topic, ví dụ: <code>book-email</code>.
+<img alt="Tên ảnh hiển thị" src="/images/2.prerequisite/image3.png"></p>
+</li>
+<li>
+<p>Giữ nguyên các cài đặt mặc định và click <strong>Create topic</strong>.</p>
+</li>
 </ol>
-<p><img alt="role1" src="/images/2.prerequisite/039-iamrole.png"></p>
-<ol start="4">
-<li>Click <strong>AWS service</strong> và click <strong>EC2</strong>.</li>
+<hr>
+<h2 id="-đăng-ký-email-nhận-thông-báo-subscription">📥 Đăng ký email nhận thông báo (Subscription)</h2>
+<ol>
+<li>Sau khi tạo topic, chọn topic vừa tạo trong danh sách.</li>
+<li>Trong tab <strong>Subscriptions</strong>, click <strong>Create subscription</strong>.</li>
 </ol>
+<p><img alt="Tên ảnh hiển thị" src="/images/2.prerequisite/image4.png"></p>
+<ol start="3">
+<li>
+<p>Chọn:</p>
 <ul>
-<li>Click <strong>Next: Permissions</strong>.</li>
+<li><strong>Protocol</strong>: <code>Email</code></li>
+<li><strong>Endpoint</strong>: nhập địa chỉ email của bạn để nhận thông báo (ví dụ: <code>user@example.com</code>)
+<img alt="Tên ảnh hiển thị" src="/images/2.prerequisite/Untitled.png"></li>
 </ul>
-<p><img alt="role1" src="/images/2.prerequisite/040-iamrole.png"></p>
-<ol start="5">
-<li>Trong ô Search, điền <strong>AmazonSSMManagedInstanceCore</strong> và ấn phím Enter để tìm kiếm policy này.</li>
+</li>
+<li>
+<p>Click <strong>Create subscription</strong>.</p>
+</li>
 </ol>
+<p><img alt="Tên ảnh hiển thị" src="/images/2.prerequisite/image9.png"></p>
+<blockquote>
+<p>📧 Một email xác nhận sẽ được gửi tới địa chỉ bạn nhập. <strong>Bạn cần click xác nhận</strong> trong email đó để bắt đầu nhận thông báo.</p>
+</blockquote>
+<p><img alt="Tên ảnh hiển thị" src="/images/2.prerequisite/image10.png"></p>
+<hr>
+<h2 id="-tạo-iam-user-để-gửi-sns">🔐 Tạo IAM User để gửi SNS</h2>
+<p>Trong phần này, bạn sẽ tạo một <strong>IAM User chuyên dùng để gửi email qua Amazon SNS</strong>. User này sẽ có quyền <code>sns:Publish</code> vào topic bạn đã tạo.</p>
+<hr>
+<h3 id="1-truy-cập-iam-console">1. Truy cập IAM Console</h3>
+<p>Truy cập vào <a href="https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/home">IAM Management Console</a>.</p>
+<p><img alt="IAM Console" src="/images/2.prerequisite/image5.png"></p>
+<hr>
+<h3 id="2-tạo-iam-user">2. Tạo IAM User</h3>
 <ul>
-<li>Click chọn policy <strong>AmazonSSMManagedInstanceCore</strong>.</li>
-<li>Click <strong>Next: Tags.</strong></li>
+<li>Chọn <strong>Users</strong> → nhấn <strong>Create user</strong></li>
 </ul>
-<p><img alt="createpolicy" src="/images/2.prerequisite/041-iamrole.png"></p>
-<ol start="6">
-<li>Click <strong>Next: Review</strong>.</li>
-<li>Đặt tên cho Role là <strong>SSM-Role</strong> ở Role Name</li>
-</ol>
+<hr>
+<h3 id="3-nhập-thông-tin-user">3. Nhập thông tin User</h3>
 <ul>
-<li>Click <strong>Create Role</strong> .</li>
+<li>Nhập tên user, ví dụ: <code>book-store-sns</code></li>
+<li>Tick chọn <strong>Programmatic access</strong></li>
 </ul>
-<p><img alt="namerole" src="/images/2.prerequisite/042-iamrole.png"></p>
-<p>Tiếp theo chúng ta sẽ thực hiện kết nối đến các máy chủ EC2 chúng ta đã tạo bằng <strong>Session Manager</strong>.</p>
-
+<p><img alt="Create User" src="/images/2.prerequisite/image6.png"></p>
+<p>→ Nhấn <strong>Next</strong></p>
+<hr>
+<h3 id="4-gán-quyền-sử-dụng-sns">4. Gán quyền sử dụng SNS</h3>
+<ul>
+<li>Chọn <strong>Attach policies directly</strong></li>
+<li>Tìm kiếm <code>AmazonSNSFullAccess</code> và tick chọn <code>AmazonSNSFullAccess</code> (hoặc gán custom policy nếu bạn đã tạo trước đó)</li>
+</ul>
+<p><img alt="Set SNS Permissions" src="/images/2.prerequisite/image7.png"></p>
+<p>Nhấn <strong>Next</strong></p>
+<h3 id="5-xác-nhận-và-tạo-iam-user">5. Xác nhận và tạo IAM User</h3>
+<ul>
+<li>
+<p>Nhấn <strong>Create user</strong>
+<img alt="Set SNS Permissions" src="/images/2.prerequisite/image8.png">
+Tạo Access Key</p>
+</li>
+<li>
+<p>Nhấn vào <strong>Create access key</strong> (ở góc phải, mục <code>Access key</code>)</p>
+</li>
+<li>
+<p>Làm theo các bước hướng dẫn để tạo cặp <code>Access key ID</code> và <code>Secret access key</code></p>
+</li>
+</ul>
+<blockquote>
+<p>✅ <strong>Ghi chú</strong>: Bạn chỉ có thể xem <code>Secret access key</code> <strong>một lần duy nhất</strong> tại thời điểm tạo. Hãy lưu lại cẩn thận để cấu hình trong ứng dụng.</p>
+</blockquote>
+<hr>
+<h3 id="6-sử-dụng-access-key-trong-ứng-dụng">6. Sử dụng Access Key trong ứng dụng</h3>
+<p>Bạn có thể sử dụng Access Key này để gửi email thông qua SNS bằng SDK phù hợp:</p>
+<ul>
+<li>Với <strong>ASP.NET MVC</strong> (AWS SDK for .NET)</li>
+<li>Hoặc <strong>Python</strong>, <strong>Node.js</strong>, <strong>Java</strong>, v.v.</li>
+</ul>
+<h3 id="7-cấu-hình-aws-trong-appsettingsjson">7. Cấu hình AWS trong <code>appsettings.json</code></h3>
+<p>Thêm thông tin cấu hình SNS vào file <code>appsettings.json</code> như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;AWS&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;AccessKey&#34;</span>: <span style="color:#e6db74">&#34;AccessKey của bạn&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;SecretKey&#34;</span>: <span style="color:#e6db74">&#34;SecretKey của bạn&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Region&#34;</span>: <span style="color:#e6db74">&#34;Region của bạn cấu hình&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;SnsTopicArn&#34;</span>: <span style="color:#e6db74">&#34;SnsTopicArn của bạn&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">```json</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">&gt;</span> <span style="color:#960050;background-color:#1e0010">🔐</span> <span style="color:#960050;background-color:#1e0010">**Cảnh</span> <span style="color:#960050;background-color:#1e0010">báo</span> <span style="color:#960050;background-color:#1e0010">bảo</span> <span style="color:#960050;background-color:#1e0010">mật**:</span> <span style="color:#960050;background-color:#1e0010">Không</span> <span style="color:#960050;background-color:#1e0010">nên</span> <span style="color:#960050;background-color:#1e0010">commit</span> <span style="color:#960050;background-color:#1e0010">`Access</span> <span style="color:#960050;background-color:#1e0010">key`</span> <span style="color:#960050;background-color:#1e0010">và</span> <span style="color:#960050;background-color:#1e0010">`Secret</span> <span style="color:#960050;background-color:#1e0010">key`</span> <span style="color:#960050;background-color:#1e0010">vào</span> <span style="color:#960050;background-color:#1e0010">GitHub.</span> <span style="color:#960050;background-color:#1e0010">Thay</span> <span style="color:#960050;background-color:#1e0010">vào</span> <span style="color:#960050;background-color:#1e0010">đó,</span> <span style="color:#960050;background-color:#1e0010">hãy</span> <span style="color:#960050;background-color:#1e0010">lưu</span> <span style="color:#960050;background-color:#1e0010">vào</span> <span style="color:#960050;background-color:#1e0010">biến</span> <span style="color:#960050;background-color:#1e0010">môi</span> <span style="color:#960050;background-color:#1e0010">trường</span> <span style="color:#960050;background-color:#1e0010">hoặc</span> <span style="color:#960050;background-color:#1e0010">file</span> <span style="color:#960050;background-color:#1e0010">cấu</span> <span style="color:#960050;background-color:#1e0010">hình</span> <span style="color:#960050;background-color:#1e0010">`.env`.</span>
+</span></span></code></pre></div>
 
 
 
@@ -1579,19 +1679,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1751977147"></script>
-    <script src="/js/perfect-scrollbar.min.js?1751977147"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1751977147"></script>
-    <script src="/js/jquery.sticky.js?1751977147"></script>
-    <script src="/js/featherlight.min.js?1751977147"></script>
-    <script src="/js/highlight.pack.js?1751977147"></script>
+    <script src="/js/clipboard.min.js?1751994826"></script>
+    <script src="/js/perfect-scrollbar.min.js?1751994826"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1751994826"></script>
+    <script src="/js/jquery.sticky.js?1751994826"></script>
+    <script src="/js/featherlight.min.js?1751994826"></script>
+    <script src="/js/highlight.pack.js?1751994826"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1751977147"></script>
-    <script src="/js/learn.js?1751977147"></script>
-    <script src="/js/hugo-learn.js?1751977147"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1751994826"></script>
+    <script src="/js/learn.js?1751994826"></script>
+    <script src="/js/hugo-learn.js?1751994826"></script>
 
-    <link href="/mermaid/mermaid.css?1751977147" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1751977147"></script>
+    <link href="/mermaid/mermaid.css?1751994826" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1751994826"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
