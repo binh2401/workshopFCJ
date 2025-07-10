@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Preparation  :: AWS System Manager</title>
+    <title>Preparation Steps :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1751994826" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1751994826" rel="stylesheet">
-    <link href="/css/hybrid.css?1751994826" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1751994826" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1751994826" rel="stylesheet">
-    <link href="/css/auto-complete.css?1751994826" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1751994826" rel="stylesheet">
-    <link href="/css/theme.css?1751994826" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1751994826" rel="stylesheet">
+    <link href="/css/nucleus.css?1752128842" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752128842" rel="stylesheet">
+    <link href="/css/hybrid.css?1752128842" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752128842" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752128842" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752128842" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752128842" rel="stylesheet">
+    <link href="/css/theme.css?1752128842" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752128842" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1751994826" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752128842" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1751994826"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752128842"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1751994826"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1751994826"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752128842"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752128842"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1751994826"></script>
+<script type="text/javascript" src="/js/search.js?1752128842"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/1-introduce/" title="Introduction" class="dd-item 
+    <li data-nav-id="/1-introduce/" title="Building an Online Bookstore System Deployed on AWS" class="dd-item 
         
         
         
         ">
       <a href="/1-introduce/">
-           <b> 1. </b> Introduction
+          <b> 1. </b>Building an Online Bookstore System Deployed on AWS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -108,13 +108,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/" title="Preparation " class="dd-item 
+    <li data-nav-id="/2-prerequiste/" title="Preparation Steps" class="dd-item 
         
         active
         
         ">
       <a href="/2-prerequiste/">
-           <b> 2. </b> Preparation 
+          <b> 2. </b>Preparation Steps
           
             <i class="fas fa-check read-icon"></i>
           
@@ -347,13 +347,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.2-createiamrole/" title="Create IAM Role" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.2-createiamrole/" title="Creating SNS and IAM for Sending Emails" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.2-createiamrole/">
-           <b> 2.2 </b> Create IAM Role
+          <b> 2.3 </b>Creating SNS and IAM for Sending Emails
           
             <i class="fas fa-check read-icon"></i>
           
@@ -999,7 +999,7 @@
             
           
           
-            <a href='/'>Session Management</a> > Preparation 
+            <a href='/'>Session Management</a> > Preparation Steps
           
         
           
@@ -1012,11 +1012,9 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#content">Content</a></li>
-      </ul>
-    </li>
+    <li><a href="#-technologies-used">💻 Technologies Used</a></li>
+    <li><a href="#-aws-resources-to-prepare">🔧 AWS Resources to Prepare</a></li>
+    <li><a href="#-reference-documents">🔗 Reference Documents</a></li>
   </ul>
 </nav>
     </div>
@@ -1034,7 +1032,7 @@
           
             <h1>
               
-              Preparation 
+              Preparation Steps
             </h1>
           
 
@@ -1043,19 +1041,68 @@
 
 
 	
-<div class="notices info" ><p>You need to create 1 Linux instance on the public subnet and 1 Window instance on the private subnet to perform this lab.</p>
+<div class="notices info" ><p>You need to prepare certain AWS resources and programming technologies in advance to ensure a smooth development and deployment process for the system.</p>
 </div>
 
-<p>To learn how to create EC2 instances and VPCs with public/private subnets, you can refer to the lab:</p>
+<h2 id="-technologies-used">💻 Technologies Used</h2>
+<table>
+<thead>
+<tr>
+<th>Technology / Service</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AWS EC2</strong></td>
+<td>Server to deploy the web application</td>
+</tr>
+<tr>
+<td><strong>AWS RDS</strong></td>
+<td>Cloud-based database service (SQL Server)</td>
+</tr>
+<tr>
+<td><strong>AWS S3</strong></td>
+<td>Stores book cover images and attachments</td>
+</tr>
+<tr>
+<td><strong>AWS SNS</strong></td>
+<td>Sends email notifications when order status changes</td>
+</tr>
+<tr>
+<td><strong>AWS IAM</strong></td>
+<td>Manages access permissions for AWS resources</td>
+</tr>
+<tr>
+<td><strong>AWS CloudWatch</strong></td>
+<td>Logs system activities, monitors server status and performance</td>
+</tr>
+<tr>
+<td><strong>AWS WAF</strong></td>
+<td>Protects the website from external threats</td>
+</tr>
+<tr>
+<td><strong>Graph Neural Networks + Neptune ML</strong></td>
+<td>Recommends books based on user-book-author-category interaction network</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-aws-resources-to-prepare">🔧 AWS Resources to Prepare</h2>
+<p>Before integrating system functionalities, you should prepare the following:</p>
 <ul>
-<li><a href="https://000004.awsstudygroup.com/en/">About Amazon EC2</a></li>
-<li><a href="https://000003.awsstudygroup.com/en/">Works with Amazon VPC</a></li>
+<li><strong>1 EC2 instance (Linux or Windows)</strong> in a <strong>public subnet</strong> to deploy the web application.</li>
+<li><strong>1 RDS instance (SQL Server)</strong> to store data such as products, users, and orders.</li>
+<li><strong>1 IAM Role</strong> with permissions to access SNS, S3, CloudWatch, and other services.</li>
+<li><strong>1 SNS Topic</strong> with subscribed email addresses for receiving notifications.</li>
+<li><strong>1 S3 bucket</strong> to store book cover images.</li>
+<li><strong>AWS WAF configuration</strong> to protect the website against attacks like SQLi, XSS, and DDoS.</li>
+<li><strong>AWS CloudWatch configuration</strong> to monitor system logs.</li>
+<li><strong>Neptune ML account setup</strong> to train the AI-based book recommendation model (using GNN).</li>
 </ul>
-<p>In order to use System Manager to manage our window instances in particular and our instances in general on AWS, we need to give permission to our instances to be able to work with System Manager. In this preparation, we will also proceed to create an IAM Role to grant permissions to instances that can work with System Manager.</p>
-<h3 id="content">Content</h3>
+<h2 id="-reference-documents">🔗 Reference Documents</h2>
 <ul>
-<li><a href="/2-prerequiste/2.1-createec2/">Prepare VPC and EC2</a></li>
-<li><a href="/2-prerequiste/2.2-createiamrole/">Create IAM Role</a></li>
+<li><a href="https://000004.awsstudygroup.com/en/">Introduction to Amazon EC2</a></li>
+<li><a href="https://000003.awsstudygroup.com/en/">Working with Amazon VPC</a></li>
 </ul>
 
 
@@ -1536,7 +1583,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/1-introduce/" title="Introduction"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/1-introduce/" title="Building an Online Bookstore System Deployed on AWS"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/2-prerequiste/2.1-createec2/" title="Preparing VPC and EC2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1549,19 +1596,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1751994826"></script>
-    <script src="/js/perfect-scrollbar.min.js?1751994826"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1751994826"></script>
-    <script src="/js/jquery.sticky.js?1751994826"></script>
-    <script src="/js/featherlight.min.js?1751994826"></script>
-    <script src="/js/highlight.pack.js?1751994826"></script>
+    <script src="/js/clipboard.min.js?1752128842"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752128842"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752128842"></script>
+    <script src="/js/jquery.sticky.js?1752128842"></script>
+    <script src="/js/featherlight.min.js?1752128842"></script>
+    <script src="/js/highlight.pack.js?1752128842"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1751994826"></script>
-    <script src="/js/learn.js?1751994826"></script>
-    <script src="/js/hugo-learn.js?1751994826"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752128842"></script>
+    <script src="/js/learn.js?1752128842"></script>
+    <script src="/js/hugo-learn.js?1752128842"></script>
 
-    <link href="/mermaid/mermaid.css?1751994826" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1751994826"></script>
+    <link href="/mermaid/mermaid.css?1752128842" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752128842"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

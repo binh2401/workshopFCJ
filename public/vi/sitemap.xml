@@ -39,18 +39,6 @@
                 href="//localhost:1313/vi/2-prerequiste/2.1-createec2/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/1-introduce/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/1-introduce/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/1-introduce/"
-                />
-  </url><url>
     <loc>//localhost:1313/vi/3-accessibilitytoinstances/3.1-public-instance/</loc>
     <xhtml:link
                 rel="alternate"
@@ -99,6 +87,18 @@
                 href="//localhost:1313/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/1-introduce/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/1-introduce/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/1-introduce/"
+                />
+  </url><url>
     <loc>//localhost:1313/vi/2-prerequiste/</loc>
     <xhtml:link
                 rel="alternate"
@@ -121,18 +121,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="//localhost:1313/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.2-endpointssmmessages/"
-                />
-  </url><url>
-    <loc>//localhost:1313/vi/2-prerequiste/2.2-createiamrole/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/2-prerequiste/2.2-createiamrole/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/2-prerequiste/2.2-createiamrole/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/3-accessibilitytoinstances/3.2-private-instance/</loc>
@@ -241,6 +229,18 @@
                 rel="alternate"
                 hreflang="vi"
                 href="//localhost:1313/vi/4-s3log/4.3-creategwes3/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/2-prerequiste/2.2-createiamrole/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-prerequiste/2.2-createiamrole/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-prerequiste/2.2-createiamrole/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/4-s3log/</loc>

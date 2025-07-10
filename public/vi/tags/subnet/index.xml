@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Subnet on AWS System Manager</title>
+    <link>//localhost:1313/vi/tags/subnet/</link>
+    <description>Recent content in Subnet on AWS System Manager</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Thu, 10 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/vi/tags/subnet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tạo DB Subnet Group trong Amazon RDS</title>
+      <link>//localhost:1313/vi/2-prerequiste/2.1-createec2/2.1.2-createpublicsubnet/</link>
+      <pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/vi/2-prerequiste/2.1-createec2/2.1.2-createpublicsubnet/</guid>
+      <description>ℹ️ Thông tin DB Subnet Group là tập hợp các subnet trong VPC được chỉ định cho cơ sở dữ liệu RDS của bạn. Việc sử dụng DB Subnet Group cho phép Amazon RDS triển khai instance cơ sở dữ liệu trong nhiều Availability Zone (AZ) để:&#xA;Đảm bảo tính sẵn sàng cao Cải thiện khả năng chịu lỗi 🛠️ Các bước tạo DB Subnet Group 1. Truy cập Amazon RDS Đăng nhập vào AWS Management Console.</description>
+    </item>
+  </channel>
+</rss>

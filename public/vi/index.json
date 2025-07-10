@@ -43,10 +43,10 @@
 },
 {
 	"uri": "//localhost:1313/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/",
-	"title": "Tạo VPC ",
+	"title": "Tạo VPC và chỉnh cấu hình",
 	"tags": [],
 	"description": "",
-	"content": "Tạo VPC Lab VPC Truy cập giao diện quản trị dịch vụ VPC Click Your VPC. Click Create VPC. Tại trang Create VPC. Tại mục Name tag điền Lab VPC. Tại mục IPv4 CIDR điền : 10.10.0.0/16. Click Create VPC. "
+	"content": "Tạo VPC Truy cập giao diện quản trị dịch vụ VPC Click Your VPC. Click Create VPC. Tại trang Create VPC. Tại mục Name tag điền Lab VPC. Tại mục IPv4 CIDR điền : 10.10.0.0/16. Click Create VPC. ℹ️ Thông tin Mặc định, subnet không mặc định có thuộc tính Auto-assign public IPv4 là false. Subnet mặc định có thuộc tính này là true. Subnet không mặc định được tạo qua EC2 Launch Wizard sẽ mặc định là true. 🛠️ Các bước thay đổi cấu hình 1. Truy cập Amazon VPC Console 🔗 Mở Amazon VPC Console\n2. Chọn subnet cần cấu hình Vào bảng điều hướng trái → Subnets. Chọn subnet bạn muốn cấu hình. 3. Chỉnh sửa subnet Nhấn Actions → Edit subnet settings. Bật hoặc tắt tùy chọn Enable auto-assign public IPv4 address theo nhu cầu. Nhấn Save để lưu thay đổi. ⚠️ Lưu ý: Thay đổi này chỉ áp dụng cho các EC2 instance mới được tạo trong subnet sau khi cấu hình. Những instance đang chạy sẽ không bị ảnh hưởng.\n✅ Gợi ý Hãy đảm bảo subnet của bạn nằm trong VPC có Internet Gateway nếu muốn truy cập internet công khai. Kiểm tra lại security group và route table để đảm bảo kết nối. "
 },
 {
 	"uri": "//localhost:1313/vi/1-introduce/",
@@ -81,7 +81,7 @@
 	"title": "Tạo Public subnet",
 	"tags": [],
 	"description": "",
-	"content": "Tạo Public subnet Click Subnets. Click Create subnet. Tại trang Create subnet. Tại mục VPC ID click chọn Lab VPC. Tại mục Subnet name điền Lab Public Subnet. Tại mục Availability Zone chọn Availability zone đầu tiên. Tại mục IPv4 CIRD block điền 10.10.1.0/24. Kéo xuống cuối trang , click Create subnet.\nClick chọn Lab Public Subnet.\nClick Actions. Click Edit subnet settings. Click chọn Enable auto-assign public IPv4 address. Click Save. Click Internet Gateways. Click Create internet gateway. Tại trang Create internet gateway. Tại mục Name tag điền Lab IGW. Click Create internet gateway. Sau khi tạo thành công, click Actions. Click Attach to VPC. Tại trang Attach to VPC. Tại mục Available VPCs chọn Lab VPC. Click Attach internet gateway. Kiểm tra quá trình attach thành công như hình dưới. Tiếp theo chúng ta sẽ tạo một custom route table để gán vào Lab Public Subnet. Click Route Tables. Click Create route table. Tại trang Create route table. Tại mục Name, điền Lab Publicrtb. Tại mục VPC, chọn Lab VPC. Click Create route table. Sau khi tạo route table thành công. Click Edit routes. Tại trang Edit routes. Click Add route. Tại mục Destination điền 0.0.0.0/0 Tại mục Target chọn Internet Gateway sau đó chọn Lab IGW. Click Save changes. Click tab Subnet associations. Click Edit subnet associations để tiến hành associate custom routable chúng ta vừa tạo vào Lab Public Subnet. Tại trang Edit subnet associations. Click chọn Lab Public Subnet. Click Save associations. Kiểm tra thông tin route table đã được associate với Lab Public Subnet và thông tin route đi internet đã được trỏ đến Internet Gateway như hình dưới. "
+	"content": "ℹ️ DB Subnet Group là gì? DB Subnet Group là tập hợp các subnet trong VPC được chỉ định cho cơ sở dữ liệu Amazon RDS. Việc tạo DB Subnet Group giúp RDS có thể triển khai các instance cơ sở dữ liệu trong nhiều Availability Zone (AZ) nhằm đảm bảo:\nTính sẵn sàng cao Khả năng chịu lỗi 🛠️ Các bước tạo DB Subnet Group Bước 1: Truy cập Amazon RDS Đăng nhập vào AWS Management Console. Trong menu dịch vụ, tìm và chọn Amazon RDS. Bước 2: Mở giao diện Subnet Groups Trong thanh điều hướng bên trái → chọn Subnet groups\nNhấn nút Create DB Subnet Group Bước 3: Nhập thông tin cơ bản Name: Tên mô tả cho DB Subnet Group Description: Mô tả chi tiết VPC: Chọn VPC nơi bạn sẽ triển khai RDS Ví dụ: Name: book-store-subnet-group Description: book-store-subnet-group VPC: vpc-0a1b2c3d Sau khi xong nhấn Nhấn create: "
 },
 {
 	"uri": "//localhost:1313/vi/4-s3log/4.2-creates3bucket/",
@@ -105,6 +105,13 @@
 	"content": "Gán IAM role và restart EC2 instance. Truy cập giao diện quản trị dịch vụ EC2 Click chọn Private Windows Instance. Click Actions. Click Security. Click Modify IAM Role. Tại trang Modify IAM Role. Tại mục IAM role, chọn SSM-Role. Click Save. Click chọn Private Windows Instance. Click Instance state. Click Reboot instance để thực hiện restart, sau đó click Reboot để xác nhận. Bạn hãy đợi 5 phút trước khi làm bước tiếp theo nhé.\nKết nối tới máy chủ private EC2 instance. Truy cập vào giao diện quản trị dịch vụ System Manager - Session Manager Click Start session. Click chọn Private Windows Instance. Click Start session. Gõ lệnh ipconfig để kiểm tra thông tin địa chỉ IP của Private Windows Instance như dưới đây. "
 },
 {
+	"uri": "//localhost:1313/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/",
+	"title": "Tạo EC2 Security Group",
+	"tags": [],
+	"description": "",
+	"content": "ℹ️ Security Group là gì? Security Group hoạt động như một tường lửa ảo, giúp kiểm soát lưu lượng truy cập vào và ra khỏi các tài nguyên AWS như EC2.\nMỗi Security Group chứa tập hợp các quy tắc inbound (vào) và outbound (ra). Áp dụng cho từng instance EC2 hoặc dịch vụ liên quan. 🛠️ Các bước tạo Security Group cho EC2 Bước 1: Truy cập AWS EC2 Console Đăng nhập vào AWS Management Console. Trong menu dịch vụ, chọn EC2 trong mục Compute. Bước 2: Mở mục Security Groups Trong thanh điều hướng bên trái, dưới Network \u0026amp; Security → chọn Security Groups. Nhấn nút Create Security Group. Bước 3: Nhập thông tin cơ bản Security group name: Tên mô tả cho Security Group. Description: Mô tả chức năng của Security Group. VPC: Chọn VPC bạn muốn áp dụng. Ví dụ: Name: web-server-sg Description: Security group cho máy chủ web ứng dụng VPC: vpc-0a1b2c3d 📥 Bước 4: Cấu hình Inbound Rules Thêm các quy tắc để cho phép lưu lượng truy cập đến EC2 instance:\nLoại lưu lượng Cổng Mô tả HTTP 80 Truy cập web không bảo mật HTTPS 443 Truy cập web bảo mật Custom TCP 5000 Cho phép ứng dụng chạy trên cổng 5000 SSH 22 Kết nối SSH để quản trị máy chủ 🔒 Security Note:\nTrong môi trường sản xuất, chỉ nên cho phép SSH từ các IP đáng tin cậy, ví dụ: 203.0.113.0/24\nTránh sử dụng 0.0.0.0/0 trừ khi bạn đang trong môi trường thử nghiệm hoặc đã kiểm soát bằng các lớp bảo mật khác.\n📤 Bước 5: (Tuỳ chọn) Cấu hình Outbound Rules Mặc định: Cho phép tất cả lưu lượng đi ra. Bạn có thể giới hạn outbound nếu cần kiểm soát chặt hơn trong môi trường đặc biệt. bước 6: Sau khi hoàn tất cấu hình, nhấp vào nút Create security group. 💡 Pro Tip:\nBạn có thể chỉnh sửa quy tắc Security Group bất kỳ lúc nào và các thay đổi sẽ được áp dụng ngay lập tức cho tất cả các tài nguyên được liên kết với Security Group đó.\n"
+},
+{
 	"uri": "//localhost:1313/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.3-endpointec2messages/",
 	"title": "Tạo Endpoint ec2messages",
 	"tags": [],
@@ -119,13 +126,6 @@
 	"content": "Trong bước này, chúng ta sẽ thực hiện tạo kết nối đến các máy chủ EC2 của chúng ta, nằm trong cả public và private subnet.\nNội dung 3.1. Tạo Kết nối đến máy chủ EC2 Public 3.2. Tạo Kết nối đến máy chủ EC2 Private\n"
 },
 {
-	"uri": "//localhost:1313/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/",
-	"title": "Tạo Private subnet",
-	"tags": [],
-	"description": "",
-	"content": "Tạo Private subnet Click Subnets. Click Create subnet. Tại trang Create subnet. Tại mục VPC ID click chọn Lab VPC. Tại mục Subnet name điền Lab Private Subnet. Tại mục Availability Zone chọn Availability zone đầu tiên. Tại mục IPv4 CIRD block điền 10.10.2.0/24. Kéo xuống cuối trang , click Create subnet. Bước tiếp theo chúng ta sẽ tạo các security group cần thiết cho bài lab.\n"
-},
-{
 	"uri": "//localhost:1313/vi/4-s3log/4.3-creategwes3/",
 	"title": "Tạo S3 Gateway endpoint",
 	"tags": [],
@@ -137,7 +137,7 @@
 	"title": "Tạo SNS và IAM cho gửi Email",
 	"tags": [],
 	"description": "",
-	"content": "📬 Mục tiêu Trong bước này, chúng ta sẽ thực hiện:\nTạo một SNS Topic để gửi email khi đơn hàng đặt thành công. Tạo IAM Policy cho phép ứng dụng gửi thông báo thông qua SNS. Gán quyền đó cho EC2 Instance hoặc dịch vụ backend. 🛠️ Tạo SNS Topic Truy cập vào dịch vụ Amazon SNS. Chọn Topics từ thanh menu bên trái, sau đó click Create topic.\nChọn loại topic là Standard.\nNhập tên cho topic, ví dụ: book-email. Giữ nguyên các cài đặt mặc định và click Create topic.\n📥 Đăng ký email nhận thông báo (Subscription) Sau khi tạo topic, chọn topic vừa tạo trong danh sách. Trong tab Subscriptions, click Create subscription. Chọn:\nProtocol: Email Endpoint: nhập địa chỉ email của bạn để nhận thông báo (ví dụ: user@example.com) Click Create subscription.\n📧 Một email xác nhận sẽ được gửi tới địa chỉ bạn nhập. Bạn cần click xác nhận trong email đó để bắt đầu nhận thông báo.\n🔐 Tạo IAM User để gửi SNS Trong phần này, bạn sẽ tạo một IAM User chuyên dùng để gửi email qua Amazon SNS. User này sẽ có quyền sns:Publish vào topic bạn đã tạo.\n1. Truy cập IAM Console Truy cập vào IAM Management Console.\n2. Tạo IAM User Chọn Users → nhấn Create user 3. Nhập thông tin User Nhập tên user, ví dụ: book-store-sns Tick chọn Programmatic access → Nhấn Next\n4. Gán quyền sử dụng SNS Chọn Attach policies directly Tìm kiếm AmazonSNSFullAccess và tick chọn AmazonSNSFullAccess (hoặc gán custom policy nếu bạn đã tạo trước đó) Nhấn Next\n5. Xác nhận và tạo IAM User Nhấn Create user Tạo Access Key\nNhấn vào Create access key (ở góc phải, mục Access key)\nLàm theo các bước hướng dẫn để tạo cặp Access key ID và Secret access key\n✅ Ghi chú: Bạn chỉ có thể xem Secret access key một lần duy nhất tại thời điểm tạo. Hãy lưu lại cẩn thận để cấu hình trong ứng dụng.\n6. Sử dụng Access Key trong ứng dụng Bạn có thể sử dụng Access Key này để gửi email thông qua SNS bằng SDK phù hợp:\nVới ASP.NET MVC (AWS SDK for .NET) Hoặc Python, Node.js, Java, v.v. 7. Cấu hình AWS trong appsettings.json Thêm thông tin cấu hình SNS vào file appsettings.json như sau:\n{ \u0026#34;AWS\u0026#34;: { \u0026#34;AccessKey\u0026#34;: \u0026#34;AccessKey của bạn\u0026#34;, \u0026#34;SecretKey\u0026#34;: \u0026#34;SecretKey của bạn\u0026#34;, \u0026#34;Region\u0026#34;: \u0026#34;Region của bạn cấu hình\u0026#34;, \u0026#34;SnsTopicArn\u0026#34;: \u0026#34;SnsTopicArn của bạn\u0026#34; } } ```json \u0026gt; 🔐 **Cảnh báo bảo mật**: Không nên commit `Access key` và `Secret key` vào GitHub. Thay vào đó, hãy lưu vào biến môi trường hoặc file cấu hình `.env`. "
+	"content": "📬 Mục tiêu Trong bước này, chúng ta sẽ thực hiện:\nTạo một SNS Topic để gửi email khi đơn hàng đặt thành công. Tạo IAM Policy cho phép ứng dụng gửi thông báo thông qua SNS. Gán quyền đó cho EC2 Instance hoặc dịch vụ backend. 🛠️ Tạo SNS Topic Truy cập vào dịch vụ Amazon SNS. Chọn Topics từ thanh menu bên trái, sau đó click Create topic.\nChọn loại topic là Standard.\nNhập tên cho topic, ví dụ: book-email. Giữ nguyên các cài đặt mặc định và click Create topic.\n📥 Đăng ký email nhận thông báo (Subscription) Sau khi tạo topic, chọn topic vừa tạo trong danh sách. Trong tab Subscriptions, click Create subscription. Chọn:\nProtocol: Email Endpoint: nhập địa chỉ email của bạn để nhận thông báo (ví dụ: user@example.com) Click Create subscription.\n📧 Một email xác nhận sẽ được gửi tới địa chỉ bạn nhập. Bạn cần click xác nhận trong email đó để bắt đầu nhận thông báo.\n🔐 Tạo IAM User để gửi SNS Trong phần này, bạn sẽ tạo một IAM User chuyên dùng để gửi email qua Amazon SNS. User này sẽ có quyền sns:Publish vào topic bạn đã tạo.\n1. Truy cập IAM Console Truy cập vào IAM Management Console.\n2. Tạo IAM User Chọn Users → nhấn Create user 3. Nhập thông tin User Nhập tên user, ví dụ: book-store-sns Tick chọn Programmatic access → Nhấn Next\n4. Gán quyền sử dụng SNS Chọn Attach policies directly Tìm kiếm AmazonSNSFullAccess và tick chọn AmazonSNSFullAccess (hoặc gán custom policy nếu bạn đã tạo trước đó) Nhấn Next\n5. Xác nhận và tạo IAM User Nhấn Create user Tạo Access Key\nNhấn vào Create access key (ở góc phải, mục Access key)\nLàm theo các bước hướng dẫn để tạo cặp Access key ID và Secret access key\n✅ Ghi chú: Bạn chỉ có thể xem Secret access key một lần duy nhất tại thời điểm tạo. Hãy lưu lại cẩn thận để cấu hình trong ứng dụng.\n6. Sử dụng Access Key trong ứng dụng Bạn có thể sử dụng Access Key này để gửi email thông qua SNS bằng SDK phù hợp:\nVới ASP.NET MVC (AWS SDK for .NET) Hoặc Python, Node.js, Java, v.v. 7. Cấu hình AWS trong appsettings.json Thêm thông tin cấu hình SNS vào file appsettings.json như sau:\n{ \u0026#34;AWS\u0026#34;: { \u0026#34;AccessKey\u0026#34;: \u0026#34;AccessKey của bạn\u0026#34;, \u0026#34;SecretKey\u0026#34;: \u0026#34;SecretKey của bạn\u0026#34;, \u0026#34;Region\u0026#34;: \u0026#34;Region của bạn cấu hình\u0026#34;, \u0026#34;SnsTopicArn\u0026#34;: \u0026#34;SnsTopicArn của bạn\u0026#34; } } 🔐 Cảnh báo bảo mật: Không nên commit AccessKey và SecretKey lên GitHub. Thay vào đó, hãy lưu vào biến môi trường hoặc file cấu hình .env.\n"
 },
 {
 	"uri": "//localhost:1313/vi/4-s3log/",
@@ -189,6 +189,13 @@
 	"content": " Truy cập giao diện quản trị dịch vụ EC2 Click Instances. Click Launch instances. Tại trang Step 1: Choose an Amazon Machine Image (AMI). Kéo chuột xuống phía dưới. Click Select để lựa chọn AMI Microsoft Windows Server 2019 Base. Tại trang Step 2: Choose an Instance Type. Click chọn Instance type t2.micro. Click Next: Configure Instance Details. Tại trang Step 3: Configure Instance Details Tại mục Network chọn Lab VPC. Tại mục Subnet chọn Lab Private Subnet. Tại mục Auto-assign Public IP chọn Use subnet setting (Disable) Click Next: Add Storage. Click Next: Add Tags để chuyển sang bước kế tiếp. Click Next: Configure Security Group để chuyển sang bước kế tiếp. Tại trang Step 6: Configure Security Group. Chọn Select an existing security group. Chọn security group SG Private Windows Instance. Click Review and Launch. Hộp thoại cảnh báo hiện lên vì chúng ta không cấu hình tường lửa cho phép kết nối vào port 22, Click Continue để tiếp tục.\nTại trang Step 7: Review Instance Launch.\nClick Launch. Tại hộp thoại Select an existing key pair or create a new key pair. Click chọn Choose an existing key pair. Tại mục Key pair name chọn LabKeypair. Click chọn I acknowledge that I have access to the corresponding private key file, and that without this file, I won\u0026rsquo;t be able to log into my instance.. Click Launch Instances để tạo máy chủ EC2. Click View Instances để quay lại danh mục EC2 instances.\nClick vào biểu tượng edit dưới cột Name.\nTại hộp thoại Edit Name điền Private Windows Instance. Click Save. Tiếp theo chúng ta sẽ tiến hành tạo các IAM Role để phục vụ cho Session Manager.\n"
 },
 {
+	"uri": "//localhost:1313/vi/tags/aws/",
+	"title": "AWS",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "//localhost:1313/vi/categories/",
 	"title": "Categories",
 	"tags": [],
@@ -196,8 +203,29 @@
 	"content": ""
 },
 {
+	"uri": "//localhost:1313/vi/tags/rds/",
+	"title": "RDS",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/tags/subnet/",
+	"title": "Subnet",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "//localhost:1313/vi/tags/",
 	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/tags/vpc/",
+	"title": "VPC",
 	"tags": [],
 	"description": "",
 	"content": ""

@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tạo Private subnet :: AWS System Manager</title>
+    <title>Tạo EC2 Security Group :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1751994772" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1751994772" rel="stylesheet">
-    <link href="/css/hybrid.css?1751994772" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1751994772" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1751994772" rel="stylesheet">
-    <link href="/css/auto-complete.css?1751994772" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1751994772" rel="stylesheet">
-    <link href="/css/theme.css?1751994772" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1751994772" rel="stylesheet">
+    <link href="/css/nucleus.css?1752131796" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752131796" rel="stylesheet">
+    <link href="/css/hybrid.css?1752131796" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752131796" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752131796" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752131796" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752131796" rel="stylesheet">
+    <link href="/css/theme.css?1752131796" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752131796" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1751994772" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752131796" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1751994772"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752131796"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1751994772"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1751994772"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752131796"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752131796"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1751994772"></script>
+<script type="text/javascript" src="/js/search.js?1752131796"></script>
 
     
   </div>
@@ -170,13 +170,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC " class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC và chỉnh cấu hình" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/">
-           <b> 2.1.1 </b> Tạo VPC 
+           <b> 2.1.1 </b> Tạo VPC và chỉnh cấu hình
           
             <i class="fas fa-check read-icon"></i>
           
@@ -226,13 +226,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo Private subnet" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo EC2 Security Group" class="dd-item 
         
         active
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/">
-           <b> 2.1.3 </b> Tạo Private subnet
+           <b> 2.1.3 </b> Tạo EC2 Security Group
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1007,7 +1007,7 @@
             
           
           
-            <a href='/vi/'>Session Management</a> > <a href='/vi/2-prerequiste/'>Các Bước Chuẩn Bị</a> > <a href='/vi/2-prerequiste/2.1-createec2/'>Chuẩn bị VPC và EC2</a> > Tạo Private subnet
+            <a href='/vi/'>Session Management</a> > <a href='/vi/2-prerequiste/'>Các Bước Chuẩn Bị</a> > <a href='/vi/2-prerequiste/2.1-createec2/'>Chuẩn bị VPC và EC2</a> > Tạo EC2 Security Group
           
         
           
@@ -1024,9 +1024,15 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#ℹ-security-group-là-gì">ℹ️ Security Group là gì?</a></li>
+    <li><a href="#-các-bước-tạo-security-group-cho-ec2">🛠️ Các bước tạo Security Group cho EC2</a>
       <ul>
-        <li></li>
+        <li><a href="#bước-1-truy-cập-aws-ec2-console">Bước 1: Truy cập AWS EC2 Console</a></li>
+        <li><a href="#bước-2-mở-mục-security-groups">Bước 2: Mở mục Security Groups</a></li>
+        <li><a href="#bước-3-nhập-thông-tin-cơ-bản">Bước 3: Nhập thông tin cơ bản</a></li>
+        <li><a href="#-bước-4-cấu-hình-inbound-rules">📥 Bước 4: Cấu hình Inbound Rules</a></li>
+        <li><a href="#-bước-5-tuỳ-chọn-cấu-hình-outbound-rules">📤 Bước 5: (Tuỳ chọn) Cấu hình Outbound Rules</a></li>
+        <li><a href="#bước-6-sau-khi-hoàn-tất-cấu-hình-nhấp-vào-nút-create-security-group">bước 6: Sau khi hoàn tất cấu hình, nhấp vào nút Create security group.</a></li>
       </ul>
     </li>
   </ul>
@@ -1046,7 +1052,7 @@
           
             <h1>
               
-              Tạo Private subnet
+              Tạo EC2 Security Group
             </h1>
           
 
@@ -1054,28 +1060,91 @@
 
 
 
-	<h4 id="tạo-private-subnet">Tạo Private subnet</h4>
+	<h2 id="ℹ-security-group-là-gì">ℹ️ Security Group là gì?</h2>
+<p><strong>Security Group</strong> hoạt động như một <strong>tường lửa ảo</strong>, giúp kiểm soát <strong>lưu lượng truy cập vào và ra</strong> khỏi các tài nguyên AWS như EC2.</p>
+<ul>
+<li>Mỗi Security Group chứa tập hợp các <strong>quy tắc inbound (vào)</strong> và <strong>outbound (ra)</strong>.</li>
+<li>Áp dụng cho <strong>từng instance EC2</strong> hoặc dịch vụ liên quan.</li>
+</ul>
+<hr>
+<h2 id="-các-bước-tạo-security-group-cho-ec2">🛠️ Các bước tạo Security Group cho EC2</h2>
+<h3 id="bước-1-truy-cập-aws-ec2-console">Bước 1: Truy cập AWS EC2 Console</h3>
 <ol>
-<li>Click <strong>Subnets</strong>.</li>
+<li>Đăng nhập vào <a href="https://console.aws.amazon.com/">AWS Management Console</a>.</li>
+<li>Trong menu dịch vụ, chọn <strong>EC2</strong> trong mục <strong>Compute</strong>.
+<img alt="VPC" src="/images/2.prerequisite/ec21.png"></li>
 </ol>
+<hr>
+<h3 id="bước-2-mở-mục-security-groups">Bước 2: Mở mục Security Groups</h3>
 <ul>
-<li>Click <strong>Create subnet</strong>.</li>
+<li>Trong thanh điều hướng bên trái, dưới <strong>Network &amp; Security</strong> → chọn <strong>Security Groups</strong>.
+<img alt="VPC" src="/images/2.prerequisite/ec22.png"></li>
+<li>Nhấn nút <strong>Create Security Group</strong>.</li>
 </ul>
-<p><img alt="VPC" src="/images/2.prerequisite/017-createsubnet.png"></p>
-<ol start="2">
-<li>Tại trang <strong>Create subnet</strong>.</li>
-</ol>
+<hr>
+<h3 id="bước-3-nhập-thông-tin-cơ-bản">Bước 3: Nhập thông tin cơ bản</h3>
 <ul>
-<li>Tại mục <strong>VPC ID</strong> click chọn <strong>Lab VPC</strong>.</li>
-<li>Tại mục <strong>Subnet name</strong> điền <strong>Lab Private Subnet</strong>.</li>
-<li>Tại mục <strong>Availability Zone</strong> chọn Availability zone đầu tiên.</li>
-<li>Tại mục <strong>IPv4 CIRD block</strong> điền <strong>10.10.2.0/24</strong>.</li>
+<li><strong>Security group name</strong>: Tên mô tả cho Security Group.</li>
+<li><strong>Description</strong>: Mô tả chức năng của Security Group.</li>
+<li><strong>VPC</strong>: Chọn VPC bạn muốn áp dụng.</li>
 </ul>
-<p><img alt="VPC" src="/images/2.prerequisite/018-createsubnet.png"></p>
-<ol start="3">
-<li>Kéo xuống cuối trang , click <strong>Create subnet</strong>.</li>
-</ol>
-<p>Bước tiếp theo chúng ta sẽ tạo các security group cần thiết cho bài lab.</p>
+<p><img alt="VPC" src="/images/2.prerequisite/ec22.png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>Ví dụ:
+</span></span><span style="display:flex;"><span>Name: web-server-sg
+</span></span><span style="display:flex;"><span>Description: Security group cho máy chủ web ứng dụng
+</span></span><span style="display:flex;"><span>VPC: vpc-0a1b2c3d
+</span></span></code></pre></div><h3 id="-bước-4-cấu-hình-inbound-rules">📥 Bước 4: Cấu hình Inbound Rules</h3>
+<p>Thêm các quy tắc để cho phép lưu lượng truy cập đến EC2 instance:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Loại lưu lượng</strong></th>
+<th><strong>Cổng</strong></th>
+<th><strong>Mô tả</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTP</td>
+<td>80</td>
+<td>Truy cập web không bảo mật</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>443</td>
+<td>Truy cập web bảo mật</td>
+</tr>
+<tr>
+<td>Custom TCP</td>
+<td>5000</td>
+<td>Cho phép ứng dụng chạy trên cổng 5000</td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>22</td>
+<td>Kết nối SSH để quản trị máy chủ</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🔒 <strong>Security Note:</strong><br>
+Trong môi trường sản xuất, <strong>chỉ nên cho phép SSH từ các IP đáng tin cậy</strong>, ví dụ: <code>203.0.113.0/24</code><br>
+Tránh sử dụng <code>0.0.0.0/0</code> trừ khi bạn đang trong môi trường thử nghiệm hoặc đã kiểm soát bằng các lớp bảo mật khác.</p>
+</blockquote>
+<hr>
+<h3 id="-bước-5-tuỳ-chọn-cấu-hình-outbound-rules">📤 Bước 5: (Tuỳ chọn) Cấu hình Outbound Rules</h3>
+<ul>
+<li><strong>Mặc định:</strong> Cho phép tất cả lưu lượng đi ra.</li>
+<li>Bạn có thể giới hạn outbound nếu cần kiểm soát chặt hơn trong môi trường đặc biệt.</li>
+</ul>
+<hr>
+<p><img alt="VPC" src="/images/2.prerequisite/ec23.png"></p>
+<h3 id="bước-6-sau-khi-hoàn-tất-cấu-hình-nhấp-vào-nút-create-security-group">bước 6: Sau khi hoàn tất cấu hình, nhấp vào nút Create security group.</h3>
+<p><img alt="VPC" src="/images/2.prerequisite/ec24.png"></p>
+<blockquote>
+<p>💡 <strong>Pro Tip:</strong><br>
+Bạn có thể <strong>chỉnh sửa quy tắc Security Group bất kỳ lúc nào</strong> và các thay đổi sẽ được <strong>áp dụng ngay lập tức</strong> cho tất cả các tài nguyên được liên kết với Security Group đó.</p>
+</blockquote>
 
 
 
@@ -1573,19 +1642,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1751994772"></script>
-    <script src="/js/perfect-scrollbar.min.js?1751994772"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1751994772"></script>
-    <script src="/js/jquery.sticky.js?1751994772"></script>
-    <script src="/js/featherlight.min.js?1751994772"></script>
-    <script src="/js/highlight.pack.js?1751994772"></script>
+    <script src="/js/clipboard.min.js?1752131796"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752131796"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752131796"></script>
+    <script src="/js/jquery.sticky.js?1752131796"></script>
+    <script src="/js/featherlight.min.js?1752131796"></script>
+    <script src="/js/highlight.pack.js?1752131796"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1751994772"></script>
-    <script src="/js/learn.js?1751994772"></script>
-    <script src="/js/hugo-learn.js?1751994772"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752131796"></script>
+    <script src="/js/learn.js?1752131796"></script>
+    <script src="/js/hugo-learn.js?1752131796"></script>
 
-    <link href="/mermaid/mermaid.css?1751994772" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1751994772"></script>
+    <link href="/mermaid/mermaid.css?1752131796" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752131796"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

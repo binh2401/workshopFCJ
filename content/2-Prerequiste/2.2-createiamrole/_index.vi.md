@@ -121,6 +121,7 @@ Bạn có thể sử dụng Access Key này để gửi email thông qua SNS b�
 
 ### 7. Cấu hình AWS trong `appsettings.json`
 
+
 Thêm thông tin cấu hình SNS vào file `appsettings.json` như sau:
 
 ```json
@@ -131,8 +132,11 @@ Thêm thông tin cấu hình SNS vào file `appsettings.json` như sau:
     "Region": "Region của bạn cấu hình",
     "SnsTopicArn": "SnsTopicArn của bạn"
   }
-}
+}   
 
-```json
+```
+{{% notice warning %}}
+🔐 Cảnh báo bảo mật: Không nên commit AccessKey và SecretKey lên GitHub.
+Thay vào đó, hãy lưu vào biến môi trường hoặc file cấu hình .env.
+{{% /notice %}}
 
-> 🔐 **Cảnh báo bảo mật**: Không nên commit `Access key` và `Secret key` vào GitHub. Thay vào đó, hãy lưu vào biến môi trường hoặc file cấu hình `.env`.

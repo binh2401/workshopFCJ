@@ -7,6 +7,13 @@
 	"content": "Work with Amazon System Manager - Session Manager Overall In this lab, you\u0026rsquo;ll learn the basics and practice of Amazon System Manager - Session Manager . Perform creating public and private instance connections.\nContent Introduction Preparation Connect to EC2 instance Manage session logs Port Forwarding Clean up resources "
 },
 {
+	"uri": "//localhost:1313/1-introduce/",
+	"title": "Building an Online Bookstore System Deployed on AWS",
+	"tags": [],
+	"description": "",
+	"content": "In the context of a strong digital transformation, consumer behavior is shifting toward prioritizing online shopping to save time and enhance user experience. Building an online bookstore system not only meets the demand for quick and convenient book searching and purchasing but also contributes to market expansion for publishers.\nThe project \u0026ldquo;Building an Online Bookstore Website\u0026rdquo; is implemented with the goal of creating a specialized e-commerce platform for books, providing features from book browsing, searching, and ordering to product and user management.\nIn particular, the project integrates modern technologies such as:\nASP.NET MVC as the development framework for both backend and frontend, Amazon Web Services (AWS) to deploy the system on cloud infrastructure, Artificial Intelligence (AI) to suggest books tailored to user behavior through Graph Neural Networks (GNN) and Amazon Neptune ML. The system goes beyond a basic web application by aiming for scalable flexibility, high security, and efficient performance on the cloud platform. This lays the foundation for real-world deployment or future commercialization.\n"
+},
+{
 	"uri": "//localhost:1313/3-accessibilitytoinstances/3.1-public-instance/",
 	"title": "Connect to Public Instance",
 	"tags": [],
@@ -33,13 +40,6 @@
 	"tags": [],
 	"description": "",
 	"content": "Enable DNS hostnames on VPC. To create VPC Endpoint we will need to enable DNS hostnames feature on VPC. Go to VPC service management console\nClick Your VPCs.\nSelect Lab VPC.\nClick Actions.\nClick Edit DNS hostnames.\nClick Endpoint, then click Create Endpoint.\nAt the Edit DNS hostnames page. Click to select Enable. Click Save changes. "
-},
-{
-	"uri": "//localhost:1313/1-introduce/",
-	"title": "Introduction",
-	"tags": [],
-	"description": "",
-	"content": "Session Manager is a function within the AWS System Manager service, SSM provides verifiable and secure version management without opening incoming ports, without Bastion Host or SSH key management. Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end-users with one-click cross-platform access to your managed instances.\nBy using Session Manager, you get the following advantages that traditional methods do not have:\nNo need to open port 22 for SSH protocol, so it is more secure. Can be configured so that the connection does not need to go outside the internet, so it is more secure. No need to manage the server\u0026rsquo;s private key to connect to SSH. Centralized management of users using AWS IAM. Access to the server easily and simply with one click. Faster access time than traditional methods like SSH Support many different operating systems such as Linux, Windows, MacOS Log the connection sessions and commands executed while connecting to the server. With the above advantages, you can use Session Manager instead of using Bastion host technique to save us time and money when managing Bastion server.\n"
 },
 {
 	"uri": "//localhost:1313/2-prerequiste/2.1-createec2/",
@@ -70,13 +70,6 @@
 	"content": "Create VPC Endpoint SSMMESSAGES Go to VPC service management console Click Endpoints. Click Create endpoint. At the Create endpoint page. In the Name tag field, enter SSMMESSAGES. In the Service Category section, select AWS Services. In the Service Name section, In the Service category select: AWS services In the Service Name field enter: ssmmessages then select Service Name: com.amazonaws.ap-southeast-1.ssmmessages. In the Service Name column, click com.amazonaws.ap-southeast-1.ssmmessages. In the VPC section, select Lab VPC. Select the first AZ, then select the Lab Private Subnet subnet. Scroll down. In the Security Group section, select the Security group SG VPC Endpoint that we created earlier. In the Policy section, select Full access Scroll down. Click Create endpoint. We have created the VPC Interface Endpoint SSMMESSAGES. "
 },
 {
-	"uri": "//localhost:1313/2-prerequiste/2.2-createiamrole/",
-	"title": "Create IAM Role",
-	"tags": [],
-	"description": "",
-	"content": "Create IAM Role In this step, we will proceed to create IAM Role. In this IAM Role, the policy AmazonSSMManagedInstanceCore will be assigned, this is the policy that allows the EC2 server to communicate with the Session Manager.\nGo to IAM service administration interface In the left navigation bar, click Roles. Click Create role. Click AWS service and click EC2. Click Next: Permissions. In the Search box, enter AmazonSSMManagedInstanceCore and press Enter to search for this policy. Click the policy AmazonSSMManagedInstanceCore. Click Next: Tags. Click Next: Review. Name the Role SSM-Role in Role Name Click Create Role . Next, we will make the connection to the EC2 servers we created with Session Manager.\n"
-},
-{
 	"uri": "//localhost:1313/2-prerequiste/2.1-createec2/2.1.2-createpublicsubnet/",
 	"title": "Create Public Subnet",
 	"tags": [],
@@ -99,10 +92,10 @@
 },
 {
 	"uri": "//localhost:1313/2-prerequiste/",
-	"title": "Preparation ",
+	"title": "Preparation Steps",
 	"tags": [],
 	"description": "",
-	"content": "\rYou need to create 1 Linux instance on the public subnet and 1 Window instance on the private subnet to perform this lab.\nTo learn how to create EC2 instances and VPCs with public/private subnets, you can refer to the lab:\nAbout Amazon EC2 Works with Amazon VPC In order to use System Manager to manage our window instances in particular and our instances in general on AWS, we need to give permission to our instances to be able to work with System Manager. In this preparation, we will also proceed to create an IAM Role to grant permissions to instances that can work with System Manager.\nContent Prepare VPC and EC2 Create IAM Role "
+	"content": "\rYou need to prepare certain AWS resources and programming technologies in advance to ensure a smooth development and deployment process for the system.\n💻 Technologies Used Technology / Service Role AWS EC2 Server to deploy the web application AWS RDS Cloud-based database service (SQL Server) AWS S3 Stores book cover images and attachments AWS SNS Sends email notifications when order status changes AWS IAM Manages access permissions for AWS resources AWS CloudWatch Logs system activities, monitors server status and performance AWS WAF Protects the website from external threats Graph Neural Networks + Neptune ML Recommends books based on user-book-author-category interaction network 🔧 AWS Resources to Prepare Before integrating system functionalities, you should prepare the following:\n1 EC2 instance (Linux or Windows) in a public subnet to deploy the web application. 1 RDS instance (SQL Server) to store data such as products, users, and orders. 1 IAM Role with permissions to access SNS, S3, CloudWatch, and other services. 1 SNS Topic with subscribed email addresses for receiving notifications. 1 S3 bucket to store book cover images. AWS WAF configuration to protect the website against attacks like SQLi, XSS, and DDoS. AWS CloudWatch configuration to monitor system logs. Neptune ML account setup to train the AI-based book recommendation model (using GNN). 🔗 Reference Documents Introduction to Amazon EC2 Working with Amazon VPC "
 },
 {
 	"uri": "//localhost:1313/3-accessibilitytoinstances/",
@@ -138,6 +131,13 @@
 	"tags": [],
 	"description": "",
 	"content": " Go to VPC service management console Click Endpoints. Click Create endpoint. At the Create endpoint page. In the Name tag field, enter S3GW. In the Service Category section, click AWS services. In the search box enter S3, then select com.amazonaws.[region].s3 In the Services section, select com.amazonaws.[region].s3 with the Type of Gateway. In the VPC section, select Lab VPC. In the Route tables section, select both route tables. Scroll down, click Create endpoint. The next step is to configure Session Manager to store session logs to the S3 bucket we created.\n"
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.2-createiamrole/",
+	"title": "Creating SNS and IAM for Sending Emails",
+	"tags": [],
+	"description": "",
+	"content": "📬 Objective In this step, we will:\nCreate an SNS Topic to send emails when an order is successfully placed. Create an IAM Policy that allows the application to send notifications via SNS. Attach this permission to the EC2 instance or backend service. 🛠️ Create an SNS Topic Go to the Amazon SNS service.\nSelect Topics from the left menu, then click Create topic.\nChoose Standard as the topic type.\nEnter a topic name, e.g., book-email.\nKeep the default settings and click Create topic.\n📥 Subscribe an Email to Receive Notifications After creating the topic, select it from the list.\nIn the Subscriptions tab, click Create subscription.\nSelect:\nProtocol: Email Endpoint: enter your email address to receive notifications (e.g., user@example.com)\nClick Create subscription.\n📧 A confirmation email will be sent to the provided address. You must click the confirmation link in that email to start receiving notifications.\n🔐 Create IAM User to Send SNS Notifications In this section, you will create an IAM User dedicated to sending emails via Amazon SNS. This user will have the sns:Publish permission for the topic you created.\n1. Access IAM Console Visit the IAM Management Console.\n2. Create IAM User Go to Users → click Create user 3. Enter User Details Enter a username, e.g., book-store-sns Tick Programmatic access → Click Next\n4. Assign SNS Permissions Choose Attach policies directly Search for AmazonSNSFullAccess and tick the box next to it (or attach a custom policy if you already created one) Click Next\n5. Review and Create IAM User Click Create user\nCreate Access Key:\nClick Create access key (top-right in the Access key section) Follow the instructions to generate the Access key ID and Secret access key ✅ Note: You can only view the Secret access key once during creation. Be sure to store it securely for use in your application.\n6. Use Access Key in Application You can use this access key to send emails via SNS using an appropriate SDK:\nFor ASP.NET MVC (AWS SDK for .NET) Or use Python, Node.js, Java, etc. 7. Configure AWS in appsettings.json Add the following SNS configuration in your appsettings.json:\n{ \u0026#34;AWS\u0026#34;: { \u0026#34;AccessKey\u0026#34;: \u0026#34;YourAccessKey\u0026#34;, \u0026#34;SecretKey\u0026#34;: \u0026#34;YourSecretKey\u0026#34;, \u0026#34;Region\u0026#34;: \u0026#34;YourConfiguredRegion\u0026#34;, \u0026#34;SnsTopicArn\u0026#34;: \u0026#34;YourSnsTopicArn\u0026#34; } } "
 },
 {
 	"uri": "//localhost:1313/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/",

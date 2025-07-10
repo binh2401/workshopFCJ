@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tạo VPC  :: AWS System Manager</title>
+    <title>Tạo VPC và chỉnh cấu hình :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1751994772" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1751994772" rel="stylesheet">
-    <link href="/css/hybrid.css?1751994772" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1751994772" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1751994772" rel="stylesheet">
-    <link href="/css/auto-complete.css?1751994772" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1751994772" rel="stylesheet">
-    <link href="/css/theme.css?1751994772" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1751994772" rel="stylesheet">
+    <link href="/css/nucleus.css?1752131796" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752131796" rel="stylesheet">
+    <link href="/css/hybrid.css?1752131796" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752131796" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752131796" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752131796" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752131796" rel="stylesheet">
+    <link href="/css/theme.css?1752131796" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752131796" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1751994772" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752131796" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1751994772"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752131796"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1751994772"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1751994772"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752131796"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752131796"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1751994772"></script>
+<script type="text/javascript" src="/js/search.js?1752131796"></script>
 
     
   </div>
@@ -170,13 +170,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC " class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC và chỉnh cấu hình" class="dd-item 
         
         active
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/">
-           <b> 2.1.1 </b> Tạo VPC 
+           <b> 2.1.1 </b> Tạo VPC và chỉnh cấu hình
           
             <i class="fas fa-check read-icon"></i>
           
@@ -226,13 +226,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo Private subnet" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo EC2 Security Group" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/">
-           <b> 2.1.3 </b> Tạo Private subnet
+           <b> 2.1.3 </b> Tạo EC2 Security Group
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1007,7 +1007,7 @@
             
           
           
-            <a href='/vi/'>Session Management</a> > <a href='/vi/2-prerequiste/'>Các Bước Chuẩn Bị</a> > <a href='/vi/2-prerequiste/2.1-createec2/'>Chuẩn bị VPC và EC2</a> > Tạo VPC 
+            <a href='/vi/'>Session Management</a> > <a href='/vi/2-prerequiste/'>Các Bước Chuẩn Bị</a> > <a href='/vi/2-prerequiste/2.1-createec2/'>Chuẩn bị VPC và EC2</a> > Tạo VPC và chỉnh cấu hình
           
         
           
@@ -1029,6 +1029,15 @@
         <li></li>
       </ul>
     </li>
+    <li><a href="#ℹ-thông-tin">ℹ️ Thông tin</a></li>
+    <li><a href="#-các-bước-thay-đổi-cấu-hình">🛠️ Các bước thay đổi cấu hình</a>
+      <ul>
+        <li><a href="#1-truy-cập-amazon-vpc-console">1. Truy cập Amazon VPC Console</a></li>
+        <li><a href="#2-chọn-subnet-cần-cấu-hình">2. Chọn subnet cần cấu hình</a></li>
+        <li><a href="#3-chỉnh-sửa-subnet">3. Chỉnh sửa subnet</a></li>
+      </ul>
+    </li>
+    <li><a href="#-gợi-ý">✅ Gợi ý</a></li>
   </ul>
 </nav>
     </div>
@@ -1046,7 +1055,7 @@
           
             <h1>
               
-              Tạo VPC 
+              Tạo VPC và chỉnh cấu hình
             </h1>
           
 
@@ -1054,7 +1063,7 @@
 
 
 
-	<h4 id="tạo-vpc-lab-vpc">Tạo VPC <strong>Lab VPC</strong></h4>
+	<h4 id="tạo-vpc">Tạo VPC</h4>
 <ol>
 <li>Truy cập <a href="https://console.aws.amazon.com/vpc/home">giao diện quản trị dịch vụ VPC</a></li>
 </ol>
@@ -1069,9 +1078,47 @@
 <ul>
 <li>Tại mục <strong>Name tag</strong> điền <strong>Lab VPC</strong>.</li>
 <li>Tại mục <strong>IPv4 CIDR</strong> điền : <strong>10.10.0.0/16</strong>.</li>
+</ul>
+<p><img alt="VPC" src="/images/2.prerequisite/vpc1.png"></p>
+<ul>
 <li>Click <strong>Create VPC</strong>.</li>
 </ul>
-<p><img alt="VPC" src="/images/2.prerequisite/002-createvpc.png"></p>
+<p><img alt="VPC" src="/images/2.prerequisite/vpc2.png"></p>
+<h2 id="ℹ-thông-tin">ℹ️ Thông tin</h2>
+<ul>
+<li><strong>Mặc định</strong>, subnet <em>không mặc định</em> có thuộc tính <code>Auto-assign public IPv4</code> là <strong>false</strong>.</li>
+<li>Subnet <em>mặc định</em> có thuộc tính này là <strong>true</strong>.</li>
+<li>Subnet <em>không mặc định</em> được tạo qua EC2 Launch Wizard sẽ mặc định là <strong>true</strong>.</li>
+</ul>
+<hr>
+<h2 id="-các-bước-thay-đổi-cấu-hình">🛠️ Các bước thay đổi cấu hình</h2>
+<h3 id="1-truy-cập-amazon-vpc-console">1. Truy cập Amazon VPC Console</h3>
+<p>🔗 <a href="https://console.aws.amazon.com/vpc/">Mở Amazon VPC Console</a></p>
+<h3 id="2-chọn-subnet-cần-cấu-hình">2. Chọn subnet cần cấu hình</h3>
+<ul>
+<li>Vào bảng điều hướng trái → <strong>Subnets</strong>.
+<img alt="VPC" src="/images/2.prerequisite/subnet1.png"></li>
+<li>Chọn <strong>subnet</strong> bạn muốn cấu hình.</li>
+</ul>
+<h3 id="3-chỉnh-sửa-subnet">3. Chỉnh sửa subnet</h3>
+<ul>
+<li>Nhấn <strong>Actions → Edit subnet settings</strong>.
+<img alt="VPC" src="/images/2.prerequisite/subnet2.png"></li>
+<li>Bật hoặc tắt tùy chọn <code>Enable auto-assign public IPv4 address</code> theo nhu cầu.
+<img alt="VPC" src="/images/2.prerequisite/subnet3.png"></li>
+<li>Nhấn <strong>Save</strong> để lưu thay đổi.
+<img alt="VPC" src="/images/2.prerequisite/subnet4.png"></li>
+</ul>
+<hr>
+<blockquote>
+<p>⚠️ <strong>Lưu ý:</strong> Thay đổi này <strong>chỉ áp dụng cho các EC2 instance mới</strong> được tạo trong subnet sau khi cấu hình. Những instance đang chạy sẽ <strong>không bị ảnh hưởng</strong>.</p>
+</blockquote>
+<hr>
+<h2 id="-gợi-ý">✅ Gợi ý</h2>
+<ul>
+<li>Hãy đảm bảo subnet của bạn nằm trong VPC có Internet Gateway nếu muốn truy cập internet công khai.</li>
+<li>Kiểm tra lại security group và route table để đảm bảo kết nối.</li>
+</ul>
 
 
 
@@ -1566,19 +1613,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1751994772"></script>
-    <script src="/js/perfect-scrollbar.min.js?1751994772"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1751994772"></script>
-    <script src="/js/jquery.sticky.js?1751994772"></script>
-    <script src="/js/featherlight.min.js?1751994772"></script>
-    <script src="/js/highlight.pack.js?1751994772"></script>
+    <script src="/js/clipboard.min.js?1752131796"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752131796"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752131796"></script>
+    <script src="/js/jquery.sticky.js?1752131796"></script>
+    <script src="/js/featherlight.min.js?1752131796"></script>
+    <script src="/js/highlight.pack.js?1752131796"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1751994772"></script>
-    <script src="/js/learn.js?1751994772"></script>
-    <script src="/js/hugo-learn.js?1751994772"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752131796"></script>
+    <script src="/js/learn.js?1752131796"></script>
+    <script src="/js/hugo-learn.js?1752131796"></script>
 
-    <link href="/mermaid/mermaid.css?1751994772" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1751994772"></script>
+    <link href="/mermaid/mermaid.css?1752131796" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752131796"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

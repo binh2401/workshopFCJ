@@ -12,21 +12,21 @@
     <title>Tạo Public subnet :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1751994772" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1751994772" rel="stylesheet">
-    <link href="/css/hybrid.css?1751994772" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1751994772" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1751994772" rel="stylesheet">
-    <link href="/css/auto-complete.css?1751994772" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1751994772" rel="stylesheet">
-    <link href="/css/theme.css?1751994772" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1751994772" rel="stylesheet">
+    <link href="/css/nucleus.css?1752131796" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752131796" rel="stylesheet">
+    <link href="/css/hybrid.css?1752131796" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752131796" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752131796" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752131796" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752131796" rel="stylesheet">
+    <link href="/css/theme.css?1752131796" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752131796" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1751994772" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752131796" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1751994772"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752131796"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1751994772"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1751994772"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752131796"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752131796"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1751994772"></script>
+<script type="text/javascript" src="/js/search.js?1752131796"></script>
 
     
   </div>
@@ -170,13 +170,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC " class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC và chỉnh cấu hình" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/">
-           <b> 2.1.1 </b> Tạo VPC 
+           <b> 2.1.1 </b> Tạo VPC và chỉnh cấu hình
           
             <i class="fas fa-check read-icon"></i>
           
@@ -226,13 +226,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo Private subnet" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo EC2 Security Group" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/">
-           <b> 2.1.3 </b> Tạo Private subnet
+           <b> 2.1.3 </b> Tạo EC2 Security Group
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1024,9 +1024,12 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#ℹ-db-subnet-group-là-gì">ℹ️ DB Subnet Group là gì?</a></li>
+    <li><a href="#-các-bước-tạo-db-subnet-group">🛠️ Các bước tạo DB Subnet Group</a>
       <ul>
-        <li></li>
+        <li><a href="#bước-1-truy-cập-amazon-rds">Bước 1: Truy cập Amazon RDS</a></li>
+        <li><a href="#bước-2-mở-giao-diện-subnet-groups">Bước 2: Mở giao diện Subnet Groups</a></li>
+        <li><a href="#bước-3-nhập-thông-tin-cơ-bản">Bước 3: Nhập thông tin cơ bản</a></li>
       </ul>
     </li>
   </ul>
@@ -1054,127 +1057,46 @@
 
 
 
-	<h4 id="tạo-public-subnet">Tạo Public subnet</h4>
+	<h2 id="ℹ-db-subnet-group-là-gì">ℹ️ DB Subnet Group là gì?</h2>
+<p><strong>DB Subnet Group</strong> là tập hợp các subnet trong VPC được chỉ định cho cơ sở dữ liệu Amazon RDS. Việc tạo DB Subnet Group giúp RDS có thể triển khai các instance cơ sở dữ liệu trong <strong>nhiều Availability Zone (AZ)</strong> nhằm đảm bảo:</p>
+<ul>
+<li>Tính <strong>sẵn sàng cao</strong></li>
+<li>Khả năng <strong>chịu lỗi</strong></li>
+</ul>
+<hr>
+<h2 id="-các-bước-tạo-db-subnet-group">🛠️ Các bước tạo DB Subnet Group</h2>
+<h3 id="bước-1-truy-cập-amazon-rds">Bước 1: Truy cập Amazon RDS</h3>
 <ol>
-<li>Click <strong>Subnets</strong>.</li>
+<li>Đăng nhập vào <a href="https://console.aws.amazon.com/">AWS Management Console</a>.</li>
+<li>Trong menu dịch vụ, tìm và chọn <strong>Amazon RDS</strong>.
+<img alt="VPC" src="/images/2.prerequisite/rds1.png"></li>
 </ol>
+<h3 id="bước-2-mở-giao-diện-subnet-groups">Bước 2: Mở giao diện Subnet Groups</h3>
 <ul>
-<li>Click <strong>Create subnet</strong>.</li>
-</ul>
-<p><img alt="VPC" src="/images/2.prerequisite/003-createsubnet.png"></p>
-<ol start="2">
-<li>Tại trang <strong>Create subnet</strong>.</li>
-</ol>
-<ul>
-<li>Tại mục <strong>VPC ID</strong> click chọn <strong>Lab VPC</strong>.</li>
-<li>Tại mục <strong>Subnet name</strong> điền <strong>Lab Public Subnet</strong>.</li>
-<li>Tại mục <strong>Availability Zone</strong> chọn Availability zone đầu tiên.</li>
-<li>Tại mục <strong>IPv4 CIRD block</strong> điền <strong>10.10.1.0/24</strong>.</li>
-</ul>
-<p><img alt="VPC" src="/images/2.prerequisite/004-createsubnet.png"></p>
-<ol start="3">
 <li>
-<p>Kéo xuống cuối trang , click <strong>Create subnet</strong>.</p>
+<p>Trong thanh điều hướng bên trái → chọn <strong>Subnet groups</strong></p>
 </li>
 <li>
-<p>Click chọn <strong>Lab Public Subnet</strong>.</p>
+<p>Nhấn nút <strong>Create DB Subnet Group</strong>
+<img alt="VPC" src="/images/2.prerequisite/rds2.png"></p>
 </li>
-</ol>
-<ul>
-<li>Click <strong>Actions</strong>.</li>
-<li>Click <strong>Edit subnet settings</strong>.</li>
 </ul>
-<p><img alt="VPC" src="/images/2.prerequisite/005-createsubnet.png"></p>
-<ol start="5">
-<li>Click chọn <strong>Enable auto-assign public IPv4 address</strong>.</li>
-</ol>
+<hr>
+<h3 id="bước-3-nhập-thông-tin-cơ-bản">Bước 3: Nhập thông tin cơ bản</h3>
 <ul>
-<li>Click <strong>Save</strong>.</li>
+<li><strong>Name</strong>: Tên mô tả cho DB Subnet Group</li>
+<li><strong>Description</strong>: Mô tả chi tiết</li>
+<li><strong>VPC</strong>: Chọn VPC nơi bạn sẽ triển khai RDS</li>
 </ul>
-<p><img alt="VPC" src="/images/2.prerequisite/006-createsubnet.png"></p>
-<ol start="6">
-<li>Click <strong>Internet Gateways</strong>.</li>
-</ol>
-<ul>
-<li>Click <strong>Create internet gateway</strong>.</li>
+<p><img alt="VPC" src="/images/2.prerequisite/rds3.png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>Ví dụ:
+</span></span><span style="display:flex;"><span>Name: book-store-subnet-group
+</span></span><span style="display:flex;"><span>Description: book-store-subnet-group
+</span></span><span style="display:flex;"><span>VPC: vpc-0a1b2c3d
+</span></span></code></pre></div><ul>
+<li>Sau khi xong nhấn <strong>Nhấn create</strong>:
+<img alt="VPC" src="/images/2.prerequisite/rds4.png"></li>
 </ul>
-<p><img alt="VPC" src="/images/2.prerequisite/007-createigw.png"></p>
-<ol start="7">
-<li>Tại trang <strong>Create internet gateway</strong>.</li>
-</ol>
-<ul>
-<li>Tại mục <strong>Name tag</strong> điền <strong>Lab IGW</strong>.</li>
-<li>Click <strong>Create internet gateway</strong>.</li>
-</ul>
-<p><img alt="VPC" src="/images/2.prerequisite/008-createigw.png"></p>
-<ol start="8">
-<li>Sau khi tạo thành công, click <strong>Actions</strong>.</li>
-</ol>
-<ul>
-<li>Click <strong>Attach to VPC</strong>.</li>
-</ul>
-<p><img alt="VPC" src="/images/2.prerequisite/009-createigw.png"></p>
-<ol start="9">
-<li>Tại trang <strong>Attach to VPC</strong>.</li>
-</ol>
-<ul>
-<li>Tại mục <strong>Available VPCs</strong> chọn <strong>Lab VPC</strong>.</li>
-<li>Click <strong>Attach internet gateway</strong>.</li>
-<li>Kiểm tra quá trình attach thành công như hình dưới.</li>
-</ul>
-<p><img alt="VPC" src="/images/2.prerequisite/010-createigw.png"></p>
-<ol start="10">
-<li>Tiếp theo chúng ta sẽ tạo một custom route table để gán vào <strong>Lab Public Subnet</strong>.</li>
-</ol>
-<ul>
-<li>Click <strong>Route Tables</strong>.</li>
-<li>Click <strong>Create route table</strong>.</li>
-</ul>
-<p><img alt="VPC" src="/images/2.prerequisite/011-creatertb.png"></p>
-<ol start="11">
-<li>Tại trang <strong>Create route table</strong>.</li>
-</ol>
-<ul>
-<li>Tại mục <strong>Name</strong>, điền <strong>Lab Publicrtb</strong>.</li>
-<li>Tại mục <strong>VPC</strong>, chọn <strong>Lab VPC</strong>.</li>
-<li>Click <strong>Create route table</strong>.</li>
-</ul>
-<ol start="12">
-<li>Sau khi tạo route table thành công.</li>
-</ol>
-<ul>
-<li>Click <strong>Edit routes</strong>.</li>
-</ul>
-<p><img alt="VPC" src="/images/2.prerequisite/012-creatertb.png"></p>
-<ol start="13">
-<li>Tại trang <strong>Edit routes</strong>.</li>
-</ol>
-<ul>
-<li>Click <strong>Add route</strong>.</li>
-<li>Tại mục <strong>Destination</strong> điền 0.0.0.0/0</li>
-<li>Tại mục <strong>Target</strong> chọn <strong>Internet Gateway</strong> sau đó chọn <strong>Lab IGW</strong>.</li>
-<li>Click <strong>Save changes</strong>.</li>
-</ul>
-<p><img alt="VPC" src="/images/2.prerequisite/013-creatertb.png"></p>
-<ol start="14">
-<li>Click tab <strong>Subnet associations</strong>.</li>
-</ol>
-<ul>
-<li>Click <strong>Edit subnet associations</strong> để tiến hành associate custom routable chúng ta vừa tạo vào <strong>Lab Public Subnet</strong>.</li>
-</ul>
-<p><img alt="VPC" src="/images/2.prerequisite/014-creatertb.png"></p>
-<ol start="15">
-<li>Tại trang <strong>Edit subnet associations</strong>.</li>
-</ol>
-<ul>
-<li>Click chọn <strong>Lab Public Subnet</strong>.</li>
-<li>Click <strong>Save associations</strong>.</li>
-</ul>
-<p><img alt="VPC" src="/images/2.prerequisite/015-creatertb.png"></p>
-<ol start="16">
-<li>Kiểm tra thông tin route table đã được associate với <strong>Lab Public Subnet</strong> và thông tin route đi internet đã được trỏ đến Internet Gateway như hình dưới.</li>
-</ol>
-<p><img alt="VPC" src="/images/2.prerequisite/016-creatertb.png"></p>
 
 
 
@@ -1659,10 +1581,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC "> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC và chỉnh cấu hình"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo Private subnet" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo EC2 Security Group" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1672,19 +1594,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1751994772"></script>
-    <script src="/js/perfect-scrollbar.min.js?1751994772"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1751994772"></script>
-    <script src="/js/jquery.sticky.js?1751994772"></script>
-    <script src="/js/featherlight.min.js?1751994772"></script>
-    <script src="/js/highlight.pack.js?1751994772"></script>
+    <script src="/js/clipboard.min.js?1752131796"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752131796"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752131796"></script>
+    <script src="/js/jquery.sticky.js?1752131796"></script>
+    <script src="/js/featherlight.min.js?1752131796"></script>
+    <script src="/js/highlight.pack.js?1752131796"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1751994772"></script>
-    <script src="/js/learn.js?1751994772"></script>
-    <script src="/js/hugo-learn.js?1751994772"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752131796"></script>
+    <script src="/js/learn.js?1752131796"></script>
+    <script src="/js/hugo-learn.js?1752131796"></script>
 
-    <link href="/mermaid/mermaid.css?1751994772" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1751994772"></script>
+    <link href="/mermaid/mermaid.css?1752131796" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752131796"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

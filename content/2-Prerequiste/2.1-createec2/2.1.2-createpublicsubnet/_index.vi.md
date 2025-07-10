@@ -6,94 +6,46 @@ chapter : false
 pre : " <b> 2.1.2 </b> "
 ---
 
-#### Tạo Public subnet
+## ℹ️ DB Subnet Group là gì?
 
-1. Click **Subnets**.
-  + Click **Create subnet**.
+**DB Subnet Group** là tập hợp các subnet trong VPC được chỉ định cho cơ sở dữ liệu Amazon RDS. Việc tạo DB Subnet Group giúp RDS có thể triển khai các instance cơ sở dữ liệu trong **nhiều Availability Zone (AZ)** nhằm đảm bảo:
 
-![VPC](/images/2.prerequisite/003-createsubnet.png)
+- Tính **sẵn sàng cao**
+- Khả năng **chịu lỗi**
 
-2. Tại trang **Create subnet**.
-  + Tại mục **VPC ID** click chọn **Lab VPC**.
-  + Tại mục **Subnet name** điền **Lab Public Subnet**.
-  + Tại mục **Availability Zone** chọn Availability zone đầu tiên.
-  + Tại mục **IPv4 CIRD block** điền **10.10.1.0/24**.
+---
 
-![VPC](/images/2.prerequisite/004-createsubnet.png)
+## 🛠️ Các bước tạo DB Subnet Group
 
-3. Kéo xuống cuối trang , click **Create subnet**.
+### Bước 1: Truy cập Amazon RDS
 
-4. Click chọn **Lab Public Subnet**.
-  + Click **Actions**.
-  + Click **Edit subnet settings**.
+1. Đăng nhập vào [AWS Management Console](https://console.aws.amazon.com/).
+2. Trong menu dịch vụ, tìm và chọn **Amazon RDS**.
+![VPC](/images/2.prerequisite/rds1.png)
 
-![VPC](/images/2.prerequisite/005-createsubnet.png)
+### Bước 2: Mở giao diện Subnet Groups
 
-5. Click chọn **Enable auto-assign public IPv4 address**.
-  + Click **Save**.
+- Trong thanh điều hướng bên trái → chọn **Subnet groups**
 
-![VPC](/images/2.prerequisite/006-createsubnet.png)
+- Nhấn nút **Create DB Subnet Group**
+![VPC](/images/2.prerequisite/rds2.png)
 
-6. Click **Internet Gateways**.
-  + Click **Create internet gateway**.
-  
-![VPC](/images/2.prerequisite/007-createigw.png)
+---
 
-7. Tại trang **Create internet gateway**.
-  + Tại mục **Name tag** điền **Lab IGW**.
-  + Click **Create internet gateway**.
-  
-![VPC](/images/2.prerequisite/008-createigw.png)
+### Bước 3: Nhập thông tin cơ bản
 
-8. Sau khi tạo thành công, click **Actions**.
-  + Click **Attach to VPC**.
- 
-![VPC](/images/2.prerequisite/009-createigw.png)
+- **Name**: Tên mô tả cho DB Subnet Group
+- **Description**: Mô tả chi tiết
+- **VPC**: Chọn VPC nơi bạn sẽ triển khai RDS
 
-9. Tại trang **Attach to VPC**.
-  + Tại mục **Available VPCs** chọn **Lab VPC**.
-  + Click **Attach internet gateway**.
-  + Kiểm tra quá trình attach thành công như hình dưới.
+![VPC](/images/2.prerequisite/rds3.png)
 
-![VPC](/images/2.prerequisite/010-createigw.png)
+```txt
+Ví dụ:
+Name: book-store-subnet-group
+Description: book-store-subnet-group
+VPC: vpc-0a1b2c3d
+```
+- Sau khi xong nhấn **Nhấn create**: 
+![VPC](/images/2.prerequisite/rds4.png)
 
-10. Tiếp theo chúng ta sẽ tạo một custom route table để gán vào **Lab Public Subnet**.
-  + Click **Route Tables**.
-  + Click **Create route table**.
-
-![VPC](/images/2.prerequisite/011-creatertb.png)
-
-11. Tại trang **Create route table**.
-  + Tại mục **Name**, điền **Lab Publicrtb**.
-  + Tại mục **VPC**, chọn **Lab VPC**.
-  + Click **Create route table**.
-
-12. Sau khi tạo route table thành công.
-  + Click **Edit routes**.
-  
-![VPC](/images/2.prerequisite/012-creatertb.png)
-
-13. Tại trang **Edit routes**.
-  + Click **Add route**.
-  + Tại mục **Destination** điền 0.0.0.0/0
-  + Tại mục **Target** chọn **Internet Gateway** sau đó chọn **Lab IGW**.
-  + Click **Save changes**.
-
-![VPC](/images/2.prerequisite/013-creatertb.png)
-
-14. Click tab **Subnet associations**.
-  + Click **Edit subnet associations** để tiến hành associate custom routable chúng ta vừa tạo vào **Lab Public Subnet**.
-
-
-![VPC](/images/2.prerequisite/014-creatertb.png)
-
-15. Tại trang **Edit subnet associations**. 
-  + Click chọn **Lab Public Subnet**.
-  + Click **Save associations**.
-
-![VPC](/images/2.prerequisite/015-creatertb.png)
-
-16. Kiểm tra thông tin route table đã được associate với **Lab Public Subnet** và thông tin route đi internet đã được trỏ đến Internet Gateway như hình dưới.
-
-
-![VPC](/images/2.prerequisite/016-creatertb.png)

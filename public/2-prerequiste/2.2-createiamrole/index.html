@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Create IAM Role :: AWS System Manager</title>
+    <title>Creating SNS and IAM for Sending Emails :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1751994826" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1751994826" rel="stylesheet">
-    <link href="/css/hybrid.css?1751994826" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1751994826" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1751994826" rel="stylesheet">
-    <link href="/css/auto-complete.css?1751994826" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1751994826" rel="stylesheet">
-    <link href="/css/theme.css?1751994826" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1751994826" rel="stylesheet">
+    <link href="/css/nucleus.css?1752128842" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752128842" rel="stylesheet">
+    <link href="/css/hybrid.css?1752128842" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752128842" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752128842" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752128842" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752128842" rel="stylesheet">
+    <link href="/css/theme.css?1752128842" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752128842" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1751994826" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752128842" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1751994826"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752128842"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1751994826"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1751994826"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752128842"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752128842"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1751994826"></script>
+<script type="text/javascript" src="/js/search.js?1752128842"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/1-introduce/" title="Introduction" class="dd-item 
+    <li data-nav-id="/1-introduce/" title="Building an Online Bookstore System Deployed on AWS" class="dd-item 
         
         
         
         ">
       <a href="/1-introduce/">
-           <b> 1. </b> Introduction
+          <b> 1. </b>Building an Online Bookstore System Deployed on AWS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -108,13 +108,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/" title="Preparation " class="dd-item 
+    <li data-nav-id="/2-prerequiste/" title="Preparation Steps" class="dd-item 
         parent
         
         
         ">
       <a href="/2-prerequiste/">
-           <b> 2. </b> Preparation 
+          <b> 2. </b>Preparation Steps
           
             <i class="fas fa-check read-icon"></i>
           
@@ -347,13 +347,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.2-createiamrole/" title="Create IAM Role" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.2-createiamrole/" title="Creating SNS and IAM for Sending Emails" class="dd-item 
         
         active
         
         ">
       <a href="/2-prerequiste/2.2-createiamrole/">
-           <b> 2.2 </b> Create IAM Role
+          <b> 2.3 </b>Creating SNS and IAM for Sending Emails
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1003,7 +1003,7 @@
             
           
           
-            <a href='/'>Session Management</a> > <a href='/2-prerequiste/'>Preparation </a> > Create IAM Role
+            <a href='/'>Session Management</a> > <a href='/2-prerequiste/'>Preparation Steps</a> > Creating SNS and IAM for Sending Emails
           
         
           
@@ -1020,7 +1020,20 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#create-iam-role">Create IAM Role</a></li>
+        <li><a href="#-objective">📬 Objective</a></li>
+      </ul>
+    </li>
+    <li><a href="#-create-an-sns-topic">🛠️ Create an SNS Topic</a></li>
+    <li><a href="#-subscribe-an-email-to-receive-notifications">📥 Subscribe an Email to Receive Notifications</a></li>
+    <li><a href="#-create-iam-user-to-send-sns-notifications">🔐 Create IAM User to Send SNS Notifications</a>
+      <ul>
+        <li><a href="#1-access-iam-console">1. Access IAM Console</a></li>
+        <li><a href="#2-create-iam-user">2. Create IAM User</a></li>
+        <li><a href="#3-enter-user-details">3. Enter User Details</a></li>
+        <li><a href="#4-assign-sns-permissions">4. Assign SNS Permissions</a></li>
+        <li><a href="#5-review-and-create-iam-user">5. Review and Create IAM User</a></li>
+        <li><a href="#6-use-access-key-in-application">6. Use Access Key in Application</a></li>
+        <li><a href="#7-configure-aws-in-appsettingsjson">7. Configure AWS in <code>appsettings.json</code></a></li>
       </ul>
     </li>
   </ul>
@@ -1040,7 +1053,7 @@
           
             <h1>
               
-              Create IAM Role
+              Creating SNS and IAM for Sending Emails
             </h1>
           
 
@@ -1048,42 +1061,121 @@
 
 
 
-	<h3 id="create-iam-role">Create IAM Role</h3>
-<p>In this step, we will proceed to create IAM Role. In this IAM Role, the policy <strong>AmazonSSMManagedInstanceCore</strong> will be assigned, this is the policy that allows the EC2 server to communicate with the Session Manager.</p>
+	<h3 id="-objective">📬 Objective</h3>
+<p>In this step, we will:</p>
+<ul>
+<li>Create an <strong>SNS Topic</strong> to send emails when an order is successfully placed.</li>
+<li>Create an <strong>IAM Policy</strong> that allows the application to send notifications via SNS.</li>
+<li>Attach this permission to the EC2 instance or backend service.</li>
+</ul>
+<hr>
+<h2 id="-create-an-sns-topic">🛠️ Create an SNS Topic</h2>
 <ol>
-<li>Go to <a href="https://console.aws.amazon.com/iamv2/">IAM service administration interface</a></li>
-<li>In the left navigation bar, click <strong>Roles</strong>.</li>
+<li>
+<p>Go to the <a href="https://console.aws.amazon.com/sns/v3/home">Amazon SNS service</a>.<br>
+<img alt="Displayed image name" src="/images/2.prerequisite/image.png"></p>
+</li>
+<li>
+<p>Select <strong>Topics</strong> from the left menu, then click <strong>Create topic</strong>.<br>
+<img alt="Displayed image name" src="/images/2.prerequisite/image2.png"></p>
+</li>
+<li>
+<p>Choose <strong>Standard</strong> as the topic type.</p>
+</li>
+<li>
+<p>Enter a topic name, e.g., <code>book-email</code>.<br>
+<img alt="Displayed image name" src="/images/2.prerequisite/image3.png"></p>
+</li>
+<li>
+<p>Keep the default settings and click <strong>Create topic</strong>.</p>
+</li>
 </ol>
-<p><img alt="role" src="/images/2.prerequisite/038-iamrole.png"></p>
-<ol start="3">
-<li>Click <strong>Create role</strong>.</li>
-</ol>
-<p><img alt="role1" src="/images/2.prerequisite/039-iamrole.png"></p>
-<ol start="4">
-<li>Click <strong>AWS service</strong> and click <strong>EC2</strong>.</li>
-</ol>
+<hr>
+<h2 id="-subscribe-an-email-to-receive-notifications">📥 Subscribe an Email to Receive Notifications</h2>
+<ol>
+<li>
+<p>After creating the topic, select it from the list.</p>
+</li>
+<li>
+<p>In the <strong>Subscriptions</strong> tab, click <strong>Create subscription</strong>.<br>
+<img alt="Displayed image name" src="/images/2.prerequisite/image4.png"></p>
+</li>
+<li>
+<p>Select:</p>
 <ul>
-<li>Click <strong>Next: Permissions</strong>.</li>
+<li><strong>Protocol</strong>: <code>Email</code></li>
+<li><strong>Endpoint</strong>: enter your email address to receive notifications (e.g., <code>user@example.com</code>)<br>
+<img alt="Displayed image name" src="/images/2.prerequisite/Untitled.png"></li>
 </ul>
-<p><img alt="role1" src="/images/2.prerequisite/40-iamrole.png"></p>
-<ol start="5">
-<li>In the Search box, enter <strong>AmazonSSMManagedInstanceCore</strong> and press Enter to search for this policy.</li>
+</li>
+<li>
+<p>Click <strong>Create subscription</strong>.<br>
+<img alt="Displayed image name" src="/images/2.prerequisite/image9.png"></p>
+</li>
 </ol>
+<blockquote>
+<p>📧 A confirmation email will be sent to the provided address. <strong>You must click the confirmation link</strong> in that email to start receiving notifications.</p>
+</blockquote>
+<p><img alt="Displayed image name" src="/images/2.prerequisite/image10.png"></p>
+<hr>
+<h2 id="-create-iam-user-to-send-sns-notifications">🔐 Create IAM User to Send SNS Notifications</h2>
+<p>In this section, you will create an <strong>IAM User dedicated to sending emails via Amazon SNS</strong>. This user will have the <code>sns:Publish</code> permission for the topic you created.</p>
+<hr>
+<h3 id="1-access-iam-console">1. Access IAM Console</h3>
+<p>Visit the <a href="https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/home">IAM Management Console</a>.</p>
+<p><img alt="IAM Console" src="/images/2.prerequisite/image5.png"></p>
+<hr>
+<h3 id="2-create-iam-user">2. Create IAM User</h3>
 <ul>
-<li>Click the policy <strong>AmazonSSMManagedInstanceCore</strong>.</li>
-<li>Click <strong>Next: Tags.</strong></li>
+<li>Go to <strong>Users</strong> → click <strong>Create user</strong></li>
 </ul>
-<p><img alt="createpolicy" src="/images/2.prerequisite/041-iamrole.png"></p>
-<ol start="6">
-<li>Click <strong>Next: Review</strong>.</li>
-<li>Name the Role <strong>SSM-Role</strong> in Role Name</li>
-</ol>
+<hr>
+<h3 id="3-enter-user-details">3. Enter User Details</h3>
 <ul>
-<li>Click <strong>Create Role</strong> .</li>
+<li>Enter a username, e.g., <code>book-store-sns</code></li>
+<li>Tick <strong>Programmatic access</strong></li>
 </ul>
-<p><img alt="namerole" src="/images/2.prerequisite/042-iamrole.png"></p>
-<p>Next, we will make the connection to the EC2 servers we created with <strong>Session Manager</strong>.</p>
-
+<p><img alt="Create User" src="/images/2.prerequisite/image6.png"></p>
+<p>→ Click <strong>Next</strong></p>
+<hr>
+<h3 id="4-assign-sns-permissions">4. Assign SNS Permissions</h3>
+<ul>
+<li>Choose <strong>Attach policies directly</strong></li>
+<li>Search for <code>AmazonSNSFullAccess</code> and tick the box next to it (or attach a custom policy if you already created one)</li>
+</ul>
+<p><img alt="Set SNS Permissions" src="/images/2.prerequisite/image7.png"></p>
+<p>Click <strong>Next</strong></p>
+<h3 id="5-review-and-create-iam-user">5. Review and Create IAM User</h3>
+<ul>
+<li>Click <strong>Create user</strong><br>
+<img alt="Set SNS Permissions" src="/images/2.prerequisite/image8.png"></li>
+</ul>
+<p><strong>Create Access Key</strong>:</p>
+<ul>
+<li>Click <strong>Create access key</strong> (top-right in the <code>Access key</code> section)</li>
+<li>Follow the instructions to generate the <code>Access key ID</code> and <code>Secret access key</code></li>
+</ul>
+<blockquote>
+<p>✅ <strong>Note</strong>: You can only view the <code>Secret access key</code> <strong>once</strong> during creation. Be sure to store it securely for use in your application.</p>
+</blockquote>
+<hr>
+<h3 id="6-use-access-key-in-application">6. Use Access Key in Application</h3>
+<p>You can use this access key to send emails via SNS using an appropriate SDK:</p>
+<ul>
+<li>For <strong>ASP.NET MVC</strong> (AWS SDK for .NET)</li>
+<li>Or use <strong>Python</strong>, <strong>Node.js</strong>, <strong>Java</strong>, etc.</li>
+</ul>
+<h3 id="7-configure-aws-in-appsettingsjson">7. Configure AWS in <code>appsettings.json</code></h3>
+<p>Add the following SNS configuration in your <code>appsettings.json</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;AWS&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;AccessKey&#34;</span>: <span style="color:#e6db74">&#34;YourAccessKey&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;SecretKey&#34;</span>: <span style="color:#e6db74">&#34;YourSecretKey&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Region&#34;</span>: <span style="color:#e6db74">&#34;YourConfiguredRegion&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;SnsTopicArn&#34;</span>: <span style="color:#e6db74">&#34;YourSnsTopicArn&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 
 
@@ -1579,19 +1671,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1751994826"></script>
-    <script src="/js/perfect-scrollbar.min.js?1751994826"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1751994826"></script>
-    <script src="/js/jquery.sticky.js?1751994826"></script>
-    <script src="/js/featherlight.min.js?1751994826"></script>
-    <script src="/js/highlight.pack.js?1751994826"></script>
+    <script src="/js/clipboard.min.js?1752128842"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752128842"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752128842"></script>
+    <script src="/js/jquery.sticky.js?1752128842"></script>
+    <script src="/js/featherlight.min.js?1752128842"></script>
+    <script src="/js/highlight.pack.js?1752128842"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1751994826"></script>
-    <script src="/js/learn.js?1751994826"></script>
-    <script src="/js/hugo-learn.js?1751994826"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752128842"></script>
+    <script src="/js/learn.js?1752128842"></script>
+    <script src="/js/hugo-learn.js?1752128842"></script>
 
-    <link href="/mermaid/mermaid.css?1751994826" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1751994826"></script>
+    <link href="/mermaid/mermaid.css?1752128842" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752128842"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
