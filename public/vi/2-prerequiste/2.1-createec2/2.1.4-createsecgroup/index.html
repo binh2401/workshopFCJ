@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tạo các security group :: AWS System Manager</title>
+    <title>Tạo Security Group cho Amazon RDS :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1752131808" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752131808" rel="stylesheet">
-    <link href="/css/hybrid.css?1752131808" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752131808" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752131808" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752131808" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752131808" rel="stylesheet">
-    <link href="/css/theme.css?1752131808" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752131808" rel="stylesheet">
+    <link href="/css/nucleus.css?1754393161" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754393161" rel="stylesheet">
+    <link href="/css/hybrid.css?1754393161" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754393161" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754393161" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754393161" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754393161" rel="stylesheet">
+    <link href="/css/theme.css?1754393161" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754393161" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752131808" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754393161" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752131808"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754393161"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752131808"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752131808"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754393161"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754393161"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752131808"></script>
+<script type="text/javascript" src="/js/search.js?1754393161"></script>
 
     
   </div>
@@ -254,69 +254,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/" title="Tạo các security group" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/" title="Tạo Security Group cho Amazon RDS" class="dd-item 
         
         active
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/">
-           <b> 2.1.4 </b> Tạo các security group
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.5-createec2linux/" title="Tạo Public Linux EC2" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/2-prerequiste/2.1-createec2/2.1.5-createec2linux/">
-           <b> 2.1.5 </b> Tạo Public Linux EC2
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.6-createec2windows/" title="Tạo Private Windows EC2" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/2-prerequiste/2.1-createec2/2.1.6-createec2windows/">
-           <b> 2.1.6 </b> Tạo Private Windows EC2
+           <b> 2.1.4 </b> Tạo Security Group cho Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -353,7 +297,7 @@
         
         ">
       <a href="/vi/2-prerequiste/2.2-createiamrole/">
-           <b> 2.3 </b> Tạo SNS và IAM cho gửi Email
+           <b> 2.2 </b> Tạo SNS và IAM cho gửi Email
           
             <i class="fas fa-check read-icon"></i>
           
@@ -394,266 +338,6 @@
           
       </a>
       
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.1-public-instance/" title="Kết nối đến máy chủ Public" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.1-public-instance/">
-           <b> 3.1. </b> Kết nối đến máy chủ Public
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/" title="Tạo kết nối đến máy chủ EC2 Private" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/">
-           <b> 3.2. </b> Tạo kết nối đến máy chủ EC2 Private
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.1-enablevpcdns/" title="Kích hoạt DNS hostnames" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.1-enablevpcdns/">
-           <b> 3.2.1 </b> Kích hoạt DNS hostnames
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/" title="Tạo VPC Endpoint" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/">
-           <b> 3.2.2 </b> Tạo VPC Endpoint
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.1-endpointssm/" title="Tạo Endpoint ssm" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.1-endpointssm/">
-           <b> 3.2.2.1 </b> Tạo Endpoint ssm
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.2-endpointssmmessages/" title="Tạo Endpoint ssmmessages" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.2-endpointssmmessages/">
-           <b> 3.2.2.2 </b> Tạo Endpoint ssmmessages
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.3-endpointec2messages/" title="Tạo Endpoint ec2messages" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.3-endpointec2messages/">
-           <b> 3.2.2.3 </b> Tạo Endpoint ec2messages
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.3-connectec2/" title="Kết nối EC2 Private" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.3-connectec2/">
-           <b> 3.2.3 </b> Kết nối EC2 Private
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -668,142 +352,18 @@
  
   
     
-    <li data-nav-id="/vi/4-s3log/" title="Quản lý session logs" class="dd-item 
+    <li data-nav-id="/vi/4-s3log/" title="Tạo RDS database và triển khai web" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-s3log/">
-           <b> 4. </b> Quản lý session logs
+           <b> 4. </b> Tạo RDS database và triển khai web
           
             <i class="fas fa-check read-icon"></i>
           
       </a>
       
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.1-updateiamrole/" title="Cập nhật IAM Role" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.1-updateiamrole/">
-           <b> 4.1 </b> Cập nhật IAM Role
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.2-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.2-creates3bucket/">
-           <b> 4.2 </b> Tạo S3 Bucket
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.3-creategwes3/" title="Tạo S3 Gateway endpoint" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.3-creategwes3/">
-           <b> 4.3 </b> Tạo S3 Gateway endpoint
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.4-configsessionlogs/" title="Theo dõi session logs" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.4-configsessionlogs/">
-           <b> 4.4 </b> Theo dõi session logs
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -818,13 +378,13 @@
  
   
     
-    <li data-nav-id="/vi/5-portfwd/" title="Port Forwarding" class="dd-item 
+    <li data-nav-id="/vi/5-portfwd/" title="Tổng Quan và Cấu Hình AWS WAF ,cloudfront&#34;" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-portfwd/">
-           <b> 5. </b> Port Forwarding
+           <b> 5. </b> Tổng Quan và Cấu Hình AWS WAF ,cloudfront&#34;
           
             <i class="fas fa-check read-icon"></i>
           
@@ -844,13 +404,39 @@
  
   
     
-    <li data-nav-id="/vi/6-cleanup/" title="Dọn dẹp tài nguyên  " class="dd-item 
+    <li data-nav-id="/vi/6-cleanu/" title="Graph Neural Networks với Neptune ML(chưa xong)" class="dd-item 
         
         
         
         ">
-      <a href="/vi/6-cleanup/">
-          <b>6. </b>Dọn dẹp tài nguyên  
+      <a href="/vi/6-cleanu/">
+          <b> 6. </b>Graph Neural Networks với Neptune ML(chưa xong)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-clean/" title="Dọn dẹp" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-clean/">
+          <b> 7. </b>Dọn dẹp
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1007,7 +593,7 @@
             
           
           
-            <a href='/vi/'>Session Management</a> > <a href='/vi/2-prerequiste/'>Các Bước Chuẩn Bị</a> > <a href='/vi/2-prerequiste/2.1-createec2/'>Chuẩn bị VPC và EC2</a> > Tạo các security group
+            <a href='/vi/'>Xây dựng hệ thống bán sách trực tuyến triển khai trên AWS</a> > <a href='/vi/2-prerequiste/'>Các Bước Chuẩn Bị</a> > <a href='/vi/2-prerequiste/2.1-createec2/'>Chuẩn bị VPC và EC2</a> > Tạo Security Group cho Amazon RDS
           
         
           
@@ -1024,11 +610,19 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#-các-bước-tạo-security-group-cho-rds">🛠️ Các bước tạo Security Group cho RDS</a>
       <ul>
-        <li></li>
+        <li><a href="#1-đăng-nhập-vào-aws-management-console">1. Đăng nhập vào AWS Management Console.</a></li>
+        <li><a href="#2-truy-cập-dịch-vụ-vpc">2. Truy cập dịch vụ <strong>VPC</strong></a></li>
+        <li><a href="#3-mở-danh-sách-security-groups">3. Mở danh sách <strong>Security Groups</strong></a></li>
+        <li><a href="#4-nhấp-vào-nút-create-security-group-để-bắt-đầu-quá-trình-tạo">4. Nhấp vào nút <strong>Create security group</strong> để bắt đầu quá trình tạo.</a></li>
       </ul>
     </li>
+    <li><a href="#-cấu-hình-basic-details">📝 Cấu hình Basic Details</a></li>
+    <li><a href="#-cấu-hình-inbound-rules">🔐 Cấu hình Inbound Rules</a></li>
+    <li><a href="#-tùy-chọn-cấu-hình-outbound-rules">📤 (Tùy chọn) Cấu hình Outbound Rules</a></li>
+    <li><a href="#-tạo-security-group">✅ Tạo Security Group</a></li>
+    <li><a href="#-pro-tip">💡 Pro Tip</a></li>
   </ul>
 </nav>
     </div>
@@ -1046,7 +640,7 @@
           
             <h1>
               
-              Tạo các security group
+              Tạo Security Group cho Amazon RDS
             </h1>
           
 
@@ -1054,92 +648,67 @@
 
 
 
-	<h4 id="tao-các-security-group">Tạo các security group</h4>
-<p>Trong bước này chúng ta sẽ tiến hành tạo các security group được sử dụng cho các instance của chúng ta. Các bạn có thể thấy, các securiy group này sẽ không cần phải mở các port truyền thống để <strong>ssh</strong> như port <strong>22</strong> hoặc <strong>remote desktop</strong> thông qua port <strong>3389</strong>.</p>
-<h4 id="tạo-security-group-cho-linux-instance-nằm-trong-public-subnet">Tạo security group cho Linux instance nằm trong public subnet</h4>
-<ol>
-<li>Truy cập <a href="https://console.aws.amazon.com/vpc">giao diện quản trị dịch vụ VPC</a></li>
-</ol>
+	<h1 id="tạo-security-group-cho-amazon-rds">Tạo Security Group cho Amazon RDS</h1>
+<p>ℹ️ <strong>Information:</strong><br>
+Security Group cho Amazon RDS hoạt động như <strong>tường lửa ảo</strong> để kiểm soát lưu lượng mạng đến và đi từ cơ sở dữ liệu của bạn. Việc cấu hình đúng Security Group là bước quan trọng để bảo vệ dữ liệu của bạn trong AWS.</p>
+<hr>
+<h2 id="-các-bước-tạo-security-group-cho-rds">🛠️ Các bước tạo Security Group cho RDS</h2>
+<h3 id="1-đăng-nhập-vào-aws-management-console">1. Đăng nhập vào AWS Management Console.</h3>
+<h3 id="2-truy-cập-dịch-vụ-vpc">2. Truy cập dịch vụ <strong>VPC</strong></h3>
 <ul>
-<li>Click <strong>Security Group</strong>.</li>
-<li>Click <strong>Create security group</strong>.</li>
-</ul>
-<p><img alt="SG" src="/images/2.prerequisite/019-createsg.png"></p>
-<ol start="3">
-<li>Tại mục <strong>Security group name</strong>, điền <strong>SG Public Linux Instance</strong>.</li>
-</ol>
-<ul>
-<li>Tại mục <strong>Description</strong>, điền <strong>SG Public Linux Instance</strong>.</li>
-<li>Tại mục <strong>VPC</strong>, click dấu <strong>X</strong> để chọn lại <strong>Lab VPC</strong> bạn đã tạo cho bài lab này.</li>
-</ul>
-<p><img alt="SG" src="/images/2.prerequisite/020-createsg.png"></p>
-<ol start="4">
-<li>Giữ nguyên <strong>Outbound rule</strong>, kéo chuột xuống phía dưới.</li>
-</ol>
-<ul>
-<li>Click <strong>Create security group</strong>.</li>
-</ul>
-
-<div class="notices tip" ><p>Các bạn có thể thấy, security group chúng ta tạo sử dụng cho Linux public instance sẽ không cần phải mở các port truyền thống để <strong>ssh</strong> như port <strong>22</strong>.</p>
-</div>
-
-<h4 id="tạo-security-group-cho-windows-instance-nằm-trong-private-subnet">Tạo security group cho Windows instance nằm trong private subnet</h4>
-<ol>
-<li>Sau khi tạo thành công security group cho Linux instance nằm trong public subnet, click vào link Security Groups để quay trở lại danh sách Security groups.</li>
-</ol>
-<p><img alt="SG" src="/images/2.prerequisite/021-createsg.png"></p>
-<ol start="2">
 <li>
-<p>Click <strong>Create security group</strong>.</p>
+<p>Vào menu dịch vụ.</p>
 </li>
 <li>
-<p>Tại mục <strong>Security group name</strong>, điền <strong>SG Private Windows Instance</strong>.</p>
+<p>Chọn <strong>VPC</strong> trong phần <strong>Networking &amp; Content Delivery</strong>.
+<img alt="VPC" src="/images/2.prerequisite/rdssc1.png"></p>
 </li>
-</ol>
-<ul>
-<li>Tại mục <strong>Description</strong>, điền <strong>SG Private Windows Instance</strong>.</li>
-<li>Tại mục <strong>VPC</strong>, click dấu <strong>X</strong> để chọn lại <strong>Lab VPC</strong> bạn đã tạo cho bài lab này.</li>
 </ul>
-<p><img alt="SG" src="/images/2.prerequisite/022-createsg.png"></p>
-<ol start="4">
-<li>Kéo chuột xuống phía dưới.</li>
-</ol>
+<h3 id="3-mở-danh-sách-security-groups">3. Mở danh sách <strong>Security Groups</strong></h3>
 <ul>
-<li>Thêm <strong>Outbound rule</strong> cho phép kết nối TCP 443 tới 10.10.0.0/16 ( CIDR của <strong>Lab VPC</strong> chúng ta đã tạo)</li>
-<li>Click <strong>Create security group</strong>.</li>
+<li>Trên thanh điều hướng bên trái, dưới mục <strong>Security</strong>, chọn <strong>Security Groups</strong>.
+<img alt="VPC" src="/images/2.prerequisite/ec22.png"></li>
 </ul>
-<p><img alt="SG" src="/images/2.prerequisite/023-createsg.png"></p>
-
-<div class="notices tip" ><p>Đối với Instance trong private subnet, chúng ta sẽ kết nối tới endpoint của <strong>Session Manager</strong> qua kết nối đã được mã hóa TLS. vì thế chúng ta cần cho phép kết nối chiều ra từ instance của mình tới VPC CIDR thông qua port 443.</p>
-</div>
-
-<h4 id="tạo-security-group-cho-vpc-endpoint">Tạo security group cho VPC Endpoint</h4>
+<h3 id="4-nhấp-vào-nút-create-security-group-để-bắt-đầu-quá-trình-tạo">4. Nhấp vào nút <strong>Create security group</strong> để bắt đầu quá trình tạo.</h3>
+<hr>
+<p><img alt="VPC" src="/images/2.prerequisite/rdssc2.png"></p>
+<h2 id="-cấu-hình-basic-details">📝 Cấu hình Basic Details</h2>
+<ul>
+<li><strong>Security group name:</strong> Nhập tên mô tả cho Security Group.</li>
+<li><strong>Description:</strong> Thêm mô tả chi tiết về mục đích của Security Group.</li>
+<li><strong>VPC:</strong> Chọn VPC nơi bạn sẽ triển khai cơ sở dữ liệu RDS.</li>
+</ul>
+<hr>
+<h2 id="-cấu-hình-inbound-rules">🔐 Cấu hình Inbound Rules</h2>
 <ol>
-<li>Trong bước này, chúng ta sẽ tạo security group cho VPC Endpoint của <strong>Session Manager</strong>.</li>
-<li>Sau khi tạo thành công security group cho Windows instance trong private subnet, click vào link Security Groups để quay trở lại danh sách Security groups.</li>
-<li>Click <strong>Create security group</strong>.</li>
-<li>Tại mục <strong>Security group name</strong>, điền <strong>SG VPC Endpoint</strong>.</li>
+<li>Chọn <strong>MSSQL</strong> từ danh sách <strong>Type</strong>.</li>
+<li><strong>Port 1433</strong> sẽ được tự động điền.</li>
+<li><strong>Source:</strong> Chọn <em>Anywhere-IPv4</em>*</li>
 </ol>
+<blockquote>
+<p>🔒 <strong>Security Note:</strong><br>
+Chỉ cho phép kết nối từ các nguồn cụ thể thay vì mở cổng cơ sở dữ liệu cho tất cả địa chỉ IP (<code>0.0.0.0/0</code>). Điều này tuân theo nguyên tắc <strong>đặc quyền tối thiểu</strong> và tăng cường bảo mật.</p>
+</blockquote>
+<hr>
+<h2 id="-tùy-chọn-cấu-hình-outbound-rules">📤 (Tùy chọn) Cấu hình Outbound Rules</h2>
 <ul>
-<li>Tại mục <strong>Description</strong>, điền <strong>SG VPC Endpoint</strong>.</li>
-<li>Tại mục <strong>VPC</strong>, click dấu <strong>X</strong> để chọn lại <strong>Lab VPC</strong> bạn đã tạo cho bài lab này.</li>
+<li>Mặc định, <strong>tất cả lưu lượng đi ra đều được cho phép</strong>.</li>
+<li>Bạn có thể giới hạn nếu cần bảo mật cao hơn.</li>
 </ul>
-<p><img alt="SG" src="/images/2.prerequisite/024-createsg.png"></p>
-<ol start="5">
-<li>Kéo chuột xuống phía dưới.</li>
-</ol>
+<hr>
+<h2 id="-tạo-security-group">✅ Tạo Security Group</h2>
 <ul>
-<li>Xóa <strong>Outbound rule</strong>.</li>
+<li>Sau khi hoàn tất cấu hình, nhấn nút <strong>Create security group</strong>.</li>
+<li>Security Group mới đã được tạo và sẵn sàng để gán cho <strong>DB instance RDS</strong> của bạn.</li>
 </ul>
-<p><img alt="SG" src="/images/2.prerequisite/025-createsg.png"></p>
-<ol start="6">
-<li>Thêm <strong>Inbound rule</strong> cho phép TCP 443 đến từ 10.10.0.0/16 ( CIDR của <strong>Lab VPC</strong> chúng ta đã tạo ).</li>
-</ol>
-<ul>
-<li>Click <strong>Create security group</strong>.</li>
-</ul>
-<p><img alt="SG" src="/images/2.prerequisite/026-createsg.png"></p>
-<p>Như vậy chúng ta đã tiến hành xong việc tạo các security group cần thiết cho các EC2 instance và VPC Endpoint.</p>
+<blockquote>
+<p>⚠️ <strong>Warning:</strong><br>
+Không nên sử dụng <strong>cùng một Security Group</strong> cho cả <strong>EC2</strong> và <strong>RDS</strong>.<br>
+Việc <strong>tách biệt Security Group</strong> giúp quản lý quyền truy cập chính xác hơn và tuân thủ các <strong>nguyên tắc bảo mật tốt nhất</strong>.</p>
+</blockquote>
+<hr>
+<h2 id="-pro-tip">💡 Pro Tip</h2>
+<p>Bạn có thể <strong>chỉnh sửa quy tắc Security Group bất kỳ lúc nào</strong>, và các thay đổi sẽ <strong>được áp dụng ngay lập tức</strong> cho tất cả tài nguyên liên kết với Security Group đó.</p>
 
 
 
@@ -1294,6 +863,9 @@
             
         
                     
+            
+        
+                    
                         
             
             
@@ -1312,222 +884,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -1576,9 +932,6 @@
                     
                     
 
-                    
-            
-        
                     
             
         
@@ -1627,7 +980,7 @@
 			<a class="nav nav-prev" href="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo EC2 Security Group"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/2-prerequiste/2.1-createec2/2.1.5-createec2linux/" title="Tạo Public Linux EC2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/2-prerequiste/2.2-createiamrole/" title="Tạo SNS và IAM cho gửi Email" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1637,19 +990,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752131808"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752131808"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752131808"></script>
-    <script src="/js/jquery.sticky.js?1752131808"></script>
-    <script src="/js/featherlight.min.js?1752131808"></script>
-    <script src="/js/highlight.pack.js?1752131808"></script>
+    <script src="/js/clipboard.min.js?1754393161"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754393161"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754393161"></script>
+    <script src="/js/jquery.sticky.js?1754393161"></script>
+    <script src="/js/featherlight.min.js?1754393161"></script>
+    <script src="/js/highlight.pack.js?1754393161"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752131808"></script>
-    <script src="/js/learn.js?1752131808"></script>
-    <script src="/js/hugo-learn.js?1752131808"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754393161"></script>
+    <script src="/js/learn.js?1754393161"></script>
+    <script src="/js/hugo-learn.js?1754393161"></script>
 
-    <link href="/mermaid/mermaid.css?1752131808" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752131808"></script>
+    <link href="/mermaid/mermaid.css?1754393161" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754393161"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

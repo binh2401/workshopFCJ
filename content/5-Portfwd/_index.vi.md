@@ -1,93 +1,224 @@
 ---
-title : "Port Forwarding"
+title : Tổng Quan và Cấu Hình AWS WAF ,cloudfront"
 date :  "`r Sys.Date()`" 
 weight : 5 
 chapter : false
 pre : " <b> 5. </b> "
 ---
 
-{{% notice info %}}
-**Port Forwarding** là mốt cách thức hữu ích để chuyển hướng lưu lượng mạng từ 1 địa chỉ IP - Port này sang 1 địa chỉ IP - Port khác. Với **Port Forwarding** chúng ta có thể truy cập một EC2 instance nằm trong private subnet từ máy trạm của chúng ta.
-{{% /notice %}}
+# 🔐 I. Tổng quan AWS WAF
 
-Chúng ta sẽ cấu hình **Port Forwarding** cho kết nối RDP giữa máy của mình với **Private Windows Instance** nằm trong private subnet mà chúng ta đã tạo cho bài thực hành này.
+**AWS WAF (Web Application Firewall)** là dịch vụ tường lửa ứng dụng web giúp bảo vệ website hoặc API khỏi các mối đe dọa phổ biến như:
 
-![port-fwd](/images/arc-04.png) 
+- SQL Injection
+- Cross-Site Scripting (XSS)
+- Tấn công DDoS (khi kết hợp với **AWS Shield**)
+- Các request bất thường (dựa trên IP, quốc gia, header,...)
+
+---
+
+## 🛠️ II. Các bước cấu hình AWS WAF
+#### 1. Tạo Application Load Balancer (ALB)
+- Vào **EC2 Console** → **Load Balancers** → **Create Load Balancer**
+![FWD](/images/5.fwd/waf3.png)
+- Chọn loại: **Application Load Balancer**
+- Cấu hình:
+  - Đặt tên ALB
+  - Chọn schema: Internet-facing (nếu website public)
+  - Chọn VPC, Subnet
+  - Cấu hình security group mở port 80/443
+![FWD](/images/5.fwd/waf4.png)
+
+####  Tạo Target Group
+- Trong quá trình tạo ALB, chọn **Create a new target group**
+![FWD](/images/5.fwd/waf8.png)
+- Loại target: **Instance**
+- Chọn protocol: **HTTP hoặc HTTPS**
+- Thêm các **EC2 instances** đang chạy website vào target group
+![FWD](/images/5.fwd/waf5.png)
+![FWD](/images/5.fwd/waf6.png)
+![FWD](/images/5.fwd/waf7.png)
+
+![FWD](/images/5.fwd/waf9.png)
+![FWD](/images/5.fwd/waf10.png)
+![FWD](/images/5.fwd/waf11.png)
+#### 3. Gắn AWS WAF vào ALB
+- Truy cập **AWS WAF & Shield**
+- Chọn **Web ACLs** → **Create Web ACL**
+- Tại bước **Association**, chọn ALB bạn vừa tạo
+
+### 1. Tạo Web ACL (Access Control List)
+- Truy cập **AWS Console** → Tìm **WAF & Shield**
+![FWD](/images/5.fwd/image.png)
+- Chọn **Web ACLs** → **Create web ACL**
+![FWD](/images/5.fwd/waf1.png)
+- Đặt tên, chọn **Region** nếu sử dụng **ALB**, hoặc **CloudFront** nếu sử dụng CDN.
+![FWD](/images/5.fwd/waf2.png)
+
+![FWD](/images/5.fwd/waf12.png)
+### 2. Chọn tài nguyên cần bảo vệ
+- Gắn Web ACL với một trong các dịch vụ:
+  - **Application Load Balancer (ALB)**
+  - **Amazon API Gateway**
+  - **Amazon CloudFront** (Khuyến khích nếu website phục vụ toàn cầu)
+
+### 3. Thêm các Rule vào Web ACL
+
+Bạn có thể chọn:
+
+#### ✅ Managed Rule Groups của AWS:
+![FWD](/images/5.fwd/waf13.png)
+
+![FWD](/images/5.fwd/waf14.png)
+
+### 4. Cấu hình hành động cho mỗi Rule
+- `Allow`: Cho phép
+- `Block`: Chặn
+- `Count`: Ghi nhận nhưng không chặn (giúp kiểm thử trước khi áp dụng thực tế)
+
+### 5. Gắn Web ACL với Resource
+Sau khi tạo Web ACL, bạn gắn nó với tài nguyên cần bảo vệ:
 
 
+Client → CloudFront (gắn AWS WAF) → ALB → EC2/Laragon (.NET App)
+![FWD](/images/5.fwd/waf15.png)
+![FWD](/images/5.fwd/waf16.png)
 
-#### Tạo IAM User có quyền kết nối SSM
+# Tích hợp AWS CloudWatch vào ứng dụng ASP.NET MVC
+## ✅ Mục tiêu
 
-1. Truy cập vào [giao diện quản trị dịch vụ IAM](https://console.aws.amazon.com/iamv2/home)
-  + Click **Users** , sau đó click **Add users**.
+- Ghi log lỗi, log hệ thống từ **ASP.NET MVC** lên **AWS CloudWatch Logs**
+- Tự động tạo Log Group/Stream nếu chưa có
+- Không cần cài CloudWatch Agent
 
-![FWD](/images/5.fwd/001-fwd.png)
+---
 
-2. Tại trang **Add user**.
-  + Tại mục **User name**, điền **Portfwd**.
-  + Click chọn **Access key - Programmatic access**.
-  + Click **Next: Permissions**.
-  
-![FWD](/images/5.fwd/002-fwd.png)
+## 🧰 Yêu cầu
 
-3. Click **Attach existing policies directly**.
-  + Tại ô tìm kiếm , điền **ssm**.
-  + Click chọn **AmazonSSMFullAccess**.
-  + Click **Next: Tags**, click **Next: Reviews**.
-  + Click **Create user**.
+- Ứng dụng ASP.NET MVC (Core hoặc .NET Framework)
+- Tài khoản AWS và IAM user có quyền ghi CloudWatch Logs
 
-4. Lưu lại thông tin **Access key ID** và **Secret access key** để thực hiện cấu hình AWS CLI.
+---
 
-#### Cài đặt và cấu hình AWS CLI và Session Manager Plugin 
-  
-Để thực hiện phần thực hành này, đảm bảo máy trạm của bạn đã cài [AWS CLI]() và [Session Manager Plugin](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html)
+## 🔧 Bước 1: Cài đặt gói AWS Logger
 
-Bạn có thể tham khảo thêm bài thực hành về cài đặt và cấu hình AWS CLI [tại đây](https://000011.awsstudygroup.com/).
+Mở terminal hoặc Package Manager Console và chạy:
 
-{{%notice tip%}}
-Với Windows thì khi giải nén thư mục cài đặt **Session Manager Plugin** bạn hãy chạy file **install.bat** với quyền Administrator để thực hiện cài đặt.
-{{%/notice%}}
-
-#### Thực hiện Portforwarding 
-
-1. Chạy command dưới đây trong **Command Prompt** trên máy của bạn để cấu hình **Port Forwarding**.
-
+```bash
+dotnet add package AWS.Logger.AspNetCore
 ```
-  aws ssm start-session --target (your ID windows instance) --document-name AWS-StartPortForwardingSession --parameters portNumber="3389",localPortNumber="9999" --region (your region) 
+
+> Nếu bạn dùng .NET Framework MVC cũ, thay vào đó dùng:  
+> `AWS.Logger.Log4Net` hoặc `AWS.Logger.NLog` tuỳ theo hệ thống logging bạn sử dụng.
+
+---
+
+## ⚙️ Bước 2: Cấu hình `appsettings.json`
+
+```json
+{
+  "AWS": {
+    "Region": "ap-southeast-1",
+    "LogGroup": "MvcAppLogGroup"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning"
+    }
+  }
+}
 ```
-{{%notice tip%}}
 
-Thông tin **Instance ID** của **Windows Private Instance** có thể tìm được khi bạn xem chi tiết máy chủ EC2 Windows Private Instance.
+---
 
-{{%/notice%}}
+## 🧬 Bước 3: Cấu hình logger trong mã nguồn
 
-  + Câu lệnh ví dụ
+### ✅ Đối với ASP.NET Core MVC (.NET 6 trở lên):
 
+Sửa file `Program.cs`:
+
+```csharp
+using AWS.Logger.AspNetCore;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.AddAWSProvider(builder.Configuration.GetAWSLoggingConfigSection());
+
+builder.Services.AddControllersWithViews();
+var app = builder.Build();
+
+app.UseRouting();
+app.UseAuthorization();
+app.MapDefaultControllerRoute();
+app.Run();
 ```
-C:\Windows\system32>aws ssm start-session --target i-06343d7377486760c --document-name AWS-StartPortForwardingSession --parameters portNumber="3389",localPortNumber="9999" --region ap-southeast-1
+
+---
+
+## 🔐 Bước 4: Cấu hình quyền truy cập AWS
+
+### 👉 Nếu chạy trên EC2:
+
+Gán IAM Role cho EC2 instance với quyền:
+
+```json
+{
+  "Effect": "Allow",
+  "Action": [
+    "logs:CreateLogGroup",
+    "logs:CreateLogStream",
+    "logs:PutLogEvents"
+  ],
+  "Resource": "*"
+}
 ```
 
-{{%notice warning%}}
+### 👉 Nếu chạy local (dev):
 
-Nếu câu lệnh của bạn báo lỗi như dưới đây : \
-SessionManagerPlugin is not found. Please refer to SessionManager Documentation here: http://docs.aws.amazon.com/console/systems-manager/session-manager-plugin-not-found\
-Chứng tỏ bạn chưa cài Session Manager Plugin thành công. Bạn có thể cần khởi chạy lại **Command Prompt** sau khi cài **Session Manager Plugin**.
+Tạo file `~/.aws/credentials` hoặc `C:\Users\<tên user>\.aws\credentials`:
 
-{{%/notice%}}
+```ini
+[default]
+aws_access_key_id = YOUR_ACCESS_KEY
+aws_secret_access_key = YOUR_SECRET_KEY
+```
 
-2. Kết nối tới **Private Windows Instance** bạn đã tạo bằng công cụ **Remote Desktop** trên máy trạm của bạn.
-  + Tại mục Computer: điền **localhost:9999**.
+---
 
+## 🧪 Bước 5: Thêm dòng ghi log trong controller
 
-![FWD](/images/5.fwd/003-fwd.png)
+```csharp
+private readonly ILogger<HomeController> _logger;
 
+public HomeController(ILogger<HomeController> logger)
+{
+    _logger = logger;
+}
 
-3. Quay trở lại giao diện quản trị của dịch vụ System Manager - Session Manager.
-  + Click tab **Session history**.
-  + Chúng ta sẽ thấy các session logs với tên Document là **AWS-StartPortForwardingSession**.
+public IActionResult Index()
+{
+    _logger.LogInformation("Trang chủ được truy cập lúc " + DateTime.Now);
+    return View();
+}
+```
 
+---
 
-![FWD](/images/5.fwd/004-fwd.png)
+## 📊 Bước 6: Kiểm tra log trên AWS
 
+1. Truy cập **AWS Console > CloudWatch > Log groups**
+2. Chọn `MvcAppLogGroup`
+3. Chọn log stream để xem chi tiết
 
-Chúc mừng bạn đã hoàn tất bài thực hành hướng dẫn cách sử dụng Session Manager để kết nối cũng như lưu trữ các session logs trong S3 bucket. Hãy nhớ thực hiện bước dọn dẹp tài nguyên để tránh sinh chi phí ngoài ý muốn nhé.
+---
+
+## 🧩 Ghi chú thêm
+
+- Bạn có thể dùng thêm `AWS X-Ray` để trace hiệu năng request nếu ứng dụng phức tạp.
+- Có thể tích hợp `LogLevel`, `EventID`, `Exception` để có log chi tiết hơn.
+
+---
+
+**Chúc bạn triển khai thành công!** Nếu bạn cần bản mẫu cho .NET Framework MVC hoặc muốn cấu hình ghi log nâng cao, hãy để lại bình luận hoặc liên hệ.
+

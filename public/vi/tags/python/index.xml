@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on AWS System Manager</title>
+    <link>//localhost:1313/vi/tags/python/</link>
+    <description>Recent content in Python on AWS System Manager</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Tue, 05 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/vi/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Xuất dữ liệu SQL Server và upload lên AWS S3 để dùng với Amazon Neptune</title>
+      <link>//localhost:1313/vi/6-cleanu/</link>
+      <pubDate>Tue, 05 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/vi/6-cleanu/</guid>
+      <description>🎯 Mục tiêu Hướng dẫn xuất dữ liệu từ SQL Server sang file CSV và upload thủ công lên Amazon S3 để sử dụng trong Amazon Neptune.&#xA;🧱 Bước 1: Cài đặt thư viện cần thiết Cài đặt bằng pip: pip install pandas pyodbc boto3 🧩 Bước 2: Kết nối SQL Server và xuất dữ liệu ra thư mục ./export 📁 Cấu trúc thư mục: project/&#xD;│&#xD;├── export/ # Chứa các file CSV sau khi export&#xD;├── data.</description>
+    </item>
+  </channel>
+</rss>

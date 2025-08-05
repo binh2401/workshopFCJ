@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Port Forwarding :: AWS System Manager</title>
+    <title>Tổng Quan và Cấu Hình AWS WAF ,cloudfront&#34; :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1752128842" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752128842" rel="stylesheet">
-    <link href="/css/hybrid.css?1752128842" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752128842" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752128842" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752128842" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752128842" rel="stylesheet">
-    <link href="/css/theme.css?1752128842" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752128842" rel="stylesheet">
+    <link href="/css/nucleus.css?1754393161" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754393161" rel="stylesheet">
+    <link href="/css/hybrid.css?1754393161" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754393161" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754393161" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754393161" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754393161" rel="stylesheet">
+    <link href="/css/theme.css?1754393161" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754393161" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752128842" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754393161" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752128842"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754393161"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752128842"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752128842"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754393161"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754393161"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752128842"></script>
+<script type="text/javascript" src="/js/search.js?1754393161"></script>
 
     
   </div>
@@ -170,13 +170,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC " class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC và chỉnh cấu hình" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/">
-           <b> 2.1.1 </b> Tạo VPC 
+           <b> 2.1.1 </b> Tạo VPC và chỉnh cấu hình
           
             <i class="fas fa-check read-icon"></i>
           
@@ -226,13 +226,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo Private subnet" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo EC2 Security Group" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/">
-           <b> 2.1.3 </b> Tạo Private subnet
+           <b> 2.1.3 </b> Tạo EC2 Security Group
           
             <i class="fas fa-check read-icon"></i>
           
@@ -254,69 +254,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/" title="Tạo các security group" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/" title="Tạo Security Group cho Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/">
-           <b> 2.1.4 </b> Tạo các security group
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.5-createec2linux/" title="Tạo Public Linux EC2" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/2-prerequiste/2.1-createec2/2.1.5-createec2linux/">
-           <b> 2.1.5 </b> Tạo Public Linux EC2
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.6-createec2windows/" title="Tạo Private Windows EC2" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/2-prerequiste/2.1-createec2/2.1.6-createec2windows/">
-           <b> 2.1.6 </b> Tạo Private Windows EC2
+           <b> 2.1.4 </b> Tạo Security Group cho Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -353,7 +297,7 @@
         
         ">
       <a href="/vi/2-prerequiste/2.2-createiamrole/">
-           <b> 2.3 </b> Tạo SNS và IAM cho gửi Email
+           <b> 2.2 </b> Tạo SNS và IAM cho gửi Email
           
             <i class="fas fa-check read-icon"></i>
           
@@ -394,266 +338,6 @@
           
       </a>
       
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.1-public-instance/" title="Kết nối đến máy chủ Public" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.1-public-instance/">
-           <b> 3.1. </b> Kết nối đến máy chủ Public
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/" title="Tạo kết nối đến máy chủ EC2 Private" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/">
-           <b> 3.2. </b> Tạo kết nối đến máy chủ EC2 Private
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.1-enablevpcdns/" title="Kích hoạt DNS hostnames" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.1-enablevpcdns/">
-           <b> 3.2.1 </b> Kích hoạt DNS hostnames
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/" title="Tạo VPC Endpoint" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/">
-           <b> 3.2.2 </b> Tạo VPC Endpoint
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.1-endpointssm/" title="Tạo Endpoint ssm" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.1-endpointssm/">
-           <b> 3.2.2.1 </b> Tạo Endpoint ssm
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.2-endpointssmmessages/" title="Tạo Endpoint ssmmessages" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.2-endpointssmmessages/">
-           <b> 3.2.2.2 </b> Tạo Endpoint ssmmessages
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.3-endpointec2messages/" title="Tạo Endpoint ec2messages" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.3-endpointec2messages/">
-           <b> 3.2.2.3 </b> Tạo Endpoint ec2messages
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.3-connectec2/" title="Kết nối EC2 Private" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.3-connectec2/">
-           <b> 3.2.3 </b> Kết nối EC2 Private
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -668,142 +352,18 @@
  
   
     
-    <li data-nav-id="/vi/4-s3log/" title="Quản lý session logs" class="dd-item 
+    <li data-nav-id="/vi/4-s3log/" title="Tạo RDS database và triển khai web" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-s3log/">
-           <b> 4. </b> Quản lý session logs
+           <b> 4. </b> Tạo RDS database và triển khai web
           
             <i class="fas fa-check read-icon"></i>
           
       </a>
       
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.1-updateiamrole/" title="Cập nhật IAM Role" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.1-updateiamrole/">
-           <b> 4.1 </b> Cập nhật IAM Role
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.2-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.2-creates3bucket/">
-           <b> 4.2 </b> Tạo S3 Bucket
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.3-creategwes3/" title="Tạo S3 Gateway endpoint" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.3-creategwes3/">
-           <b> 4.3 </b> Tạo S3 Gateway endpoint
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.4-configsessionlogs/" title="Theo dõi session logs" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.4-configsessionlogs/">
-           <b> 4.4 </b> Theo dõi session logs
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -818,13 +378,13 @@
  
   
     
-    <li data-nav-id="/vi/5-portfwd/" title="Port Forwarding" class="dd-item 
+    <li data-nav-id="/vi/5-portfwd/" title="Tổng Quan và Cấu Hình AWS WAF ,cloudfront&#34;" class="dd-item 
         
         active
         
         ">
       <a href="/vi/5-portfwd/">
-           <b> 5. </b> Port Forwarding
+           <b> 5. </b> Tổng Quan và Cấu Hình AWS WAF ,cloudfront&#34;
           
             <i class="fas fa-check read-icon"></i>
           
@@ -844,13 +404,39 @@
  
   
     
-    <li data-nav-id="/vi/6-cleanup/" title="Dọn dẹp tài nguyên  " class="dd-item 
+    <li data-nav-id="/vi/6-cleanu/" title="Graph Neural Networks với Neptune ML(chưa xong)" class="dd-item 
         
         
         
         ">
-      <a href="/vi/6-cleanup/">
-          <b>6. </b>Dọn dẹp tài nguyên  
+      <a href="/vi/6-cleanu/">
+          <b> 6. </b>Graph Neural Networks với Neptune ML(chưa xong)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-clean/" title="Dọn dẹp" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-clean/">
+          <b> 7. </b>Dọn dẹp
           
             <i class="fas fa-check read-icon"></i>
           
@@ -999,7 +585,7 @@
             
           
           
-            <a href='/vi/'>Session Management</a> > Port Forwarding
+            <a href='/vi/'>Xây dựng hệ thống bán sách trực tuyến triển khai trên AWS</a> > Tổng Quan và Cấu Hình AWS WAF ,cloudfront"
           
         
           
@@ -1012,11 +598,37 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#-ii-các-bước-cấu-hình-aws-waf">🛠️ II. Các bước cấu hình AWS WAF</a>
       <ul>
         <li></li>
+        <li><a href="#1-tạo-web-acl-access-control-list">1. Tạo Web ACL (Access Control List)</a></li>
+        <li><a href="#2-chọn-tài-nguyên-cần-bảo-vệ">2. Chọn tài nguyên cần bảo vệ</a></li>
+        <li><a href="#3-thêm-các-rule-vào-web-acl">3. Thêm các Rule vào Web ACL</a></li>
+        <li><a href="#4-cấu-hình-hành-động-cho-mỗi-rule">4. Cấu hình hành động cho mỗi Rule</a></li>
+        <li><a href="#5-gắn-web-acl-với-resource">5. Gắn Web ACL với Resource</a></li>
       </ul>
     </li>
+  </ul>
+
+  <ul>
+    <li><a href="#-mục-tiêu">✅ Mục tiêu</a></li>
+    <li><a href="#-yêu-cầu">🧰 Yêu cầu</a></li>
+    <li><a href="#-bước-1-cài-đặt-gói-aws-logger">🔧 Bước 1: Cài đặt gói AWS Logger</a></li>
+    <li><a href="#-bước-2-cấu-hình-appsettingsjson">⚙️ Bước 2: Cấu hình <code>appsettings.json</code></a></li>
+    <li><a href="#-bước-3-cấu-hình-logger-trong-mã-nguồn">🧬 Bước 3: Cấu hình logger trong mã nguồn</a>
+      <ul>
+        <li><a href="#-đối-với-aspnet-core-mvc-net-6-trở-lên">✅ Đối với ASP.NET Core MVC (.NET 6 trở lên):</a></li>
+      </ul>
+    </li>
+    <li><a href="#-bước-4-cấu-hình-quyền-truy-cập-aws">🔐 Bước 4: Cấu hình quyền truy cập AWS</a>
+      <ul>
+        <li><a href="#-nếu-chạy-trên-ec2">👉 Nếu chạy trên EC2:</a></li>
+        <li><a href="#-nếu-chạy-local-dev">👉 Nếu chạy local (dev):</a></li>
+      </ul>
+    </li>
+    <li><a href="#-bước-5-thêm-dòng-ghi-log-trong-controller">🧪 Bước 5: Thêm dòng ghi log trong controller</a></li>
+    <li><a href="#-bước-6-kiểm-tra-log-trên-aws">📊 Bước 6: Kiểm tra log trên AWS</a></li>
+    <li><a href="#-ghi-chú-thêm">🧩 Ghi chú thêm</a></li>
   </ul>
 </nav>
     </div>
@@ -1034,7 +646,7 @@
           
             <h1>
               
-              Port Forwarding
+              Tổng Quan và Cấu Hình AWS WAF ,cloudfront&#34;
             </h1>
           
 
@@ -1042,83 +654,186 @@
 
 
 
-	
-<div class="notices info" ><p><strong>Port Forwarding</strong> là mốt cách thức hữu ích để chuyển hướng lưu lượng mạng từ 1 địa chỉ IP - Port này sang 1 địa chỉ IP - Port khác. Với <strong>Port Forwarding</strong> chúng ta có thể truy cập một EC2 instance nằm trong private subnet từ máy trạm của chúng ta.</p>
-</div>
-
-<p>Chúng ta sẽ cấu hình <strong>Port Forwarding</strong> cho kết nối RDP giữa máy của mình với <strong>Private Windows Instance</strong> nằm trong private subnet mà chúng ta đã tạo cho bài thực hành này.</p>
-<p><img alt="port-fwd" src="/images/arc-04.png"></p>
-<h4 id="tạo-iam-user-có-quyền-kết-nối-ssm">Tạo IAM User có quyền kết nối SSM</h4>
+	<h1 id="-i-tổng-quan-aws-waf">🔐 I. Tổng quan AWS WAF</h1>
+<p><strong>AWS WAF (Web Application Firewall)</strong> là dịch vụ tường lửa ứng dụng web giúp bảo vệ website hoặc API khỏi các mối đe dọa phổ biến như:</p>
+<ul>
+<li>SQL Injection</li>
+<li>Cross-Site Scripting (XSS)</li>
+<li>Tấn công DDoS (khi kết hợp với <strong>AWS Shield</strong>)</li>
+<li>Các request bất thường (dựa trên IP, quốc gia, header,&hellip;)</li>
+</ul>
+<hr>
+<h2 id="-ii-các-bước-cấu-hình-aws-waf">🛠️ II. Các bước cấu hình AWS WAF</h2>
+<h4 id="1-tạo-application-load-balancer-alb">1. Tạo Application Load Balancer (ALB)</h4>
+<ul>
+<li>Vào <strong>EC2 Console</strong> → <strong>Load Balancers</strong> → <strong>Create Load Balancer</strong>
+<img alt="FWD" src="/images/5.fwd/waf3.png"></li>
+<li>Chọn loại: <strong>Application Load Balancer</strong></li>
+<li>Cấu hình:
+<ul>
+<li>Đặt tên ALB</li>
+<li>Chọn schema: Internet-facing (nếu website public)</li>
+<li>Chọn VPC, Subnet</li>
+<li>Cấu hình security group mở port 80/443
+<img alt="FWD" src="/images/5.fwd/waf4.png"></li>
+</ul>
+</li>
+</ul>
+<h4 id="tạo-target-group">Tạo Target Group</h4>
+<ul>
+<li>Trong quá trình tạo ALB, chọn <strong>Create a new target group</strong>
+<img alt="FWD" src="/images/5.fwd/waf8.png"></li>
+<li>Loại target: <strong>Instance</strong></li>
+<li>Chọn protocol: <strong>HTTP hoặc HTTPS</strong></li>
+<li>Thêm các <strong>EC2 instances</strong> đang chạy website vào target group
+<img alt="FWD" src="/images/5.fwd/waf5.png">
+<img alt="FWD" src="/images/5.fwd/waf6.png">
+<img alt="FWD" src="/images/5.fwd/waf7.png"></li>
+</ul>
+<p><img alt="FWD" src="/images/5.fwd/waf9.png">
+<img alt="FWD" src="/images/5.fwd/waf10.png">
+<img alt="FWD" src="/images/5.fwd/waf11.png"></p>
+<h4 id="3-gắn-aws-waf-vào-alb">3. Gắn AWS WAF vào ALB</h4>
+<ul>
+<li>Truy cập <strong>AWS WAF &amp; Shield</strong></li>
+<li>Chọn <strong>Web ACLs</strong> → <strong>Create Web ACL</strong></li>
+<li>Tại bước <strong>Association</strong>, chọn ALB bạn vừa tạo</li>
+</ul>
+<h3 id="1-tạo-web-acl-access-control-list">1. Tạo Web ACL (Access Control List)</h3>
+<ul>
+<li>Truy cập <strong>AWS Console</strong> → Tìm <strong>WAF &amp; Shield</strong>
+<img alt="FWD" src="/images/5.fwd/image.png"></li>
+<li>Chọn <strong>Web ACLs</strong> → <strong>Create web ACL</strong>
+<img alt="FWD" src="/images/5.fwd/waf1.png"></li>
+<li>Đặt tên, chọn <strong>Region</strong> nếu sử dụng <strong>ALB</strong>, hoặc <strong>CloudFront</strong> nếu sử dụng CDN.
+<img alt="FWD" src="/images/5.fwd/waf2.png"></li>
+</ul>
+<p><img alt="FWD" src="/images/5.fwd/waf12.png"></p>
+<h3 id="2-chọn-tài-nguyên-cần-bảo-vệ">2. Chọn tài nguyên cần bảo vệ</h3>
+<ul>
+<li>Gắn Web ACL với một trong các dịch vụ:
+<ul>
+<li><strong>Application Load Balancer (ALB)</strong></li>
+<li><strong>Amazon API Gateway</strong></li>
+<li><strong>Amazon CloudFront</strong> (Khuyến khích nếu website phục vụ toàn cầu)</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-thêm-các-rule-vào-web-acl">3. Thêm các Rule vào Web ACL</h3>
+<p>Bạn có thể chọn:</p>
+<h4 id="-managed-rule-groups-của-aws">✅ Managed Rule Groups của AWS:</h4>
+<p><img alt="FWD" src="/images/5.fwd/waf13.png"></p>
+<p><img alt="FWD" src="/images/5.fwd/waf14.png"></p>
+<h3 id="4-cấu-hình-hành-động-cho-mỗi-rule">4. Cấu hình hành động cho mỗi Rule</h3>
+<ul>
+<li><code>Allow</code>: Cho phép</li>
+<li><code>Block</code>: Chặn</li>
+<li><code>Count</code>: Ghi nhận nhưng không chặn (giúp kiểm thử trước khi áp dụng thực tế)</li>
+</ul>
+<h3 id="5-gắn-web-acl-với-resource">5. Gắn Web ACL với Resource</h3>
+<p>Sau khi tạo Web ACL, bạn gắn nó với tài nguyên cần bảo vệ:</p>
+<p>Client → CloudFront (gắn AWS WAF) → ALB → EC2/Laragon (.NET App)
+<img alt="FWD" src="/images/5.fwd/waf15.png">
+<img alt="FWD" src="/images/5.fwd/waf16.png"></p>
+<h1 id="tích-hợp-aws-cloudwatch-vào-ứng-dụng-aspnet-mvc">Tích hợp AWS CloudWatch vào ứng dụng ASP.NET MVC</h1>
+<h2 id="-mục-tiêu">✅ Mục tiêu</h2>
+<ul>
+<li>Ghi log lỗi, log hệ thống từ <strong>ASP.NET MVC</strong> lên <strong>AWS CloudWatch Logs</strong></li>
+<li>Tự động tạo Log Group/Stream nếu chưa có</li>
+<li>Không cần cài CloudWatch Agent</li>
+</ul>
+<hr>
+<h2 id="-yêu-cầu">🧰 Yêu cầu</h2>
+<ul>
+<li>Ứng dụng ASP.NET MVC (Core hoặc .NET Framework)</li>
+<li>Tài khoản AWS và IAM user có quyền ghi CloudWatch Logs</li>
+</ul>
+<hr>
+<h2 id="-bước-1-cài-đặt-gói-aws-logger">🔧 Bước 1: Cài đặt gói AWS Logger</h2>
+<p>Mở terminal hoặc Package Manager Console và chạy:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet add package AWS.Logger.AspNetCore
+</span></span></code></pre></div><blockquote>
+<p>Nếu bạn dùng .NET Framework MVC cũ, thay vào đó dùng:<br>
+<code>AWS.Logger.Log4Net</code> hoặc <code>AWS.Logger.NLog</code> tuỳ theo hệ thống logging bạn sử dụng.</p>
+</blockquote>
+<hr>
+<h2 id="-bước-2-cấu-hình-appsettingsjson">⚙️ Bước 2: Cấu hình <code>appsettings.json</code></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;AWS&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Region&#34;</span>: <span style="color:#e6db74">&#34;ap-southeast-1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;LogGroup&#34;</span>: <span style="color:#e6db74">&#34;MvcAppLogGroup&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Logging&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;LogLevel&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Default&#34;</span>: <span style="color:#e6db74">&#34;Information&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Microsoft&#34;</span>: <span style="color:#e6db74">&#34;Warning&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="-bước-3-cấu-hình-logger-trong-mã-nguồn">🧬 Bước 3: Cấu hình logger trong mã nguồn</h2>
+<h3 id="-đối-với-aspnet-core-mvc-net-6-trở-lên">✅ Đối với ASP.NET Core MVC (.NET 6 trở lên):</h3>
+<p>Sửa file <code>Program.cs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> AWS.Logger.AspNetCore;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> builder = WebApplication.CreateBuilder(args);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>builder.Logging.AddAWSProvider(builder.Configuration.GetAWSLoggingConfigSection());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>builder.Services.AddControllersWithViews();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> app = builder.Build();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app.UseRouting();
+</span></span><span style="display:flex;"><span>app.UseAuthorization();
+</span></span><span style="display:flex;"><span>app.MapDefaultControllerRoute();
+</span></span><span style="display:flex;"><span>app.Run();
+</span></span></code></pre></div><hr>
+<h2 id="-bước-4-cấu-hình-quyền-truy-cập-aws">🔐 Bước 4: Cấu hình quyền truy cập AWS</h2>
+<h3 id="-nếu-chạy-trên-ec2">👉 Nếu chạy trên EC2:</h3>
+<p>Gán IAM Role cho EC2 instance với quyền:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Action&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;logs:CreateLogGroup&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;logs:CreateLogStream&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;logs:PutLogEvents&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="-nếu-chạy-local-dev">👉 Nếu chạy local (dev):</h3>
+<p>Tạo file <code>~/.aws/credentials</code> hoặc <code>C:\Users\&lt;tên user&gt;\.aws\credentials</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[default]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">aws_access_key_id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">YOUR_ACCESS_KEY</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">aws_secret_access_key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">YOUR_SECRET_KEY</span>
+</span></span></code></pre></div><hr>
+<h2 id="-bước-5-thêm-dòng-ghi-log-trong-controller">🧪 Bước 5: Thêm dòng ghi log trong controller</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger&lt;HomeController&gt; _logger;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> HomeController(ILogger&lt;HomeController&gt; logger)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    _logger = logger;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> IActionResult Index()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    _logger.LogInformation(<span style="color:#e6db74">&#34;Trang chủ được truy cập lúc &#34;</span> + DateTime.Now);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> View();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="-bước-6-kiểm-tra-log-trên-aws">📊 Bước 6: Kiểm tra log trên AWS</h2>
 <ol>
-<li>Truy cập vào <a href="https://console.aws.amazon.com/iamv2/home">giao diện quản trị dịch vụ IAM</a></li>
+<li>Truy cập <strong>AWS Console &gt; CloudWatch &gt; Log groups</strong></li>
+<li>Chọn <code>MvcAppLogGroup</code></li>
+<li>Chọn log stream để xem chi tiết</li>
 </ol>
+<hr>
+<h2 id="-ghi-chú-thêm">🧩 Ghi chú thêm</h2>
 <ul>
-<li>Click <strong>Users</strong> , sau đó click <strong>Add users</strong>.</li>
+<li>Bạn có thể dùng thêm <code>AWS X-Ray</code> để trace hiệu năng request nếu ứng dụng phức tạp.</li>
+<li>Có thể tích hợp <code>LogLevel</code>, <code>EventID</code>, <code>Exception</code> để có log chi tiết hơn.</li>
 </ul>
-<p><img alt="FWD" src="/images/5.fwd/001-fwd.png"></p>
-<ol start="2">
-<li>Tại trang <strong>Add user</strong>.</li>
-</ol>
-<ul>
-<li>Tại mục <strong>User name</strong>, điền <strong>Portfwd</strong>.</li>
-<li>Click chọn <strong>Access key - Programmatic access</strong>.</li>
-<li>Click <strong>Next: Permissions</strong>.</li>
-</ul>
-<p><img alt="FWD" src="/images/5.fwd/002-fwd.png"></p>
-<ol start="3">
-<li>Click <strong>Attach existing policies directly</strong>.</li>
-</ol>
-<ul>
-<li>Tại ô tìm kiếm , điền <strong>ssm</strong>.</li>
-<li>Click chọn <strong>AmazonSSMFullAccess</strong>.</li>
-<li>Click <strong>Next: Tags</strong>, click <strong>Next: Reviews</strong>.</li>
-<li>Click <strong>Create user</strong>.</li>
-</ul>
-<ol start="4">
-<li>Lưu lại thông tin <strong>Access key ID</strong> và <strong>Secret access key</strong> để thực hiện cấu hình AWS CLI.</li>
-</ol>
-<h4 id="cài-đặt-và-cấu-hình-aws-cli-và-session-manager-plugin">Cài đặt và cấu hình AWS CLI và Session Manager Plugin</h4>
-<p>Để thực hiện phần thực hành này, đảm bảo máy trạm của bạn đã cài <a href="/vi/">AWS CLI</a> và <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Session Manager Plugin</a></p>
-<p>Bạn có thể tham khảo thêm bài thực hành về cài đặt và cấu hình AWS CLI <a href="https://000011.awsstudygroup.com/">tại đây</a>.</p>
-
-<div class="notices tip" ><p>Với Windows thì khi giải nén thư mục cài đặt <strong>Session Manager Plugin</strong> bạn hãy chạy file <strong>install.bat</strong> với quyền Administrator để thực hiện cài đặt.</p>
-</div>
-
-<h4 id="thực-hiện-portforwarding">Thực hiện Portforwarding</h4>
-<ol>
-<li>Chạy command dưới đây trong <strong>Command Prompt</strong> trên máy của bạn để cấu hình <strong>Port Forwarding</strong>.</li>
-</ol>
-<pre tabindex="0"><code>  aws ssm start-session --target (your ID windows instance) --document-name AWS-StartPortForwardingSession --parameters portNumber=&#34;3389&#34;,localPortNumber=&#34;9999&#34; --region (your region) 
-</code></pre>
-<div class="notices tip" ><p>Thông tin <strong>Instance ID</strong> của <strong>Windows Private Instance</strong> có thể tìm được khi bạn xem chi tiết máy chủ EC2 Windows Private Instance.</p>
-</div>
-
-<ul>
-<li>Câu lệnh ví dụ</li>
-</ul>
-<pre tabindex="0"><code>C:\Windows\system32&gt;aws ssm start-session --target i-06343d7377486760c --document-name AWS-StartPortForwardingSession --parameters portNumber=&#34;3389&#34;,localPortNumber=&#34;9999&#34; --region ap-southeast-1
-</code></pre>
-<div class="notices warning" ><p>Nếu câu lệnh của bạn báo lỗi như dưới đây : <br>
-SessionManagerPlugin is not found. Please refer to SessionManager Documentation here: <a href="http://docs.aws.amazon.com/console/systems-manager/session-manager-plugin-not-found">http://docs.aws.amazon.com/console/systems-manager/session-manager-plugin-not-found</a><br>
-Chứng tỏ bạn chưa cài Session Manager Plugin thành công. Bạn có thể cần khởi chạy lại <strong>Command Prompt</strong> sau khi cài <strong>Session Manager Plugin</strong>.</p>
-</div>
-
-<ol start="2">
-<li>Kết nối tới <strong>Private Windows Instance</strong> bạn đã tạo bằng công cụ <strong>Remote Desktop</strong> trên máy trạm của bạn.</li>
-</ol>
-<ul>
-<li>Tại mục Computer: điền <strong>localhost:9999</strong>.</li>
-</ul>
-<p><img alt="FWD" src="/images/5.fwd/003-fwd.png"></p>
-<ol start="3">
-<li>Quay trở lại giao diện quản trị của dịch vụ System Manager - Session Manager.</li>
-</ol>
-<ul>
-<li>Click tab <strong>Session history</strong>.</li>
-<li>Chúng ta sẽ thấy các session logs với tên Document là <strong>AWS-StartPortForwardingSession</strong>.</li>
-</ul>
-<p><img alt="FWD" src="/images/5.fwd/004-fwd.png"></p>
-<p>Chúc mừng bạn đã hoàn tất bài thực hành hướng dẫn cách sử dụng Session Manager để kết nối cũng như lưu trữ các session logs trong S3 bucket. Hãy nhớ thực hiện bước dọn dẹp tài nguyên để tránh sinh chi phí ngoài ý muốn nhé.</p>
+<hr>
+<p><strong>Chúc bạn triển khai thành công!</strong> Nếu bạn cần bản mẫu cho .NET Framework MVC hoặc muốn cấu hình ghi log nâng cao, hãy để lại bình luận hoặc liên hệ.</p>
 
 
 
@@ -1267,19 +982,6 @@ Chứng tỏ bạn chưa cài Session Manager Plugin thành công. Bạn có th�
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -1298,206 +1000,6 @@ Chứng tỏ bạn chưa cài Session Manager Plugin thành công. Bạn có th�
                     
             
         
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -1539,25 +1041,6 @@ Chứng tỏ bạn chưa cài Session Manager Plugin thành công. Bạn có th�
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -1577,6 +1060,22 @@ Chứng tỏ bạn chưa cài Session Manager Plugin thành công. Bạn có th�
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1598,10 +1097,10 @@ Chứng tỏ bạn chưa cài Session Manager Plugin thành công. Bạn có th�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/4-s3log/4.4-configsessionlogs/" title="Theo dõi session logs"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/4-s3log/" title="Tạo RDS database và triển khai web"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/6-cleanup/" title="Dọn dẹp tài nguyên  " style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/6-cleanu/" title="Graph Neural Networks với Neptune ML(chưa xong)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1611,19 +1110,19 @@ Chứng tỏ bạn chưa cài Session Manager Plugin thành công. Bạn có th�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752128842"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752128842"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752128842"></script>
-    <script src="/js/jquery.sticky.js?1752128842"></script>
-    <script src="/js/featherlight.min.js?1752128842"></script>
-    <script src="/js/highlight.pack.js?1752128842"></script>
+    <script src="/js/clipboard.min.js?1754393161"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754393161"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754393161"></script>
+    <script src="/js/jquery.sticky.js?1754393161"></script>
+    <script src="/js/featherlight.min.js?1754393161"></script>
+    <script src="/js/highlight.pack.js?1754393161"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752128842"></script>
-    <script src="/js/learn.js?1752128842"></script>
-    <script src="/js/hugo-learn.js?1752128842"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754393161"></script>
+    <script src="/js/learn.js?1754393161"></script>
+    <script src="/js/hugo-learn.js?1754393161"></script>
 
-    <link href="/mermaid/mermaid.css?1752128842" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752128842"></script>
+    <link href="/mermaid/mermaid.css?1754393161" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754393161"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

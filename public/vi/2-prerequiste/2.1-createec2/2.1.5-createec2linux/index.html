@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tạo Public Linux EC2 :: AWS System Manager</title>
+    <title>Tạo Linux EC2 :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1752128842" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752128842" rel="stylesheet">
-    <link href="/css/hybrid.css?1752128842" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752128842" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752128842" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752128842" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752128842" rel="stylesheet">
-    <link href="/css/theme.css?1752128842" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752128842" rel="stylesheet">
+    <link href="/css/nucleus.css?1754393095" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754393095" rel="stylesheet">
+    <link href="/css/hybrid.css?1754393095" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754393095" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754393095" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754393095" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754393095" rel="stylesheet">
+    <link href="/css/theme.css?1754393095" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754393095" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752128842" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754393095" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752128842"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754393095"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752128842"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752128842"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754393095"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754393095"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752128842"></script>
+<script type="text/javascript" src="/js/search.js?1754393095"></script>
 
     
   </div>
@@ -170,13 +170,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC " class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC và chỉnh cấu hình" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/">
-           <b> 2.1.1 </b> Tạo VPC 
+           <b> 2.1.1 </b> Tạo VPC và chỉnh cấu hình
           
             <i class="fas fa-check read-icon"></i>
           
@@ -226,13 +226,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo Private subnet" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo EC2 Security Group" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/">
-           <b> 2.1.3 </b> Tạo Private subnet
+           <b> 2.1.3 </b> Tạo EC2 Security Group
           
             <i class="fas fa-check read-icon"></i>
           
@@ -254,13 +254,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/" title="Tạo các security group" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/" title="Tạo Security Group cho Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/">
-           <b> 2.1.4 </b> Tạo các security group
+           <b> 2.1.4 </b> Tạo Security Group cho Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -282,13 +282,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.5-createec2linux/" title="Tạo Public Linux EC2" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.5-createec2linux/" title="Tạo Linux EC2" class="dd-item 
         
         active
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.5-createec2linux/">
-           <b> 2.1.5 </b> Tạo Public Linux EC2
+           <b> 2.1.5 </b> Tạo Linux EC2
           
             <i class="fas fa-check read-icon"></i>
           
@@ -394,266 +394,6 @@
           
       </a>
       
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.1-public-instance/" title="Kết nối đến máy chủ Public" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.1-public-instance/">
-           <b> 3.1. </b> Kết nối đến máy chủ Public
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/" title="Tạo kết nối đến máy chủ EC2 Private" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/">
-           <b> 3.2. </b> Tạo kết nối đến máy chủ EC2 Private
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.1-enablevpcdns/" title="Kích hoạt DNS hostnames" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.1-enablevpcdns/">
-           <b> 3.2.1 </b> Kích hoạt DNS hostnames
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/" title="Tạo VPC Endpoint" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/">
-           <b> 3.2.2 </b> Tạo VPC Endpoint
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.1-endpointssm/" title="Tạo Endpoint ssm" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.1-endpointssm/">
-           <b> 3.2.2.1 </b> Tạo Endpoint ssm
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.2-endpointssmmessages/" title="Tạo Endpoint ssmmessages" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.2-endpointssmmessages/">
-           <b> 3.2.2.2 </b> Tạo Endpoint ssmmessages
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.3-endpointec2messages/" title="Tạo Endpoint ec2messages" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.3-endpointec2messages/">
-           <b> 3.2.2.3 </b> Tạo Endpoint ec2messages
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.3-connectec2/" title="Kết nối EC2 Private" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.3-connectec2/">
-           <b> 3.2.3 </b> Kết nối EC2 Private
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -668,142 +408,18 @@
  
   
     
-    <li data-nav-id="/vi/4-s3log/" title="Quản lý session logs" class="dd-item 
+    <li data-nav-id="/vi/4-s3log/" title="Tạo RDS database và triển khai web" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-s3log/">
-           <b> 4. </b> Quản lý session logs
+           <b> 4. </b> Tạo RDS database và triển khai web
           
             <i class="fas fa-check read-icon"></i>
           
       </a>
       
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.1-updateiamrole/" title="Cập nhật IAM Role" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.1-updateiamrole/">
-           <b> 4.1 </b> Cập nhật IAM Role
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.2-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.2-creates3bucket/">
-           <b> 4.2 </b> Tạo S3 Bucket
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.3-creategwes3/" title="Tạo S3 Gateway endpoint" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.3-creategwes3/">
-           <b> 4.3 </b> Tạo S3 Gateway endpoint
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.4-configsessionlogs/" title="Theo dõi session logs" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.4-configsessionlogs/">
-           <b> 4.4 </b> Theo dõi session logs
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -818,13 +434,13 @@
  
   
     
-    <li data-nav-id="/vi/5-portfwd/" title="Port Forwarding" class="dd-item 
+    <li data-nav-id="/vi/5-portfwd/" title="Tổng Quan và Cấu Hình AWS WAF ,cloudfront&#34;" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-portfwd/">
-           <b> 5. </b> Port Forwarding
+           <b> 5. </b> Tổng Quan và Cấu Hình AWS WAF ,cloudfront&#34;
           
             <i class="fas fa-check read-icon"></i>
           
@@ -844,13 +460,39 @@
  
   
     
-    <li data-nav-id="/vi/6-cleanup/" title="Dọn dẹp tài nguyên  " class="dd-item 
+    <li data-nav-id="/vi/6-cleanu/" title="Graph Neural Networks với Neptune ML(chưa xong)" class="dd-item 
         
         
         
         ">
-      <a href="/vi/6-cleanup/">
-          <b>6. </b>Dọn dẹp tài nguyên  
+      <a href="/vi/6-cleanu/">
+          <b> 6. </b>Graph Neural Networks với Neptune ML(chưa xong)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-clean/" title="Dọn dẹp" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-clean/">
+          <b> 7. </b>Dọn dẹp
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1007,7 +649,7 @@
             
           
           
-            <a href='/vi/'>Session Management</a> > <a href='/vi/2-prerequiste/'>Các Bước Chuẩn Bị</a> > <a href='/vi/2-prerequiste/2.1-createec2/'>Chuẩn bị VPC và EC2</a> > Tạo Public Linux EC2
+            <a href='/vi/'>Xây dựng hệ thống bán sách trực tuyến triển khai trên AWS</a> > <a href='/vi/2-prerequiste/'>Các Bước Chuẩn Bị</a> > <a href='/vi/2-prerequiste/2.1-createec2/'>Chuẩn bị VPC và EC2</a> > Tạo Linux EC2
           
         
           
@@ -1038,7 +680,7 @@
           
             <h1>
               
-              Tạo Public Linux EC2
+              Tạo Linux EC2
             </h1>
           
 
@@ -1047,88 +689,18 @@
 
 
 	<ol>
-<li>Truy cập <a href="https://console.aws.amazon.com/ec2/v2/home">giao diện quản trị dịch vụ EC2</a></li>
+<li>Truy cập <a href="https://console.aws.amazon.com/ec2/v2/home">giao diện quản trị dịch vụ EC2</a>
+<a href="/images/2.prerequisite/ec2sv1.png">EC2</a></li>
 </ol>
 <ul>
 <li>Click <strong>Instances</strong>.</li>
 <li>Click <strong>Launch instances</strong>.</li>
 </ul>
-<p><img alt="EC2" src="/images/2.prerequisite/027-createec2.png"></p>
-<ol start="2">
-<li>Tại trang <strong>Step 1: Choose an Amazon Machine Image (AMI)</strong>.</li>
-</ol>
-<ul>
-<li>Click <strong>Select</strong> để lựa chọn AMI <strong>Amazon Linux 2 AMI</strong>.</li>
-</ul>
-<p><img alt="EC2" src="/images/2.prerequisite/028-createec2.png"></p>
+<p><a href="/images/2.prerequisite/ec2sv2.png">EC2</a>
+!</p>
 <ol start="3">
-<li>Tại trang <strong>Step 2: Choose an Instance Type</strong>.</li>
+<li>Tại trang **Step</li>
 </ol>
-<ul>
-<li>Click chọn Instance type <strong>t2.micro</strong>.</li>
-<li>Click <strong>Next: Configure Instance Details</strong>.</li>
-</ul>
-<p><img alt="EC2" src="/images/2.prerequisite/029-createec2.png"></p>
-<ol start="4">
-<li>Tại trang <strong>Step 3: Configure Instance Details</strong></li>
-</ol>
-<ul>
-<li>Tại mục <strong>Network</strong> chọn <strong>Lab VPC</strong>.</li>
-<li>Tại mục <strong>Subnet</strong> chọn <strong>Lab Public Subnet</strong>.</li>
-<li>Tại mục <strong>Auto-assign Public IP</strong> chọn <strong>Use subnet setting (Enable)</strong></li>
-<li>Click <strong>Next: Add Storage</strong>.</li>
-</ul>
-<p><img alt="EC2" src="/images/2.prerequisite/030-createec2.png"></p>
-<ol start="5">
-<li>Click <strong>Next: Add Tags</strong> để chuyển sang bước kế tiếp.</li>
-</ol>
-<ul>
-<li>Click <strong>Next: Configure Security Group</strong> để chuyển sang bước kế tiếp.</li>
-</ul>
-<ol start="6">
-<li>Tại trang <strong>Step 6: Configure Security Group</strong>.</li>
-</ol>
-<ul>
-<li>Chọn <strong>Select an existing security group</strong>.</li>
-<li>Chọn security group <strong>SG Public Linux Instance</strong>.</li>
-<li>Click <strong>Review and Launch</strong>.</li>
-</ul>
-<p><img alt="EC2" src="/images/2.prerequisite/031-createec2.png"></p>
-<ol start="7">
-<li>
-<p>Hộp thoại cảnh báo hiện lên vì chúng ta không cấu hình tường lửa cho phép kết nối vào port 22, Click <strong>Continue</strong> để tiếp tục.</p>
-</li>
-<li>
-<p>Tại trang <strong>Step 7: Review Instance Launch</strong>.</p>
-</li>
-</ol>
-<ul>
-<li>Click <strong>Launch</strong>.</li>
-</ul>
-<ol start="9">
-<li>Tại hộp thoại <strong>Select an existing key pair or create a new key pair</strong>.</li>
-</ol>
-<ul>
-<li>Click chọn <strong>Create a new key pair</strong>.</li>
-<li>Tại mục <strong>Key pair name</strong> điền <strong>LabKeypair</strong>.</li>
-<li>Click <strong>Download Key Pair</strong> và lưu xuống máy tính của bạn.</li>
-<li>Click <strong>Launch Instances</strong> để tạo máy chủ EC2.</li>
-</ul>
-<p><img alt="EC2" src="/images/2.prerequisite/032-createec2.png"></p>
-<ol start="10">
-<li>
-<p>Click <strong>View Instances</strong> để quay lại danh mục EC2 instances.</p>
-</li>
-<li>
-<p>Click vào biểu tượng edit dưới cột <strong>Name</strong>.</p>
-</li>
-</ol>
-<ul>
-<li>Tại hộp thoại <strong>Edit Name</strong> điền <strong>Public Linux Instance</strong>.</li>
-<li>Click <strong>Save</strong>.</li>
-</ul>
-<p><img alt="EC2" src="/images/2.prerequisite/033-createec2.png"></p>
-<p>Tiếp theo chúng ta sẽ thực hiện tương tự để tạo 1 EC2 Instance Windows chạy trong Private subnet.</p>
 
 
 
@@ -1350,83 +922,6 @@
 
                     
                     
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
 
                     
@@ -1461,113 +956,6 @@
                     
                     
 
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
             
         
@@ -1613,7 +1001,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/" title="Tạo các security group"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/" title="Tạo Security Group cho Amazon RDS"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/vi/2-prerequiste/2.1-createec2/2.1.6-createec2windows/" title="Tạo Private Windows EC2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1626,19 +1014,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752128842"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752128842"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752128842"></script>
-    <script src="/js/jquery.sticky.js?1752128842"></script>
-    <script src="/js/featherlight.min.js?1752128842"></script>
-    <script src="/js/highlight.pack.js?1752128842"></script>
+    <script src="/js/clipboard.min.js?1754393095"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754393095"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754393095"></script>
+    <script src="/js/jquery.sticky.js?1754393095"></script>
+    <script src="/js/featherlight.min.js?1754393095"></script>
+    <script src="/js/highlight.pack.js?1754393095"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752128842"></script>
-    <script src="/js/learn.js?1752128842"></script>
-    <script src="/js/hugo-learn.js?1752128842"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754393095"></script>
+    <script src="/js/learn.js?1754393095"></script>
+    <script src="/js/hugo-learn.js?1754393095"></script>
 
-    <link href="/mermaid/mermaid.css?1752128842" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752128842"></script>
+    <link href="/mermaid/mermaid.css?1754393095" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754393095"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

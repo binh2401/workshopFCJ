@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Quản lý session logs :: AWS System Manager</title>
+    <title>Tạo RDS database và triển khai web :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1752128842" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752128842" rel="stylesheet">
-    <link href="/css/hybrid.css?1752128842" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752128842" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752128842" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752128842" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752128842" rel="stylesheet">
-    <link href="/css/theme.css?1752128842" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752128842" rel="stylesheet">
+    <link href="/css/nucleus.css?1754393161" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754393161" rel="stylesheet">
+    <link href="/css/hybrid.css?1754393161" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754393161" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754393161" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754393161" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754393161" rel="stylesheet">
+    <link href="/css/theme.css?1754393161" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754393161" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752128842" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754393161" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752128842"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754393161"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752128842"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752128842"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754393161"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754393161"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752128842"></script>
+<script type="text/javascript" src="/js/search.js?1754393161"></script>
 
     
   </div>
@@ -170,13 +170,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC " class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Tạo VPC và chỉnh cấu hình" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/">
-           <b> 2.1.1 </b> Tạo VPC 
+           <b> 2.1.1 </b> Tạo VPC và chỉnh cấu hình
           
             <i class="fas fa-check read-icon"></i>
           
@@ -226,13 +226,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo Private subnet" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Tạo EC2 Security Group" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/">
-           <b> 2.1.3 </b> Tạo Private subnet
+           <b> 2.1.3 </b> Tạo EC2 Security Group
           
             <i class="fas fa-check read-icon"></i>
           
@@ -254,69 +254,13 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/" title="Tạo các security group" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/" title="Tạo Security Group cho Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/">
-           <b> 2.1.4 </b> Tạo các security group
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.5-createec2linux/" title="Tạo Public Linux EC2" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/2-prerequiste/2.1-createec2/2.1.5-createec2linux/">
-           <b> 2.1.5 </b> Tạo Public Linux EC2
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/2.1.6-createec2windows/" title="Tạo Private Windows EC2" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/2-prerequiste/2.1-createec2/2.1.6-createec2windows/">
-           <b> 2.1.6 </b> Tạo Private Windows EC2
+           <b> 2.1.4 </b> Tạo Security Group cho Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -353,7 +297,7 @@
         
         ">
       <a href="/vi/2-prerequiste/2.2-createiamrole/">
-           <b> 2.3 </b> Tạo SNS và IAM cho gửi Email
+           <b> 2.2 </b> Tạo SNS và IAM cho gửi Email
           
             <i class="fas fa-check read-icon"></i>
           
@@ -394,266 +338,6 @@
           
       </a>
       
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.1-public-instance/" title="Kết nối đến máy chủ Public" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.1-public-instance/">
-           <b> 3.1. </b> Kết nối đến máy chủ Public
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/" title="Tạo kết nối đến máy chủ EC2 Private" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/">
-           <b> 3.2. </b> Tạo kết nối đến máy chủ EC2 Private
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.1-enablevpcdns/" title="Kích hoạt DNS hostnames" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.1-enablevpcdns/">
-           <b> 3.2.1 </b> Kích hoạt DNS hostnames
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/" title="Tạo VPC Endpoint" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/">
-           <b> 3.2.2 </b> Tạo VPC Endpoint
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.1-endpointssm/" title="Tạo Endpoint ssm" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.1-endpointssm/">
-           <b> 3.2.2.1 </b> Tạo Endpoint ssm
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.2-endpointssmmessages/" title="Tạo Endpoint ssmmessages" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.2-endpointssmmessages/">
-           <b> 3.2.2.2 </b> Tạo Endpoint ssmmessages
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.3-endpointec2messages/" title="Tạo Endpoint ec2messages" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.3-endpointec2messages/">
-           <b> 3.2.2.3 </b> Tạo Endpoint ec2messages
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.3-connectec2/" title="Kết nối EC2 Private" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.3-connectec2/">
-           <b> 3.2.3 </b> Kết nối EC2 Private
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -668,142 +352,18 @@
  
   
     
-    <li data-nav-id="/vi/4-s3log/" title="Quản lý session logs" class="dd-item 
+    <li data-nav-id="/vi/4-s3log/" title="Tạo RDS database và triển khai web" class="dd-item 
         
         active
         
         ">
       <a href="/vi/4-s3log/">
-           <b> 4. </b> Quản lý session logs
+           <b> 4. </b> Tạo RDS database và triển khai web
           
             <i class="fas fa-check read-icon"></i>
           
       </a>
       
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.1-updateiamrole/" title="Cập nhật IAM Role" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.1-updateiamrole/">
-           <b> 4.1 </b> Cập nhật IAM Role
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.2-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.2-creates3bucket/">
-           <b> 4.2 </b> Tạo S3 Bucket
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.3-creategwes3/" title="Tạo S3 Gateway endpoint" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.3-creategwes3/">
-           <b> 4.3 </b> Tạo S3 Gateway endpoint
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.4-configsessionlogs/" title="Theo dõi session logs" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.4-configsessionlogs/">
-           <b> 4.4 </b> Theo dõi session logs
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -818,13 +378,13 @@
  
   
     
-    <li data-nav-id="/vi/5-portfwd/" title="Port Forwarding" class="dd-item 
+    <li data-nav-id="/vi/5-portfwd/" title="Tổng Quan và Cấu Hình AWS WAF ,cloudfront&#34;" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-portfwd/">
-           <b> 5. </b> Port Forwarding
+           <b> 5. </b> Tổng Quan và Cấu Hình AWS WAF ,cloudfront&#34;
           
             <i class="fas fa-check read-icon"></i>
           
@@ -844,13 +404,39 @@
  
   
     
-    <li data-nav-id="/vi/6-cleanup/" title="Dọn dẹp tài nguyên  " class="dd-item 
+    <li data-nav-id="/vi/6-cleanu/" title="Graph Neural Networks với Neptune ML(chưa xong)" class="dd-item 
         
         
         
         ">
-      <a href="/vi/6-cleanup/">
-          <b>6. </b>Dọn dẹp tài nguyên  
+      <a href="/vi/6-cleanu/">
+          <b> 6. </b>Graph Neural Networks với Neptune ML(chưa xong)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-clean/" title="Dọn dẹp" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-clean/">
+          <b> 7. </b>Dọn dẹp
           
             <i class="fas fa-check read-icon"></i>
           
@@ -999,7 +585,7 @@
             
           
           
-            <a href='/vi/'>Session Management</a> > Quản lý session logs
+            <a href='/vi/'>Xây dựng hệ thống bán sách trực tuyến triển khai trên AWS</a> > Tạo RDS database và triển khai web
           
         
           
@@ -1014,9 +600,83 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#nôi-dung">Nội dung:</a></li>
+        <li><a href="#bước-1-cập-nhật-hệ-thống">Bước 1: Cập nhật hệ thống</a></li>
+        <li><a href="#2-cài-đặt-aspnet-trên-amazon-ec2-linux-2023-và-clone-file-trên-git">2. Cài đặt asp.net trên Amazon EC2 Linux 2023 và clone file trên git</a></li>
       </ul>
     </li>
+  </ul>
+
+  <ul>
+    <li><a href="#-các-bước-thực-hiện">🔧 Các bước thực hiện</a>
+      <ul>
+        <li><a href="#bước-1-mở-amazon-rds-console">Bước 1: Mở Amazon RDS Console</a></li>
+        <li><a href="#bước-2-chọn-phương-thức-tạo">Bước 2: Chọn phương thức tạo</a></li>
+        <li><a href="#bước-3-chọn-phiên-bản-và-edition">Bước 3: Chọn phiên bản và edition</a></li>
+        <li><a href="#bước-4-cấu-hình-thông-tin-đăng-nhập">Bước 4: Cấu hình thông tin đăng nhập</a></li>
+        <li><a href="#bước-5-chọn-lớp-máy-chủ-và-dung-lượng-lưu-trữ">Bước 5: Chọn lớp máy chủ và dung lượng lưu trữ</a></li>
+        <li><a href="#bước-6-cấu-hình-mạng-và-bảo-mật">Bước 6: Cấu hình mạng và bảo mật</a></li>
+        <li><a href="#bước-7-thiết-lập-nâng-cao-optional">Bước 7: Thiết lập nâng cao (Optional)</a></li>
+        <li><a href="#bước-8-tạo-sql-server-instance">Bước 8: Tạo SQL Server Instance</a></li>
+      </ul>
+    </li>
+    <li><a href="#-kết-nối-tới-rds-sql-server-hoặc-chỉ-cần-kết-nối-tới-data-dẫn-tới-code-trong-appsettingsjson">🔗 Kết nối tới RDS SQL Server hoặc chỉ cần kết nối tới data dẫn tới code trong appsettings.json</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#cài-đặt-mssql-tools-và-unixodbc-trên-amazon-linux-2023">Cài đặt <code>mssql-tools</code> và <code>unixODBC</code> trên Amazon Linux 2023</a></li>
+    <li><a href="#bước-1-thêm-kho-microsoft-vào-hệ-thống">Bước 1: Thêm kho Microsoft vào hệ thống</a></li>
+    <li><a href="#bước-2-cài-đặt-odbc-driver-và-mssql-tools">bước 2: Cài đặt ODBC Driver và mssql-tools</a></li>
+    <li><a href="#bước-3-thêm-sqlcmd-và-bcp-vào-path">bước 3: Thêm sqlcmd và bcp vào PATH</a></li>
+    <li><a href="#bước-4-kiểm-tra-cài-đặt">bước 4: Kiểm tra cài đặt</a></li>
+    <li><a href="#-xem-logs-và-events">📊 Xem Logs và Events</a></li>
+    <li><a href="#-xem-bảo-trì-và-sao-lưu">🛡 Xem bảo trì và sao lưu</a></li>
+    <li><a href="#-lưu-ý-quan-trọng">❗ Lưu ý quan trọng</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-thiết-lập-hạ-tầng-aws">1. Thiết lập hạ tầng AWS</a></li>
+    <li><a href="#2-kết-nối-vào-ec2-bằng-ssh">2. Kết nối vào EC2 bằng SSH</a></li>
+    <li><a href="#3-cài-đặt-môi-trường-trên-amazon-ec2-amazon-linux-2023">3. Cài đặt môi trường trên Amazon EC2 (Amazon Linux 2023)</a>
+      <ul>
+        <li><a href="#cập-nhật-hệ-thống">Cập nhật hệ thống:</a></li>
+        <li><a href="#cài-git">Cài Git:</a></li>
+        <li><a href="#cài-net-sdk--runtime">Cài .NET SDK &amp; Runtime:</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-upload-project-từ-máy-tính-cá-nhân-lên-ec2">4. Upload Project từ máy tính cá nhân lên EC2</a></li>
+    <li><a href="#5-publish-aspnet-project">5. Publish ASP.NET Project</a></li>
+    <li><a href="#6-cấu-hình-systemd-service">6. Cấu hình Systemd Service</a>
+      <ul>
+        <li><a href="#tạo-file-dịch-vụ">Tạo file dịch vụ:</a></li>
+        <li><a href="#nội-dung">Nội dung:</a></li>
+        <li><a href="#khởi-động-dịch-vụ">Khởi động dịch vụ:</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-cài-nginx-làm-reverse-proxy">7. Cài NGINX làm reverse proxy</a>
+      <ul>
+        <li><a href="#cấu-hình-nginx">Cấu hình NGINX:</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-cài-sqlcmd--kết-nối-rds">8. Cài <code>sqlcmd</code> &amp; kết nối RDS</a>
+      <ul>
+        <li><a href="#cài-công-cụ">Cài công cụ:</a></li>
+        <li><a href="#kết-nối-rds">Kết nối RDS:</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-apply-migration-với-ef-core">9. Apply Migration với EF Core</a>
+      <ul>
+        <li><a href="#cài-ef-tools">Cài EF Tools:</a></li>
+        <li><a href="#apply-database">Apply database:</a></li>
+      </ul>
+    </li>
+    <li><a href="#10-cập-nhật-appsettingsjson">10. Cập nhật <code>appsettings.json</code></a>
+      <ul>
+        <li><a href="#nội-dung-ví-dụ">Nội dung ví dụ:</a></li>
+        <li><a href="#lưu-lại">Lưu lại:</a></li>
+      </ul>
+    </li>
+    <li><a href="#11-restart--xem-log-dịch-vụ">11. Restart &amp; Xem log dịch vụ</a></li>
+    <li><a href="#-done">🎉 DONE!</a></li>
   </ul>
 </nav>
     </div>
@@ -1034,7 +694,7 @@
           
             <h1>
               
-              Quản lý session logs
+              Tạo RDS database và triển khai web
             </h1>
           
 
@@ -1042,17 +702,302 @@
 
 
 
-	<p>Với Session Manager chúng ta có thể xem được lịch sử các kết nối tới các instance thông qua <strong>Session history</strong>. Tuy nhiên chúng ta chưa xem được chi tiết các câu lệnh được sử dụng.</p>
-<p><img alt="S3" src="/images/4.s3/001-s3.png"></p>
-<p>Trong phần này chúng ta sẽ tiến hành tạo S3 bucket và thực hiện cấu hình lưu trữ các session logs để xem được chi tiết các câu lệnh được sử dụng trong session.</p>
-<p><img alt="port-fwd" src="/images/arc-log.png"></p>
-<h3 id="nôi-dung">Nội dung:</h3>
-<ul>
-<li><a href="/vi/4-s3log/4.1-updateiamrole/">Cập nhật IAM Role</a></li>
-<li><a href="/vi/4-s3log/4.2-creates3bucket/">Tạo <strong>S3 Bucket</strong></a></li>
-<li><a href="/vi/4-s3log/4.3-creategwes3/">Tạo S3 Gateway endpoint</a></li>
-<li><a href="/vi/4-s3log/4.4-configsessionlogs/">Cấu hình <strong>Session logs</strong></a></li>
+	<h1 id="1-cài-đặt-git-trên-amazon-ec2-amazon-linux-2023">1. Cài đặt Git trên Amazon EC2 (Amazon Linux 2023)</h1>
+<h3 id="bước-1-cập-nhật-hệ-thống">Bước 1: Cập nhật hệ thống</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf update -y
+</span></span><span style="display:flex;"><span>sudo dnf search git
+</span></span><span style="display:flex;"><span>sudo dnf install git -y
+</span></span><span style="display:flex;"><span>git --version
+</span></span></code></pre></div><p><img alt="EC2" src="/images/4.s3/git.png"></p>
+<h3 id="2-cài-đặt-aspnet-trên-amazon-ec2-linux-2023-và-clone-file-trên-git">2. Cài đặt asp.net trên Amazon EC2 Linux 2023 và clone file trên git</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Cài đặt .NET SDK &amp; Runtime
+</span></span><span style="display:flex;"><span>sudo dnf install -y dotnet-sdk-8.0
+</span></span><span style="display:flex;"><span>sudo dnf install -y aspnetcore-runtime-8.0
+</span></span><span style="display:flex;"><span>Kiểm tra: dotnet --version
+</span></span></code></pre></div><ul>
+<li>sau khi kiểm tra version chúng ta bắt đầu  clone git</li>
 </ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/binh2401/FCJ.git
+</span></span></code></pre></div><p><img alt="EC2" src="/images/4.s3/moba1.png"></p>
+<h1 id="hướng-dẫn-tạo-rds-sql-server-trên-aws">Hướng dẫn tạo RDS SQL Server trên AWS</h1>
+<p>Amazon RDS hỗ trợ triển khai <strong>Microsoft SQL Server</strong> dưới dạng dịch vụ được quản lý. Hướng dẫn sau giúp bạn khởi tạo một SQL Server Instance nhanh chóng và an toàn.</p>
+<h2 id="-các-bước-thực-hiện">🔧 Các bước thực hiện</h2>
+<h3 id="bước-1-mở-amazon-rds-console">Bước 1: Mở Amazon RDS Console</h3>
+<ul>
+<li>
+<p>Truy cập: <a href="https://console.aws.amazon.com/rds/">https://console.aws.amazon.com/rds/</a></p>
+</li>
+<li>
+<p>Ở khu vực điều hướng trái → chọn <strong>Databases</strong>
+<img alt="EC2" src="/images/4.s3/rdscr3.png"></p>
+</li>
+<li>
+<p>Nhấn <strong>Create database</strong></p>
+</li>
+</ul>
+<hr>
+<h3 id="bước-2-chọn-phương-thức-tạo">Bước 2: Chọn phương thức tạo</h3>
+<ul>
+<li>Chọn <strong>Standard create</strong> (để tùy chỉnh được cấu hình)</li>
+<li>Engine: chọn <strong>Microsoft SQL Server</strong></li>
+</ul>
+<hr>
+<h3 id="bước-3-chọn-phiên-bản-và-edition">Bước 3: Chọn phiên bản và edition</h3>
+<ul>
+<li><strong>Edition</strong>:
+<ul>
+<li>SQL Server Web Edition</li>
+<li>SQL Server Express Edition</li>
+<li>SQL Server Standard Edition</li>
+<li>SQL Server Enterprise Edition (nếu cần các tính năng cao cấp)</li>
+</ul>
+</li>
+<li><strong>Version</strong>: Chọn phiên bản SQL Server (ví dụ: SQL Server 2019)</li>
+</ul>
+<hr>
+<h3 id="bước-4-cấu-hình-thông-tin-đăng-nhập">Bước 4: Cấu hình thông tin đăng nhập</h3>
+<ul>
+<li><code>DB instance identifier</code>: tên định danh của DB</li>
+<li><code>Master username</code>: ví dụ <code>admin</code></li>
+<li><code>Master password</code>: nhập mật khẩu và xác nhận</li>
+</ul>
+<blockquote>
+<p>🔐 Nếu bỏ chọn “Auto generate a password” thì bạn cần nhập thủ công.</p>
+</blockquote>
+<hr>
+<h3 id="bước-5-chọn-lớp-máy-chủ-và-dung-lượng-lưu-trữ">Bước 5: Chọn lớp máy chủ và dung lượng lưu trữ</h3>
+<ul>
+<li><strong>DB instance class</strong>: ví dụ <code>db.t3.medium</code> (2 vCPU, 4 GB RAM)</li>
+<li><strong>Storage type</strong>: chọn <code>General Purpose (SSD)</code> hoặc <code>Provisioned IOPS</code></li>
+<li>Thiết lập dung lượng: ví dụ <code>20 GiB</code></li>
+</ul>
+<hr>
+<h3 id="bước-6-cấu-hình-mạng-và-bảo-mật">Bước 6: Cấu hình mạng và bảo mật</h3>
+<ul>
+<li><strong>Virtual Private Cloud (VPC)</strong>: chọn VPC mặc định hoặc tùy chỉnh</li>
+<li><strong>Subnet group</strong>: nếu chưa có, RDS sẽ tạo mới</li>
+<li><strong>Public access</strong>: chọn <code>Yes</code> nếu muốn truy cập từ internet</li>
+<li><strong>VPC security group</strong>:
+<ul>
+<li>Chọn <code>Create new</code> nếu chưa có</li>
+<li>RDS sẽ tạo rule mở port 1433 cho IP hiện tại</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="bước-7-thiết-lập-nâng-cao-optional">Bước 7: Thiết lập nâng cao (Optional)</h3>
+<ul>
+<li><strong>Backup retention period</strong>: giữ bản sao lưu bao nhiêu ngày (ví dụ 7)</li>
+<li><strong>Monitoring</strong>: bật Enhanced monitoring nếu cần</li>
+<li><strong>Maintenance window</strong>: thời gian bảo trì tự động</li>
+<li><strong>Deletion protection</strong>: bảo vệ khỏi xóa nhầm</li>
+</ul>
+<hr>
+<h3 id="bước-8-tạo-sql-server-instance">Bước 8: Tạo SQL Server Instance</h3>
+<ul>
+<li>Nhấn <strong>Create database</strong></li>
+<li>Chờ vài phút đến khi trạng thái chuyển từ <code>Creating</code> sang <code>Available</code></li>
+</ul>
+<hr>
+<h2 id="-kết-nối-tới-rds-sql-server-hoặc-chỉ-cần-kết-nối-tới-data-dẫn-tới-code-trong-appsettingsjson">🔗 Kết nối tới RDS SQL Server hoặc chỉ cần kết nối tới data dẫn tới code trong appsettings.json</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;ConnectionStrings&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;DefaultConnection&#34;</span>: <span style="color:#e6db74">&#34;của bạn,1433;Database=của bạn;User Id=admin;Password=của bạn;Encrypt=True;TrustServerCertificate=True&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Sau khi instance sẵn sàng:</p>
+<ul>
+<li>Truy cập tab <strong>Connectivity &amp; security</strong></li>
+<li>Ghi lại thông tin:
+<ul>
+<li><code>Endpoint</code> (ví dụ: <code>mydb.abcxyz.rds.amazonaws.com</code>)</li>
+<li><code>Port</code>: 1433</li>
+<li><code>Username</code>: đã tạo trước đó</li>
+</ul>
+</li>
+</ul>
+<p>Bạn có thể kết nối bằng công cụ như:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- Sử dụng SQL Server Management Studio (SSMS)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Server: <span style="color:#f92672">&lt;</span>endpoint<span style="color:#f92672">&gt;</span>,<span style="color:#ae81ff">1433</span>
+</span></span><span style="display:flex;"><span>Authentication: <span style="color:#66d9ef">SQL</span> Server Authentication
+</span></span><span style="display:flex;"><span>Username: <span style="color:#f92672">&lt;</span>username<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>Password: <span style="color:#f92672">&lt;</span>password<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><h1 id="vào-ec2-để-đẻ-cài-đặt-sqlserver">vào EC2 để đẻ cài đặt sqlserver</h1>
+<h2 id="cài-đặt-mssql-tools-và-unixodbc-trên-amazon-linux-2023">Cài đặt <code>mssql-tools</code> và <code>unixODBC</code> trên Amazon Linux 2023</h2>
+<p>Hướng dẫn cài đặt công cụ dòng lệnh <code>sqlcmd</code> và <code>bcp</code> từ Microsoft SQL Server trên Amazon EC2 dùng Amazon Linux 2023 (RHEL 9-based).</p>
+<hr>
+<h2 id="bước-1-thêm-kho-microsoft-vào-hệ-thống">Bước 1: Thêm kho Microsoft vào hệ thống</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+</span></span><span style="display:flex;"><span>sudo curl -o /etc/yum.repos.d/mssql-release.repo https://packages.microsoft.com/config/rhel/9/prod.repo
+</span></span></code></pre></div><h2 id="bước-2-cài-đặt-odbc-driver-và-mssql-tools">bước 2: Cài đặt ODBC Driver và mssql-tools</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf update -y
+</span></span><span style="display:flex;"><span>sudo dnf install -y unixODBC unixODBC-devel
+</span></span><span style="display:flex;"><span>sudo ACCEPT_EULA<span style="color:#f92672">=</span>Y dnf install -y msodbcsql18 mssql-tools18
+</span></span></code></pre></div><h2 id="bước-3-thêm-sqlcmd-và-bcp-vào-path">bước 3: Thêm sqlcmd và bcp vào PATH</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export PATH=&#34;$PATH:/opt/mssql-tools18/bin&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>source ~/.bashrc
+</span></span></code></pre></div><h2 id="bước-4-kiểm-tra-cài-đặt">bước 4: Kiểm tra cài đặt</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sqlcmd -?
+</span></span></code></pre></div><h2 id="-xem-logs-và-events">📊 Xem Logs và Events</h2>
+<ul>
+<li>Truy cập tab <strong>Logs &amp; events</strong></li>
+<li>Có thể xem:
+<ul>
+<li><code>Error log</code></li>
+<li><code>SQL Server Agent log</code></li>
+<li><code>Event log</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="-xem-bảo-trì-và-sao-lưu">🛡 Xem bảo trì và sao lưu</h2>
+<ul>
+<li>Vào tab <strong>Maintenance &amp; backups</strong>
+<ul>
+<li>Kiểm tra lịch sao lưu tự động</li>
+<li>Thực hiện snapshot thủ công</li>
+<li>Theo dõi thời gian bảo trì</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="-lưu-ý-quan-trọng">❗ Lưu ý quan trọng</h2>
+<ul>
+<li>Không thể xem lại mật khẩu nếu chọn tự tạo. Nếu quên → cần sửa lại DB instance để reset.</li>
+<li>Cần mở port 1433 trong <strong>Security Group</strong> nếu truy cập từ bên ngoài.</li>
+</ul>
+<hr>
+<p>📚 Tài liệu tham khảo:</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html">Amazon RDS SQL Server Documentation</a></li>
+</ul>
+<h1 id="triển-khai-aspnet-core-webbanhang-trên-amazon-ec2--rds-amazon-linux-2023">Triển khai ASP.NET Core WebBanHang trên Amazon EC2 &amp; RDS (Amazon Linux 2023)</h1>
+<h2 id="1-thiết-lập-hạ-tầng-aws">1. Thiết lập hạ tầng AWS</h2>
+<ul>
+<li>✅ Tạo <strong>VPC</strong> riêng</li>
+<li>✅ Tạo <strong>Subnet</strong> (Multi-AZ)</li>
+<li>✅ Tạo <strong>Security Group EC2</strong></li>
+<li>✅ Tạo <strong>Security Group RDS</strong></li>
+<li>✅ Tạo <strong>DB Subnet Group</strong></li>
+<li>✅ Tạo <strong>Amazon EC2 Instance</strong></li>
+<li>✅ Tạo <strong>Amazon RDS (SQL Server)</strong></li>
+</ul>
+<hr>
+<h2 id="2-kết-nối-vào-ec2-bằng-ssh">2. Kết nối vào EC2 bằng SSH</h2>
+<p><strong>Sử dụng MobaXterm</strong> hoặc dòng lệnh:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -i <span style="color:#e6db74">&#34;bookstore-key.pem&#34;</span> ec2-user@&lt;EC2-PUBLIC-IP&gt;
+</span></span></code></pre></div><hr>
+<h2 id="3-cài-đặt-môi-trường-trên-amazon-ec2-amazon-linux-2023">3. Cài đặt môi trường trên Amazon EC2 (Amazon Linux 2023)</h2>
+<h3 id="cập-nhật-hệ-thống">Cập nhật hệ thống:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf update -y
+</span></span></code></pre></div><h3 id="cài-git">Cài Git:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf search git
+</span></span><span style="display:flex;"><span>sudo dnf install git -y
+</span></span><span style="display:flex;"><span>git --version
+</span></span></code></pre></div><h3 id="cài-net-sdk--runtime">Cài .NET SDK &amp; Runtime:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf install -y dotnet-sdk-8.0
+</span></span><span style="display:flex;"><span>sudo dnf install -y aspnetcore-runtime-8.0
+</span></span><span style="display:flex;"><span>dotnet --version
+</span></span></code></pre></div><hr>
+<h2 id="4-upload-project-từ-máy-tính-cá-nhân-lên-ec2">4. Upload Project từ máy tính cá nhân lên EC2</h2>
+<p>Trên máy tính:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>scp -i <span style="color:#e6db74">&#34;C:\Users\PC\Downloads\bookstore-key.pem&#34;</span> -r FCJ ec2-user@&lt;EC2-PUBLIC-IP&gt;<span style="color:#960050;background-color:#1e0010">:</span>/home/ec2-user/
+</span></span></code></pre></div><hr>
+<h2 id="5-publish-aspnet-project">5. Publish ASP.NET Project</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /home/ec2-user/FCJ/WebBanHang
+</span></span><span style="display:flex;"><span>dotnet publish -c Release -o out
+</span></span><span style="display:flex;"><span>ls out
+</span></span></code></pre></div><hr>
+<h2 id="6-cấu-hình-systemd-service">6. Cấu hình Systemd Service</h2>
+<h3 id="tạo-file-dịch-vụ">Tạo file dịch vụ:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/systemd/system/webbanhang.service
+</span></span></code></pre></div><h3 id="nội-dung">Nội dung:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">ASP.NET Core WebBanHang</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">After</span><span style="color:#f92672">=</span><span style="color:#e6db74">network.target</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WorkingDirectory</span><span style="color:#f92672">=</span><span style="color:#e6db74">/home/ec2-user/FCJ/WebBanHang/out</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/dotnet /home/ec2-user/FCJ/WebBanHang/out/WebBanHang.dll</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Restart</span><span style="color:#f92672">=</span><span style="color:#e6db74">always</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">RestartSec</span><span style="color:#f92672">=</span><span style="color:#e6db74">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">SyslogIdentifier</span><span style="color:#f92672">=</span><span style="color:#e6db74">webbanhang</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">User</span><span style="color:#f92672">=</span><span style="color:#e6db74">ec2-user</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Environment</span><span style="color:#f92672">=</span><span style="color:#e6db74">ASPNETCORE_ENVIRONMENT=Production</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Environment</span><span style="color:#f92672">=</span><span style="color:#e6db74">DOTNET_PRINT_TELEMETRY_MESSAGE=false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span>
+</span></span></code></pre></div><h3 id="khởi-động-dịch-vụ">Khởi động dịch vụ:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl daemon-reload
+</span></span><span style="display:flex;"><span>sudo systemctl enable webbanhang
+</span></span><span style="display:flex;"><span>sudo systemctl start webbanhang
+</span></span><span style="display:flex;"><span>sudo systemctl status webbanhang
+</span></span></code></pre></div><hr>
+<h2 id="7-cài-nginx-làm-reverse-proxy">7. Cài NGINX làm reverse proxy</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf install nginx -y
+</span></span><span style="display:flex;"><span>sudo systemctl enable nginx
+</span></span><span style="display:flex;"><span>sudo systemctl start nginx
+</span></span></code></pre></div><h3 id="cấu-hình-nginx">Cấu hình NGINX:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/nginx/conf.d/webbanhang.conf
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#66d9ef">server</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">listen</span> <span style="color:#ae81ff">80</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server_name</span> <span style="color:#e6db74">_</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_pass</span>         <span style="color:#e6db74">http://localhost:5000</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_http_version</span> <span style="color:#ae81ff">1</span><span style="color:#e6db74">.1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span>   <span style="color:#e6db74">Upgrade</span> $http_upgrade;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span>   <span style="color:#e6db74">Connection</span> <span style="color:#e6db74">keep-alive</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span>   <span style="color:#e6db74">Host</span> $host;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_cache_bypass</span> $http_upgrade;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span>   <span style="color:#e6db74">X-Forwarded-For</span> $proxy_add_x_forwarded_for;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span>   <span style="color:#e6db74">X-Forwarded-Proto</span> $scheme;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart nginx
+</span></span></code></pre></div><hr>
+<h2 id="8-cài-sqlcmd--kết-nối-rds">8. Cài <code>sqlcmd</code> &amp; kết nối RDS</h2>
+<h3 id="cài-công-cụ">Cài công cụ:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf install -y https://packages.microsoft.com/config/rhel/9/prod.repo
+</span></span><span style="display:flex;"><span>sudo dnf install -y mssql-tools unixODBC
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export PATH=&#34;$PATH:/opt/mssql-tools/bin&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>source ~/.bashrc
+</span></span></code></pre></div><h3 id="kết-nối-rds">Kết nối RDS:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sqlcmd -S &lt;RDS-ENDPOINT&gt; -U admin -P your_password
+</span></span></code></pre></div><hr>
+<h2 id="9-apply-migration-với-ef-core">9. Apply Migration với EF Core</h2>
+<h3 id="cài-ef-tools">Cài EF Tools:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PATH<span style="color:#e6db74">:</span>$HOME<span style="color:#e6db74">/.dotnet/tools&#34;</span>
+</span></span><span style="display:flex;"><span>dotnet tool install --global dotnet-ef
+</span></span></code></pre></div><h3 id="apply-database">Apply database:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /home/ec2-user/FCJ/WebBanHang
+</span></span><span style="display:flex;"><span>dotnet ef database update --project WebBanHang.csproj
+</span></span></code></pre></div><hr>
+<h2 id="10-cập-nhật-appsettingsjson">10. Cập nhật <code>appsettings.json</code></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /home/ec2-user/FCJ/WebBanHang/out
+</span></span><span style="display:flex;"><span>sudo nano appsettings.json
+</span></span></code></pre></div><h3 id="nội-dung-ví-dụ">Nội dung ví dụ:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;ConnectionStrings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;DefaultConnection&#34;</span>: <span style="color:#e6db74">&#34;Server=book-store.cjyi2kukw3oj.ap-southeast-1.rds.amazonaws.com,1433;Database=store;User Id=admin;Password=Abc@123456;Encrypt=True;TrustServerCertificate=True&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="lưu-lại">Lưu lại:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Ctrl + O → Enter
+</span></span><span style="display:flex;"><span>Ctrl + X
+</span></span></code></pre></div><hr>
+<h2 id="11-restart--xem-log-dịch-vụ">11. Restart &amp; Xem log dịch vụ</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart webbanhang
+</span></span><span style="display:flex;"><span>journalctl -u webbanhang -n <span style="color:#ae81ff">50</span> --no-pager
+</span></span></code></pre></div><hr>
+<h2 id="-done">🎉 DONE!</h2>
+<p>Mở trình duyệt:<br>
+👉 <code>http://&lt;EC2-PUBLIC-IP&gt;/</code></p>
+<p><img alt="EC2" src="/images/4.s3/image.png"></p>
+<blockquote>
+<p>✅ Nếu không truy cập được, kiểm tra Security Group đã mở <strong>port 80</strong> chưa nhé.</p>
+</blockquote>
+<hr>
 
 
 
@@ -1201,19 +1146,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -1252,28 +1184,11 @@
             
         
                     
-            
-        
-                    
                         
             
             
                 
                     
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1291,141 +1206,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -1436,57 +1216,6 @@
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
             
         
@@ -1532,10 +1261,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/3-accessibilitytoinstances/3.2-private-instance/3.2.3-connectec2/" title="Kết nối EC2 Private"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/3-accessibilitytoinstances/" title="Tạo kết nối đến máy chủ EC2"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/4-s3log/4.1-updateiamrole/" title="Cập nhật IAM Role" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/5-portfwd/" title="Tổng Quan và Cấu Hình AWS WAF ,cloudfront&#34;" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1545,19 +1274,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752128842"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752128842"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752128842"></script>
-    <script src="/js/jquery.sticky.js?1752128842"></script>
-    <script src="/js/featherlight.min.js?1752128842"></script>
-    <script src="/js/highlight.pack.js?1752128842"></script>
+    <script src="/js/clipboard.min.js?1754393161"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754393161"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754393161"></script>
+    <script src="/js/jquery.sticky.js?1754393161"></script>
+    <script src="/js/featherlight.min.js?1754393161"></script>
+    <script src="/js/highlight.pack.js?1754393161"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752128842"></script>
-    <script src="/js/learn.js?1752128842"></script>
-    <script src="/js/hugo-learn.js?1752128842"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754393161"></script>
+    <script src="/js/learn.js?1754393161"></script>
+    <script src="/js/hugo-learn.js?1754393161"></script>
 
-    <link href="/mermaid/mermaid.css?1752128842" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752128842"></script>
+    <link href="/mermaid/mermaid.css?1754393161" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754393161"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

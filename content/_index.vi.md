@@ -1,10 +1,10 @@
 ---
-title : "Session Management"
+title : "Xây dựng hệ thống bán sách trực tuyến triển khai trên AWS"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
 ---
-# Làm việc với Amazon System Manager - Session Manager
+# Xây dựng hệ thống bán sách trực tuyến triển khai trên AWS
 
 ### Tổng quan
 

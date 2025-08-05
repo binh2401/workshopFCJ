@@ -3,7 +3,7 @@ title : "Tạo SNS và IAM cho gửi Email"
 date :  "`r Sys.Date()`" 
 weight : 3
 chapter : false
-pre : " <b> 2.3 </b> "
+pre : " <b> 2.2 </b> "
 ---
 
 ### 📬 Mục tiêu

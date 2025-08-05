@@ -1,81 +1,74 @@
 ---
-title : "Tạo các security group"
+title : "Tạo Security Group cho Amazon RDS"
 date :  "`r Sys.Date()`" 
 weight : 4
 chapter : false
 pre : " <b> 2.1.4 </b> "
 ---
 
-#### Tạo các security group
+# Tạo Security Group cho Amazon RDS
 
-Trong bước này chúng ta sẽ tiến hành tạo các security group được sử dụng cho các instance của chúng ta. Các bạn có thể thấy, các securiy group này sẽ không cần phải mở các port truyền thống để **ssh** như port **22** hoặc **remote desktop** thông qua port **3389**.
+ℹ️ **Information:**  
+Security Group cho Amazon RDS hoạt động như **tường lửa ảo** để kiểm soát lưu lượng mạng đến và đi từ cơ sở dữ liệu của bạn. Việc cấu hình đúng Security Group là bước quan trọng để bảo vệ dữ liệu của bạn trong AWS.
 
-#### Tạo security group cho Linux instance nằm trong public subnet 
+---
 
-1. Truy cập [giao diện quản trị dịch vụ VPC](https://console.aws.amazon.com/vpc)
-  + Click **Security Group**.  
-  + Click **Create security group**.
+## 🛠️ Các bước tạo Security Group cho RDS
 
-![SG](/images/2.prerequisite/019-createsg.png)
+### 1. Đăng nhập vào AWS Management Console.
 
-3. Tại mục **Security group name**, điền **SG Public Linux Instance**. 
-  + Tại mục **Description**, điền **SG Public Linux Instance**.
-  + Tại mục **VPC**, click dấu **X** để chọn lại **Lab VPC** bạn đã tạo cho bài lab này.
+### 2. Truy cập dịch vụ **VPC**
+- Vào menu dịch vụ.
 
-![SG](/images/2.prerequisite/020-createsg.png)
+- Chọn **VPC** trong phần **Networking & Content Delivery**.
+![VPC](/images/2.prerequisite/rdssc1.png)
 
-4. Giữ nguyên **Outbound rule**, kéo chuột xuống phía dưới.
-  + Click **Create security group**.
+### 3. Mở danh sách **Security Groups**
+- Trên thanh điều hướng bên trái, dưới mục **Security**, chọn **Security Groups**.
+![VPC](/images/2.prerequisite/ec22.png)
 
-{{%notice tip%}}
-Các bạn có thể thấy, security group chúng ta tạo sử dụng cho Linux public instance sẽ không cần phải mở các port truyền thống để **ssh** như port **22**.
-{{%/notice%}}
+### 4. Nhấp vào nút **Create security group** để bắt đầu quá trình tạo.
 
+---
+![VPC](/images/2.prerequisite/rdssc2.png)
 
-#### Tạo security group cho Windows instance nằm trong private subnet 
+## 📝 Cấu hình Basic Details
 
-1. Sau khi tạo thành công security group cho Linux instance nằm trong public subnet, click vào link Security Groups để quay trở lại danh sách Security groups.
+- **Security group name:** Nhập tên mô tả cho Security Group.
+- **Description:** Thêm mô tả chi tiết về mục đích của Security Group.
+- **VPC:** Chọn VPC nơi bạn sẽ triển khai cơ sở dữ liệu RDS.
 
-![SG](/images/2.prerequisite/021-createsg.png)
+---
 
-2. Click **Create security group**.
+## 🔐 Cấu hình Inbound Rules
 
-3. Tại mục **Security group name**, điền **SG Private Windows Instance**. 
-  + Tại mục **Description**, điền **SG Private Windows Instance**.
-  + Tại mục **VPC**, click dấu **X** để chọn lại **Lab VPC** bạn đã tạo cho bài lab này.
+1. Chọn **MSSQL** từ danh sách **Type**.
+2. **Port 1433** sẽ được tự động điền.
+3. **Source:** Chọn *Anywhere-IPv4** 
 
-![SG](/images/2.prerequisite/022-createsg.png)
+> 🔒 **Security Note:**  
+> Chỉ cho phép kết nối từ các nguồn cụ thể thay vì mở cổng cơ sở dữ liệu cho tất cả địa chỉ IP (`0.0.0.0/0`). Điều này tuân theo nguyên tắc **đặc quyền tối thiểu** và tăng cường bảo mật.
 
-4. Kéo chuột xuống phía dưới.
-  + Thêm **Outbound rule** cho phép kết nối TCP 443 tới 10.10.0.0/16 ( CIDR của **Lab VPC** chúng ta đã tạo)
-  + Click **Create security group**.
+---
 
-![SG](/images/2.prerequisite/023-createsg.png)
+## 📤 (Tùy chọn) Cấu hình Outbound Rules
 
-{{%notice tip%}}
-Đối với Instance trong private subnet, chúng ta sẽ kết nối tới endpoint của **Session Manager** qua kết nối đã được mã hóa TLS. vì thế chúng ta cần cho phép kết nối chiều ra từ instance của mình tới VPC CIDR thông qua port 443.
-{{%/notice%}}
+- Mặc định, **tất cả lưu lượng đi ra đều được cho phép**.
+- Bạn có thể giới hạn nếu cần bảo mật cao hơn.
 
+---
 
-#### Tạo security group cho VPC Endpoint
+## ✅ Tạo Security Group
 
-1. Trong bước này, chúng ta sẽ tạo security group cho VPC Endpoint của **Session Manager**.
-2. Sau khi tạo thành công security group cho Windows instance trong private subnet, click vào link Security Groups để quay trở lại danh sách Security groups.
-3. Click **Create security group**.
-4.  Tại mục **Security group name**, điền **SG VPC Endpoint**. 
-  + Tại mục **Description**, điền **SG VPC Endpoint**.
-  + Tại mục **VPC**, click dấu **X** để chọn lại **Lab VPC** bạn đã tạo cho bài lab này.
+- Sau khi hoàn tất cấu hình, nhấn nút **Create security group**.
+- Security Group mới đã được tạo và sẵn sàng để gán cho **DB instance RDS** của bạn.
 
-![SG](/images/2.prerequisite/024-createsg.png)
+> ⚠️ **Warning:**  
+> Không nên sử dụng **cùng một Security Group** cho cả **EC2** và **RDS**.  
+> Việc **tách biệt Security Group** giúp quản lý quyền truy cập chính xác hơn và tuân thủ các **nguyên tắc bảo mật tốt nhất**.
 
-5. Kéo chuột xuống phía dưới.
-  + Xóa **Outbound rule**.
-  
-![SG](/images/2.prerequisite/025-createsg.png)
+---
 
-6. Thêm **Inbound rule** cho phép TCP 443 đến từ 10.10.0.0/16 ( CIDR của **Lab VPC** chúng ta đã tạo ).
-  + Click **Create security group**.
+## 💡 Pro Tip
 
-![SG](/images/2.prerequisite/026-createsg.png)
-
-Như vậy chúng ta đã tiến hành xong việc tạo các security group cần thiết cho các EC2 instance và VPC Endpoint.
+Bạn có thể **chỉnh sửa quy tắc Security Group bất kỳ lúc nào**, và các thay đổi sẽ **được áp dụng ngay lập tức** cho tất cả tài nguyên liên kết với Security Group đó.
